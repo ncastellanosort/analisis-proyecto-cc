@@ -4,7 +4,6 @@
  */
 package ui.administrativos;
 
-import java.awt.BorderLayout;
 import java.awt.Color;
 import javax.swing.JButton;
 import ui.login.Login;
@@ -69,8 +68,45 @@ public class AdministrativosFrame extends javax.swing.JFrame {
         btnGestionarEventos = new javax.swing.JButton();
         btnGestionarEncuentrosCapacitacion = new javax.swing.JButton();
         btnRegresarInicioAdmin = new javax.swing.JButton();
-        content = new javax.swing.JPanel();
-        jInternalFrame1 = new javax.swing.JInternalFrame();
+        panelGeneralAdmin = new javax.swing.JTabbedPane();
+        gestionarPersonalFrame = new javax.swing.JPanel();
+        jLabel4 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tblPersonal = new javax.swing.JTable();
+        jLabel5 = new javax.swing.JLabel();
+        btnGestionarEmpleado = new javax.swing.JButton();
+        jLabel6 = new javax.swing.JLabel();
+        btnAgregarEmpleado = new javax.swing.JButton();
+        jLabel7 = new javax.swing.JLabel();
+        btnEliminarEmpleado = new javax.swing.JButton();
+        gestionarHorarioPersonal = new javax.swing.JPanel();
+        jLabel8 = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        tblHorarioPersonal = new javax.swing.JTable();
+        jLabel9 = new javax.swing.JLabel();
+        btnGestionarHorasPersonal = new javax.swing.JButton();
+        jLabel10 = new javax.swing.JLabel();
+        btnAgregarHorasExtra = new javax.swing.JButton();
+        gestionarEventos = new javax.swing.JPanel();
+        btnEliminarEvento = new javax.swing.JButton();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        tblGestionarEventos = new javax.swing.JTable();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        btnGestionarEvento = new javax.swing.JButton();
+        btnAgregarEvento = new javax.swing.JButton();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
+        gestionarCapacitacion = new javax.swing.JPanel();
+        jLabel15 = new javax.swing.JLabel();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        tblCapacitaciones = new javax.swing.JTable();
+        jLabel16 = new javax.swing.JLabel();
+        btnGestionarCapacitacion = new javax.swing.JButton();
+        btnAgregarCapacitacion = new javax.swing.JButton();
+        jLabel17 = new javax.swing.JLabel();
+        jLabel18 = new javax.swing.JLabel();
+        btnEliminarCapacitacion = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(1400, 880));
@@ -161,6 +197,11 @@ public class AdministrativosFrame extends javax.swing.JFrame {
                 btnGestionarEventosMouseExited(evt);
             }
         });
+        btnGestionarEventos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGestionarEventosActionPerformed(evt);
+            }
+        });
         jPanel2.add(btnGestionarEventos, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 310, 280, 50));
 
         btnGestionarEncuentrosCapacitacion.setBackground(new java.awt.Color(255, 255, 255));
@@ -207,34 +248,262 @@ public class AdministrativosFrame extends javax.swing.JFrame {
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 280, 880));
 
-        content.setBackground(new java.awt.Color(204, 204, 204));
-        content.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        gestionarPersonalFrame.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jInternalFrame1.setVisible(true);
-        content.add(jInternalFrame1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1120, 770));
+        jLabel4.setBackground(new java.awt.Color(0, 0, 0));
+        jLabel4.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 36)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel4.setText("Gestionar personal");
+        gestionarPersonalFrame.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 30, -1, -1));
 
-        getContentPane().add(content, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 110, 1120, 770));
+        tblPersonal.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(tblPersonal);
+
+        gestionarPersonalFrame.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 120, 800, -1));
+
+        jLabel5.setBackground(new java.awt.Color(0, 0, 0));
+        jLabel5.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 24)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel5.setText("Gestionar datos empleado");
+        gestionarPersonalFrame.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 570, -1, -1));
+
+        btnGestionarEmpleado.setBackground(new java.awt.Color(153, 195, 84));
+        btnGestionarEmpleado.setFont(new java.awt.Font("Microsoft JhengHei", 1, 18)); // NOI18N
+        btnGestionarEmpleado.setForeground(new java.awt.Color(0, 0, 0));
+        btnGestionarEmpleado.setText("GESTIONAR");
+        btnGestionarEmpleado.setBorder(null);
+        gestionarPersonalFrame.add(btnGestionarEmpleado, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 610, 160, 50));
+
+        jLabel6.setBackground(new java.awt.Color(0, 0, 0));
+        jLabel6.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 24)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel6.setText("Agregar empleado");
+        gestionarPersonalFrame.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 570, -1, -1));
+
+        btnAgregarEmpleado.setBackground(new java.awt.Color(153, 195, 84));
+        btnAgregarEmpleado.setFont(new java.awt.Font("Microsoft JhengHei", 1, 18)); // NOI18N
+        btnAgregarEmpleado.setForeground(new java.awt.Color(0, 0, 0));
+        btnAgregarEmpleado.setText("AGREGAR");
+        btnAgregarEmpleado.setBorder(null);
+        gestionarPersonalFrame.add(btnAgregarEmpleado, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 610, 160, 50));
+
+        jLabel7.setBackground(new java.awt.Color(0, 0, 0));
+        jLabel7.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 24)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel7.setText("Eliminar empleado");
+        gestionarPersonalFrame.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 570, -1, -1));
+
+        btnEliminarEmpleado.setBackground(new java.awt.Color(153, 195, 84));
+        btnEliminarEmpleado.setFont(new java.awt.Font("Microsoft JhengHei", 1, 18)); // NOI18N
+        btnEliminarEmpleado.setForeground(new java.awt.Color(0, 0, 0));
+        btnEliminarEmpleado.setText("ELIMINAR");
+        btnEliminarEmpleado.setBorder(null);
+        gestionarPersonalFrame.add(btnEliminarEmpleado, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 610, 160, 50));
+
+        panelGeneralAdmin.addTab("tab1", gestionarPersonalFrame);
+
+        gestionarHorarioPersonal.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel8.setBackground(new java.awt.Color(0, 0, 0));
+        jLabel8.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 36)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel8.setText("Registrar horario personal");
+        gestionarHorarioPersonal.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 30, -1, -1));
+
+        tblHorarioPersonal.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane2.setViewportView(tblHorarioPersonal);
+
+        gestionarHorarioPersonal.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 120, 800, -1));
+
+        jLabel9.setBackground(new java.awt.Color(0, 0, 0));
+        jLabel9.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 24)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel9.setText("Gestionar horas");
+        gestionarHorarioPersonal.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 570, -1, -1));
+
+        btnGestionarHorasPersonal.setBackground(new java.awt.Color(153, 195, 84));
+        btnGestionarHorasPersonal.setFont(new java.awt.Font("Microsoft JhengHei", 1, 18)); // NOI18N
+        btnGestionarHorasPersonal.setForeground(new java.awt.Color(0, 0, 0));
+        btnGestionarHorasPersonal.setText("ENTRAR");
+        btnGestionarHorasPersonal.setBorder(null);
+        gestionarHorarioPersonal.add(btnGestionarHorasPersonal, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 610, 160, 50));
+
+        jLabel10.setBackground(new java.awt.Color(0, 0, 0));
+        jLabel10.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 24)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel10.setText("Agregar horas extra");
+        gestionarHorarioPersonal.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 570, -1, -1));
+
+        btnAgregarHorasExtra.setBackground(new java.awt.Color(153, 195, 84));
+        btnAgregarHorasExtra.setFont(new java.awt.Font("Microsoft JhengHei", 1, 18)); // NOI18N
+        btnAgregarHorasExtra.setForeground(new java.awt.Color(0, 0, 0));
+        btnAgregarHorasExtra.setText("AGREGAR");
+        btnAgregarHorasExtra.setBorder(null);
+        gestionarHorarioPersonal.add(btnAgregarHorasExtra, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 610, 160, 50));
+
+        panelGeneralAdmin.addTab("tab2", gestionarHorarioPersonal);
+
+        gestionarEventos.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        btnEliminarEvento.setBackground(new java.awt.Color(153, 195, 84));
+        btnEliminarEvento.setFont(new java.awt.Font("Microsoft JhengHei", 1, 18)); // NOI18N
+        btnEliminarEvento.setForeground(new java.awt.Color(0, 0, 0));
+        btnEliminarEvento.setText("ELIMINAR");
+        btnEliminarEvento.setBorder(null);
+        gestionarEventos.add(btnEliminarEvento, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 610, 160, 50));
+
+        tblGestionarEventos.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane3.setViewportView(tblGestionarEventos);
+
+        gestionarEventos.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 120, 800, -1));
+
+        jLabel11.setBackground(new java.awt.Color(0, 0, 0));
+        jLabel11.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 24)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel11.setText("Agregar evento");
+        gestionarEventos.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 570, -1, -1));
+
+        jLabel12.setBackground(new java.awt.Color(0, 0, 0));
+        jLabel12.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 24)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel12.setText("Gestionar evento");
+        gestionarEventos.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 570, -1, -1));
+
+        btnGestionarEvento.setBackground(new java.awt.Color(153, 195, 84));
+        btnGestionarEvento.setFont(new java.awt.Font("Microsoft JhengHei", 1, 18)); // NOI18N
+        btnGestionarEvento.setForeground(new java.awt.Color(0, 0, 0));
+        btnGestionarEvento.setText("GESTIONAR");
+        btnGestionarEvento.setBorder(null);
+        gestionarEventos.add(btnGestionarEvento, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 610, 160, 50));
+
+        btnAgregarEvento.setBackground(new java.awt.Color(153, 195, 84));
+        btnAgregarEvento.setFont(new java.awt.Font("Microsoft JhengHei", 1, 18)); // NOI18N
+        btnAgregarEvento.setForeground(new java.awt.Color(0, 0, 0));
+        btnAgregarEvento.setText("AGREGAR");
+        btnAgregarEvento.setBorder(null);
+        gestionarEventos.add(btnAgregarEvento, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 610, 160, 50));
+
+        jLabel13.setBackground(new java.awt.Color(0, 0, 0));
+        jLabel13.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 24)); // NOI18N
+        jLabel13.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel13.setText("Eliminar evento");
+        gestionarEventos.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 570, -1, -1));
+
+        jLabel14.setBackground(new java.awt.Color(0, 0, 0));
+        jLabel14.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 36)); // NOI18N
+        jLabel14.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel14.setText("Eventos");
+        gestionarEventos.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 20, -1, -1));
+
+        panelGeneralAdmin.addTab("tab3", gestionarEventos);
+
+        gestionarCapacitacion.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel15.setBackground(new java.awt.Color(0, 0, 0));
+        jLabel15.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 36)); // NOI18N
+        jLabel15.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel15.setText("Gestionar capacitacion");
+        gestionarCapacitacion.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 30, -1, -1));
+
+        tblCapacitaciones.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane4.setViewportView(tblCapacitaciones);
+
+        gestionarCapacitacion.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 120, 800, -1));
+
+        jLabel16.setBackground(new java.awt.Color(0, 0, 0));
+        jLabel16.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 24)); // NOI18N
+        jLabel16.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel16.setText("Gestionar datos empleado");
+        gestionarCapacitacion.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 570, -1, -1));
+
+        btnGestionarCapacitacion.setBackground(new java.awt.Color(153, 195, 84));
+        btnGestionarCapacitacion.setFont(new java.awt.Font("Microsoft JhengHei", 1, 18)); // NOI18N
+        btnGestionarCapacitacion.setForeground(new java.awt.Color(0, 0, 0));
+        btnGestionarCapacitacion.setText("GESTIONAR");
+        btnGestionarCapacitacion.setBorder(null);
+        gestionarCapacitacion.add(btnGestionarCapacitacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 610, 160, 50));
+
+        btnAgregarCapacitacion.setBackground(new java.awt.Color(153, 195, 84));
+        btnAgregarCapacitacion.setFont(new java.awt.Font("Microsoft JhengHei", 1, 18)); // NOI18N
+        btnAgregarCapacitacion.setForeground(new java.awt.Color(0, 0, 0));
+        btnAgregarCapacitacion.setText("AGENDAR");
+        btnAgregarCapacitacion.setBorder(null);
+        gestionarCapacitacion.add(btnAgregarCapacitacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 610, 160, 50));
+
+        jLabel17.setBackground(new java.awt.Color(0, 0, 0));
+        jLabel17.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 24)); // NOI18N
+        jLabel17.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel17.setText("Agregar capacitacion");
+        gestionarCapacitacion.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 570, -1, -1));
+
+        jLabel18.setBackground(new java.awt.Color(0, 0, 0));
+        jLabel18.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 24)); // NOI18N
+        jLabel18.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel18.setText("Eliminar empleado");
+        gestionarCapacitacion.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 570, -1, -1));
+
+        btnEliminarCapacitacion.setBackground(new java.awt.Color(153, 195, 84));
+        btnEliminarCapacitacion.setFont(new java.awt.Font("Microsoft JhengHei", 1, 18)); // NOI18N
+        btnEliminarCapacitacion.setForeground(new java.awt.Color(0, 0, 0));
+        btnEliminarCapacitacion.setText("ELIMINAR");
+        btnEliminarCapacitacion.setBorder(null);
+        gestionarCapacitacion.add(btnEliminarCapacitacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 610, 160, 50));
+
+        panelGeneralAdmin.addTab("tab4", gestionarCapacitacion);
+
+        getContentPane().add(panelGeneralAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 70, 1120, 810));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnGestionarEmpleados2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGestionarEmpleados2ActionPerformed
-
-        GestionarPersonalFrame gestionarPersonal = new GestionarPersonalFrame();
-
-        gestionarPersonal.setSize(1120, 770);
-        gestionarPersonal.setLocation(0, 0);
-
-        content.removeAll();
-        content.add(gestionarPersonal, BorderLayout.CENTER);
-        content.revalidate();
-        content.repaint();
-
+        panelGeneralAdmin.setSelectedIndex(0);
+                
         // TODO add your handling code here:
     }//GEN-LAST:event_btnGestionarEmpleados2ActionPerformed
 
     private void btnGestionarEncuentrosCapacitacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGestionarEncuentrosCapacitacionActionPerformed
-        // TODO add your handling code here:
+        panelGeneralAdmin.setSelectedIndex(3);// TODO add your handling code here:
     }//GEN-LAST:event_btnGestionarEncuentrosCapacitacionActionPerformed
 
     private void btnGestionarEmpleados2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnGestionarEmpleados2MouseClicked
@@ -326,8 +595,13 @@ public class AdministrativosFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_btnRegresarInicioAdminMouseExited
 
     private void btnRegistrarHorarioPersonalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarHorarioPersonalActionPerformed
-        // TODO add your handling code here:
+panelGeneralAdmin.setSelectedIndex(1);        // TODO add your handling code here:
     }//GEN-LAST:event_btnRegistrarHorarioPersonalActionPerformed
+
+    private void btnGestionarEventosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGestionarEventosActionPerformed
+panelGeneralAdmin.setSelectedIndex(2);
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnGestionarEventosActionPerformed
 
     /**
      * @param args the command line arguments
@@ -365,16 +639,53 @@ public class AdministrativosFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAgregarCapacitacion;
+    private javax.swing.JButton btnAgregarEmpleado;
+    private javax.swing.JButton btnAgregarEvento;
+    private javax.swing.JButton btnAgregarHorasExtra;
+    private javax.swing.JButton btnEliminarCapacitacion;
+    private javax.swing.JButton btnEliminarEmpleado;
+    private javax.swing.JButton btnEliminarEvento;
+    private javax.swing.JButton btnGestionarCapacitacion;
+    private javax.swing.JButton btnGestionarEmpleado;
     private javax.swing.JButton btnGestionarEmpleados2;
     private javax.swing.JButton btnGestionarEncuentrosCapacitacion;
+    private javax.swing.JButton btnGestionarEvento;
     private javax.swing.JButton btnGestionarEventos;
+    private javax.swing.JButton btnGestionarHorasPersonal;
     private javax.swing.JButton btnRegistrarHorarioPersonal;
     private javax.swing.JButton btnRegresarInicioAdmin;
-    private javax.swing.JPanel content;
-    private javax.swing.JInternalFrame jInternalFrame1;
+    private javax.swing.JPanel gestionarCapacitacion;
+    private javax.swing.JPanel gestionarEventos;
+    private javax.swing.JPanel gestionarHorarioPersonal;
+    private javax.swing.JPanel gestionarPersonalFrame;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JTabbedPane panelGeneralAdmin;
+    private javax.swing.JTable tblCapacitaciones;
+    private javax.swing.JTable tblGestionarEventos;
+    private javax.swing.JTable tblHorarioPersonal;
+    private javax.swing.JTable tblPersonal;
     // End of variables declaration//GEN-END:variables
 }
