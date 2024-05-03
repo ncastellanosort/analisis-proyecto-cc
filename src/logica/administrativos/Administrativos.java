@@ -10,4 +10,15 @@ package logica.administrativos;
  */
 public class Administrativos {
     
+    private static final String USUARIOADMINISTRATIVO = "admin";
+    private static final String CLAVEADMINISTRATIVO = "admin";
+
+    public static String getUsuarioAdministrativo() {
+        return USUARIOADMINISTRATIVO;
+    }
+
+    public static String getClaveAdministrativo() {
+        return CLAVEADMINISTRATIVO;
+    }
+    
 }

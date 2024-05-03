@@ -5,13 +5,18 @@
 package ui.login;
 
 import java.awt.Color;
-
+import logica.administrativos.Administrativos;
+import logica.contador.Contador;
+import ui.administrativos.AdministrativosFrame;
+import ui.contador.ContadorFrame;
 
 /**
  *
  * @author Nicolas
  */
 public class Login extends javax.swing.JFrame {
+
+    Color colorBotonPresionado = new Color(153, 195, 84);
 
     /**
      * Creates new form InicioSesion
@@ -43,7 +48,6 @@ public class Login extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(1080, 720));
         setMinimumSize(new java.awt.Dimension(1080, 720));
-        setPreferredSize(new java.awt.Dimension(1080, 720));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
@@ -89,6 +93,14 @@ public class Login extends javax.swing.JFrame {
         btnIniciarSesion.setForeground(new java.awt.Color(0, 0, 0));
         btnIniciarSesion.setText("ENTRAR");
         btnIniciarSesion.setBorder(null);
+        btnIniciarSesion.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnIniciarSesionMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnIniciarSesionMouseExited(evt);
+            }
+        });
         btnIniciarSesion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnIniciarSesionActionPerformed(evt);
@@ -139,6 +151,35 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_pssdfClaveInicioSesionActionPerformed
 
     private void btnIniciarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIniciarSesionActionPerformed
+
+        AdministrativosFrame admin = new AdministrativosFrame();
+        ContadorFrame contador = new ContadorFrame();
+
+        LoginNoAceptado noAceptado = new LoginNoAceptado();
+
+        String usuarioInput = txtfInicioSesionUsuario.getText();
+        String claveInput = pssdfClaveInicioSesion.getText();
+
+        if (usuarioInput.equals(Administrativos.getUsuarioAdministrativo()) && claveInput.equals(Administrativos.getClaveAdministrativo())) {
+            admin.setLocationRelativeTo(null);
+            admin.setResizable(false);
+            admin.setVisible(true);
+        } else if (usuarioInput.equals(Contador.getUsuarioContador()) && claveInput.equals(Contador.getClaveContador())) {
+
+            contador.setLocationRelativeTo(null);
+            contador.setResizable(false);
+            contador.setVisible(true);
+
+        } else {
+
+            noAceptado.setLocationRelativeTo(null);
+            noAceptado.setResizable(false);
+            noAceptado.setVisible(true);
+
+        }
+
+
+        //
         // TODO add your handling code here:
     }//GEN-LAST:event_btnIniciarSesionActionPerformed
 
@@ -151,10 +192,20 @@ public class Login extends javax.swing.JFrame {
 
     private void pssdfClaveInicioSesionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pssdfClaveInicioSesionMouseClicked
         // TODO add your handling code here:
-        
+
         pssdfClaveInicioSesion.setText("");
         pssdfClaveInicioSesion.setForeground(Color.BLACK);
     }//GEN-LAST:event_pssdfClaveInicioSesionMouseClicked
+
+    private void btnIniciarSesionMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnIniciarSesionMouseEntered
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnIniciarSesionMouseEntered
+
+    private void btnIniciarSesionMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnIniciarSesionMouseExited
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnIniciarSesionMouseExited
 
     /**
      * @param args the command line arguments

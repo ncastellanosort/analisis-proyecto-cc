@@ -4,17 +4,51 @@
  */
 package ui.administrativos;
 
+import java.awt.BorderLayout;
+import java.awt.Color;
+import javax.swing.JButton;
+import ui.login.Login;
+
 /**
  *
  * @author Nicolas
  */
 public class AdministrativosFrame extends javax.swing.JFrame {
 
+    Color colorBotonPresionado = new Color(153, 195, 84);
+
     /**
      * Creates new form AdministrativosFrame
      */
     public AdministrativosFrame() {
         initComponents();
+
+//        GestionarPersonalFrame gestionarPersonal = new GestionarPersonalFrame();
+//
+//        gestionarPersonal.setSize(1120, 770);
+//        gestionarPersonal.setLocation(0, 0);
+//
+//        content.removeAll();
+//        content.add(gestionarPersonal, BorderLayout.CENTER);
+//        content.revalidate();
+//        content.repaint();
+
+    }
+
+    public void botonPresionado(JButton boton) {
+
+        boton.setBackground(colorBotonPresionado);
+
+        boton.setForeground(Color.white);
+
+    }
+
+    public void botonDespresionado(JButton boton) {
+
+        boton.setBackground(Color.white);
+
+        boton.setForeground(Color.BLACK);
+
     }
 
     /**
@@ -27,89 +61,273 @@ public class AdministrativosFrame extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        btnRegistrarHorarioPersonal = new javax.swing.JButton();
-        jLabel4 = new javax.swing.JLabel();
-        btnGestionarEventos = new javax.swing.JButton();
-        jLabel5 = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
         btnGestionarEmpleados2 = new javax.swing.JButton();
-        jLabel6 = new javax.swing.JLabel();
+        btnRegistrarHorarioPersonal = new javax.swing.JButton();
+        btnGestionarEventos = new javax.swing.JButton();
         btnGestionarEncuentrosCapacitacion = new javax.swing.JButton();
+        btnRegresarInicioAdmin = new javax.swing.JButton();
+        content = new javax.swing.JPanel();
+        jInternalFrame1 = new javax.swing.JInternalFrame();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMaximumSize(new java.awt.Dimension(1400, 880));
+        setMinimumSize(new java.awt.Dimension(1400, 880));
+        setPreferredSize(new java.awt.Dimension(1400, 880));
+        setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setBackground(new java.awt.Color(153, 195, 84));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/logo.png"))); // NOI18N
-        jLabel1.setText("jLabel1");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 180, 170));
-
-        jLabel2.setBackground(new java.awt.Color(0, 0, 0));
-        jLabel2.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 24)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel2.setText("Registrar horario del personal");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 430, -1, -1));
 
         jLabel3.setBackground(new java.awt.Color(0, 0, 0));
         jLabel3.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 36)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("Administrativos");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 30, -1, -1));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 30, -1, -1));
 
-        btnRegistrarHorarioPersonal.setBackground(new java.awt.Color(153, 195, 84));
-        btnRegistrarHorarioPersonal.setFont(new java.awt.Font("Microsoft JhengHei", 1, 18)); // NOI18N
-        btnRegistrarHorarioPersonal.setForeground(new java.awt.Color(0, 0, 0));
-        btnRegistrarHorarioPersonal.setText("ENTRAR");
-        btnRegistrarHorarioPersonal.setBorder(null);
-        jPanel1.add(btnRegistrarHorarioPersonal, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 480, 160, 50));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 0, 1320, 110));
 
-        jLabel4.setBackground(new java.awt.Color(0, 0, 0));
-        jLabel4.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 24)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel4.setText("Gestionar eventos");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 270, -1, -1));
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        btnGestionarEventos.setBackground(new java.awt.Color(153, 195, 84));
-        btnGestionarEventos.setFont(new java.awt.Font("Microsoft JhengHei", 1, 18)); // NOI18N
-        btnGestionarEventos.setForeground(new java.awt.Color(0, 0, 0));
-        btnGestionarEventos.setText("ENTRAR");
-        btnGestionarEventos.setBorder(null);
-        jPanel1.add(btnGestionarEventos, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 320, 160, 50));
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/logo.png"))); // NOI18N
+        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 10, -1, -1));
 
-        jLabel5.setBackground(new java.awt.Color(0, 0, 0));
-        jLabel5.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 24)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel5.setText("Gestionar personal");
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 270, -1, -1));
-
-        btnGestionarEmpleados2.setBackground(new java.awt.Color(153, 195, 84));
+        btnGestionarEmpleados2.setBackground(new java.awt.Color(255, 255, 255));
         btnGestionarEmpleados2.setFont(new java.awt.Font("Microsoft JhengHei", 1, 18)); // NOI18N
         btnGestionarEmpleados2.setForeground(new java.awt.Color(0, 0, 0));
-        btnGestionarEmpleados2.setText("ENTRAR");
+        btnGestionarEmpleados2.setText("     Gestionar personal");
         btnGestionarEmpleados2.setBorder(null);
-        jPanel1.add(btnGestionarEmpleados2, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 320, 160, 50));
+        btnGestionarEmpleados2.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btnGestionarEmpleados2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnGestionarEmpleados2MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnGestionarEmpleados2MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnGestionarEmpleados2MouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btnGestionarEmpleados2MousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                btnGestionarEmpleados2MouseReleased(evt);
+            }
+        });
+        btnGestionarEmpleados2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGestionarEmpleados2ActionPerformed(evt);
+            }
+        });
+        jPanel2.add(btnGestionarEmpleados2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 210, 280, 50));
 
-        jLabel6.setBackground(new java.awt.Color(0, 0, 0));
-        jLabel6.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 24)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel6.setText("Gestionar encuentros de capacitacion");
-        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 420, -1, -1));
+        btnRegistrarHorarioPersonal.setBackground(new java.awt.Color(255, 255, 255));
+        btnRegistrarHorarioPersonal.setFont(new java.awt.Font("Microsoft JhengHei", 1, 18)); // NOI18N
+        btnRegistrarHorarioPersonal.setForeground(new java.awt.Color(0, 0, 0));
+        btnRegistrarHorarioPersonal.setText("     Horario del personal");
+        btnRegistrarHorarioPersonal.setBorder(null);
+        btnRegistrarHorarioPersonal.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btnRegistrarHorarioPersonal.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnRegistrarHorarioPersonalMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnRegistrarHorarioPersonalMouseExited(evt);
+            }
+        });
+        btnRegistrarHorarioPersonal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegistrarHorarioPersonalActionPerformed(evt);
+            }
+        });
+        jPanel2.add(btnRegistrarHorarioPersonal, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 260, 280, 50));
 
-        btnGestionarEncuentrosCapacitacion.setBackground(new java.awt.Color(153, 195, 84));
+        btnGestionarEventos.setBackground(new java.awt.Color(255, 255, 255));
+        btnGestionarEventos.setFont(new java.awt.Font("Microsoft JhengHei", 1, 18)); // NOI18N
+        btnGestionarEventos.setForeground(new java.awt.Color(0, 0, 0));
+        btnGestionarEventos.setText("     Gestionar eventos");
+        btnGestionarEventos.setBorder(null);
+        btnGestionarEventos.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btnGestionarEventos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnGestionarEventosMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnGestionarEventosMouseExited(evt);
+            }
+        });
+        jPanel2.add(btnGestionarEventos, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 310, 280, 50));
+
+        btnGestionarEncuentrosCapacitacion.setBackground(new java.awt.Color(255, 255, 255));
         btnGestionarEncuentrosCapacitacion.setFont(new java.awt.Font("Microsoft JhengHei", 1, 18)); // NOI18N
         btnGestionarEncuentrosCapacitacion.setForeground(new java.awt.Color(0, 0, 0));
-        btnGestionarEncuentrosCapacitacion.setText("ENTRAR");
+        btnGestionarEncuentrosCapacitacion.setText("     Encuentros de capacitación");
         btnGestionarEncuentrosCapacitacion.setBorder(null);
-        jPanel1.add(btnGestionarEncuentrosCapacitacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 470, 160, 50));
+        btnGestionarEncuentrosCapacitacion.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btnGestionarEncuentrosCapacitacion.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnGestionarEncuentrosCapacitacionMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnGestionarEncuentrosCapacitacionMouseExited(evt);
+            }
+        });
+        btnGestionarEncuentrosCapacitacion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGestionarEncuentrosCapacitacionActionPerformed(evt);
+            }
+        });
+        jPanel2.add(btnGestionarEncuentrosCapacitacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 360, 280, 50));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1280, 720));
+        btnRegresarInicioAdmin.setBackground(new java.awt.Color(255, 255, 255));
+        btnRegresarInicioAdmin.setFont(new java.awt.Font("Microsoft JhengHei", 1, 18)); // NOI18N
+        btnRegresarInicioAdmin.setForeground(new java.awt.Color(0, 0, 0));
+        btnRegresarInicioAdmin.setText("     Cerrar sesión");
+        btnRegresarInicioAdmin.setBorder(null);
+        btnRegresarInicioAdmin.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btnRegresarInicioAdmin.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnRegresarInicioAdminMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnRegresarInicioAdminMouseExited(evt);
+            }
+        });
+        btnRegresarInicioAdmin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegresarInicioAdminActionPerformed(evt);
+            }
+        });
+        jPanel2.add(btnRegresarInicioAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 410, 280, 50));
+
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 280, 880));
+
+        content.setBackground(new java.awt.Color(204, 204, 204));
+        content.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jInternalFrame1.setVisible(true);
+        content.add(jInternalFrame1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1120, 770));
+
+        getContentPane().add(content, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 110, 1120, 770));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnGestionarEmpleados2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGestionarEmpleados2ActionPerformed
+
+        GestionarPersonalFrame gestionarPersonal = new GestionarPersonalFrame();
+
+        gestionarPersonal.setSize(1120, 770);
+        gestionarPersonal.setLocation(0, 0);
+
+        content.removeAll();
+        content.add(gestionarPersonal, BorderLayout.CENTER);
+        content.revalidate();
+        content.repaint();
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnGestionarEmpleados2ActionPerformed
+
+    private void btnGestionarEncuentrosCapacitacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGestionarEncuentrosCapacitacionActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnGestionarEncuentrosCapacitacionActionPerformed
+
+    private void btnGestionarEmpleados2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnGestionarEmpleados2MouseClicked
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnGestionarEmpleados2MouseClicked
+
+    private void btnGestionarEmpleados2MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnGestionarEmpleados2MousePressed
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnGestionarEmpleados2MousePressed
+
+    private void btnGestionarEmpleados2MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnGestionarEmpleados2MouseReleased
+//
+
+    }//GEN-LAST:event_btnGestionarEmpleados2MouseReleased
+
+    private void btnGestionarEmpleados2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnGestionarEmpleados2MouseEntered
+        botonPresionado(btnGestionarEmpleados2);
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnGestionarEmpleados2MouseEntered
+
+    private void btnGestionarEmpleados2MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnGestionarEmpleados2MouseExited
+
+        botonDespresionado(btnGestionarEmpleados2);
+
+// TODO add your handling code here:
+    }//GEN-LAST:event_btnGestionarEmpleados2MouseExited
+
+    private void btnRegistrarHorarioPersonalMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRegistrarHorarioPersonalMouseEntered
+        botonPresionado(btnRegistrarHorarioPersonal);
+
+// TODO add your handling code here:
+    }//GEN-LAST:event_btnRegistrarHorarioPersonalMouseEntered
+
+    private void btnRegistrarHorarioPersonalMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRegistrarHorarioPersonalMouseExited
+        botonDespresionado(btnRegistrarHorarioPersonal);
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnRegistrarHorarioPersonalMouseExited
+
+    private void btnGestionarEventosMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnGestionarEventosMouseEntered
+
+        botonPresionado(btnGestionarEventos);
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnGestionarEventosMouseEntered
+
+    private void btnGestionarEventosMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnGestionarEventosMouseExited
+
+        botonDespresionado(btnGestionarEventos);
+// TODO add your handling code here:
+    }//GEN-LAST:event_btnGestionarEventosMouseExited
+
+    private void btnGestionarEncuentrosCapacitacionMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnGestionarEncuentrosCapacitacionMouseEntered
+
+        botonPresionado(btnGestionarEncuentrosCapacitacion);
+// TODO add your handling code here:
+    }//GEN-LAST:event_btnGestionarEncuentrosCapacitacionMouseEntered
+
+    private void btnGestionarEncuentrosCapacitacionMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnGestionarEncuentrosCapacitacionMouseExited
+        botonDespresionado(btnGestionarEncuentrosCapacitacion);
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnGestionarEncuentrosCapacitacionMouseExited
+
+    private void btnRegresarInicioAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegresarInicioAdminActionPerformed
+
+        Login login = new Login();
+
+        login.setLocationRelativeTo(null);
+        login.setResizable(false);
+        login.setVisible(true);
+
+        this.dispose();
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnRegresarInicioAdminActionPerformed
+
+    private void btnRegresarInicioAdminMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRegresarInicioAdminMouseEntered
+        botonPresionado(btnRegresarInicioAdmin);
+
+// TODO add your handling code here:
+    }//GEN-LAST:event_btnRegresarInicioAdminMouseEntered
+
+    private void btnRegresarInicioAdminMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRegresarInicioAdminMouseExited
+        botonDespresionado(btnRegresarInicioAdmin);// TODO add your handling code here:
+    }//GEN-LAST:event_btnRegresarInicioAdminMouseExited
+
+    private void btnRegistrarHorarioPersonalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarHorarioPersonalActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnRegistrarHorarioPersonalActionPerformed
 
     /**
      * @param args the command line arguments
@@ -151,12 +369,12 @@ public class AdministrativosFrame extends javax.swing.JFrame {
     private javax.swing.JButton btnGestionarEncuentrosCapacitacion;
     private javax.swing.JButton btnGestionarEventos;
     private javax.swing.JButton btnRegistrarHorarioPersonal;
+    private javax.swing.JButton btnRegresarInicioAdmin;
+    private javax.swing.JPanel content;
+    private javax.swing.JInternalFrame jInternalFrame1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     // End of variables declaration//GEN-END:variables
 }

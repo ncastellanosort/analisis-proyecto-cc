@@ -9,5 +9,16 @@ package logica.contador;
  * @author Nicolas
  */
 public class Contador {
-    
+
+    private static final String USUARIOCONTADOR = "contador";
+    private static final String CLAVECONTADOR = "contador";
+
+    public static String getUsuarioContador() {
+        return USUARIOCONTADOR;
+    }
+
+    public static String getClaveContador() {
+        return CLAVECONTADOR;
+    }
+
 }

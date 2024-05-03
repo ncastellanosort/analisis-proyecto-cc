@@ -8,12 +8,12 @@ package ui.administrativos;
  *
  * @author Nicolas
  */
-public class GestionarEmpleadosFrame extends javax.swing.JFrame {
+public class GestionarPersonalFrame extends javax.swing.JFrame {
 
     /**
      * Creates new form AdministrativosGestionarEmpleadosFrame
      */
-    public GestionarEmpleadosFrame() {
+    public GestionarPersonalFrame() {
         initComponents();
     }
 
@@ -26,9 +26,7 @@ public class GestionarEmpleadosFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblPersonal = new javax.swing.JTable();
         jLabel5 = new javax.swing.JLabel();
@@ -39,20 +37,17 @@ public class GestionarEmpleadosFrame extends javax.swing.JFrame {
         btnEliminarEmpleado = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(255, 255, 255));
+        setMaximumSize(new java.awt.Dimension(1120, 770));
+        setMinimumSize(new java.awt.Dimension(1120, 770));
+        setPreferredSize(new java.awt.Dimension(1120, 770));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel3.setBackground(new java.awt.Color(0, 0, 0));
         jLabel3.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 36)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("Gestionar personal");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 30, -1, -1));
-
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/logo.png"))); // NOI18N
-        jLabel1.setText("jLabel1");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 180, 170));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 30, -1, -1));
 
         tblPersonal.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -67,48 +62,46 @@ public class GestionarEmpleadosFrame extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(tblPersonal);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 120, 800, -1));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 120, 800, -1));
 
         jLabel5.setBackground(new java.awt.Color(0, 0, 0));
         jLabel5.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 24)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(0, 0, 0));
         jLabel5.setText("Gestionar datos empleado");
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 570, -1, -1));
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 570, -1, -1));
 
         btnGestionarEmpleado.setBackground(new java.awt.Color(153, 195, 84));
         btnGestionarEmpleado.setFont(new java.awt.Font("Microsoft JhengHei", 1, 18)); // NOI18N
         btnGestionarEmpleado.setForeground(new java.awt.Color(0, 0, 0));
         btnGestionarEmpleado.setText("GESTIONAR");
         btnGestionarEmpleado.setBorder(null);
-        jPanel1.add(btnGestionarEmpleado, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 610, 160, 50));
+        getContentPane().add(btnGestionarEmpleado, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 610, 160, 50));
 
         jLabel6.setBackground(new java.awt.Color(0, 0, 0));
         jLabel6.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 24)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(0, 0, 0));
         jLabel6.setText("Agregar empleado");
-        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 570, -1, -1));
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 570, -1, -1));
 
         btnAgregarEmpleado.setBackground(new java.awt.Color(153, 195, 84));
         btnAgregarEmpleado.setFont(new java.awt.Font("Microsoft JhengHei", 1, 18)); // NOI18N
         btnAgregarEmpleado.setForeground(new java.awt.Color(0, 0, 0));
         btnAgregarEmpleado.setText("AGREGAR");
         btnAgregarEmpleado.setBorder(null);
-        jPanel1.add(btnAgregarEmpleado, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 610, 160, 50));
+        getContentPane().add(btnAgregarEmpleado, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 610, 160, 50));
 
         jLabel7.setBackground(new java.awt.Color(0, 0, 0));
         jLabel7.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 24)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(0, 0, 0));
         jLabel7.setText("Eliminar empleado");
-        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 570, -1, -1));
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 570, -1, -1));
 
         btnEliminarEmpleado.setBackground(new java.awt.Color(153, 195, 84));
         btnEliminarEmpleado.setFont(new java.awt.Font("Microsoft JhengHei", 1, 18)); // NOI18N
         btnEliminarEmpleado.setForeground(new java.awt.Color(0, 0, 0));
         btnEliminarEmpleado.setText("ELIMINAR");
         btnEliminarEmpleado.setBorder(null);
-        jPanel1.add(btnEliminarEmpleado, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 610, 160, 50));
-
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1280, 720));
+        getContentPane().add(btnEliminarEmpleado, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 610, 160, 50));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -130,21 +123,23 @@ public class GestionarEmpleadosFrame extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(GestionarEmpleadosFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(GestionarPersonalFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(GestionarEmpleadosFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(GestionarPersonalFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(GestionarEmpleadosFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(GestionarPersonalFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(GestionarEmpleadosFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(GestionarPersonalFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new GestionarEmpleadosFrame().setVisible(true);
+                new GestionarPersonalFrame().setVisible(true);
             }
         });
     }
@@ -153,12 +148,10 @@ public class GestionarEmpleadosFrame extends javax.swing.JFrame {
     private javax.swing.JButton btnAgregarEmpleado;
     private javax.swing.JButton btnEliminarEmpleado;
     private javax.swing.JButton btnGestionarEmpleado;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tblPersonal;
     // End of variables declaration//GEN-END:variables
