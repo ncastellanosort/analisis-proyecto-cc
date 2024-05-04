@@ -19,9 +19,9 @@ public class Main {
 
         Login pantalla = new Login();
 
-        pantalla.setLocationRelativeTo(null);
-        pantalla.setResizable(false);
-        pantalla.setVisible(true);
+            pantalla.setLocationRelativeTo(null);
+            pantalla.setResizable(false);
+            pantalla.setVisible(true);
 
     }
 

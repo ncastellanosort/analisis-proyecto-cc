@@ -43,6 +43,7 @@ public class Login extends javax.swing.JFrame {
         pssdfClaveInicioSesion = new javax.swing.JPasswordField();
         jSeparator1 = new javax.swing.JSeparator();
         jSeparator2 = new javax.swing.JSeparator();
+        btnSalir = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -133,6 +134,18 @@ public class Login extends javax.swing.JFrame {
         jSeparator2.setForeground(new java.awt.Color(0, 0, 0));
         jPanel1.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 310, 400, 10));
 
+        btnSalir.setBackground(new java.awt.Color(255, 255, 255));
+        btnSalir.setFont(new java.awt.Font("Microsoft JhengHei", 1, 24)); // NOI18N
+        btnSalir.setForeground(new java.awt.Color(0, 0, 0));
+        btnSalir.setText("X");
+        btnSalir.setBorder(null);
+        btnSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSalirActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 0, 50, 50));
+
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 0, 590, 720));
 
         jPanel2.setBackground(new java.awt.Color(153, 195, 84));
@@ -164,17 +177,21 @@ public class Login extends javax.swing.JFrame {
             admin.setLocationRelativeTo(null);
             admin.setResizable(false);
             admin.setVisible(true);
+            
+            this.dispose();
         } else if (usuarioInput.equals(Contador.getUsuarioContador()) && claveInput.equals(Contador.getClaveContador())) {
 
             contador.setLocationRelativeTo(null);
             contador.setResizable(false);
             contador.setVisible(true);
+            this.dispose();
 
         } else {
 
             noAceptado.setLocationRelativeTo(null);
             noAceptado.setResizable(false);
             noAceptado.setVisible(true);
+            this.dispose();
 
         }
 
@@ -206,6 +223,13 @@ public class Login extends javax.swing.JFrame {
 
         // TODO add your handling code here:
     }//GEN-LAST:event_btnIniciarSesionMouseExited
+
+    private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
+
+        System.exit(0);
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnSalirActionPerformed
 
     /**
      * @param args the command line arguments
@@ -245,6 +269,7 @@ public class Login extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnIniciarSesion;
+    private javax.swing.JButton btnSalir;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel5;

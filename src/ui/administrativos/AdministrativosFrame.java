@@ -5,7 +5,11 @@
 package ui.administrativos;
 
 import java.awt.Color;
+import java.util.Map;
 import javax.swing.JButton;
+import javax.swing.table.DefaultTableModel;
+import logica.administrativos.ListaProveedores;
+import logica.administrativos.Proveedor;
 import ui.login.Login;
 
 /**
@@ -18,11 +22,21 @@ public class AdministrativosFrame extends javax.swing.JFrame {
 
     Color colorBotonProveedorPresionado = new Color(153, 195, 84);
 
+    DefaultTableModel modelo = new DefaultTableModel();
+
+    String[] columnas = {"Identificación Fiscal", "Nombre empresa", "Dirección registrada", "Número contacto", "Dirección de correo", "Servicio suministrado", "Referencia comercial", "Término de pago"};
+
     /**
      * Creates new form AdministrativosFrame
      */
     public AdministrativosFrame() {
         initComponents();
+
+        modelo.setColumnIdentifiers(columnas);
+
+        tblProveedores.setModel(modelo);
+
+        tblProveedores.setRowHeight(40);
 
 //        GestionarPersonalFrame gestionarPersonal = new GestionarPersonalFrame();
 //
@@ -56,6 +70,24 @@ public class AdministrativosFrame extends javax.swing.JFrame {
         boton.setBackground(colorBotonProveedorPresionado);
 
         boton.setForeground(Color.BLACK);
+
+    }
+
+    public void llenarTablaProveedores() {
+        DefaultTableModel modelo = new DefaultTableModel(new String[]{"Identificación Fiscal", "Nombre empresa", "Dirección registrada", "Número contacto", "Dirección de correo", "Servicio suministrado", "Referencia comercial", "Término de pago"},
+                0);
+
+        for (Map.Entry<Integer, Proveedor> codigo : ListaProveedores.getProveedoresCentroComercial().entrySet()) {
+            int clave = codigo.getKey();
+
+            Proveedor valor = codigo.getValue();
+
+            Object[] fila = {clave, valor.getNombreEmpresaProveedor(), valor.getDireccionRegistradaProveedor(), valor.getNumeroContactoProveedor(), valor.getDireccionCorreoProveedor(), valor.getServicioSuministradoProveedor(), valor.getReferenciaComercialProveedor(), valor.getTerminoDePagoProveedor()};
+            modelo.addRow(fila);
+
+        }
+
+        tblProveedores.setModel(modelo);
 
     }
 
@@ -120,10 +152,11 @@ public class AdministrativosFrame extends javax.swing.JFrame {
         jScrollPane5 = new javax.swing.JScrollPane();
         tblProveedores = new javax.swing.JTable();
         jPanel5 = new javax.swing.JPanel();
-        btnEliminarProveedor = new javax.swing.JButton();
+        btnActualizarTablaProveedores = new javax.swing.JButton();
+        btnAgregarProveedor = new javax.swing.JButton();
         btnBuscarProveedor = new javax.swing.JButton();
         btnGestionarProveedores = new javax.swing.JButton();
-        btnAgregarProveedor = new javax.swing.JButton();
+        btnEliminarProveedor = new javax.swing.JButton();
         jPanel6 = new javax.swing.JPanel();
         jLabel19 = new javax.swing.JLabel();
 
@@ -531,6 +564,7 @@ public class AdministrativosFrame extends javax.swing.JFrame {
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        tblProveedores.setFont(new java.awt.Font("Microsoft JhengHei", 1, 14)); // NOI18N
         tblProveedores.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -544,60 +578,30 @@ public class AdministrativosFrame extends javax.swing.JFrame {
         ));
         jScrollPane5.setViewportView(tblProveedores);
 
-        jPanel4.add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, 1080, 440));
+        jPanel4.add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 160, 1080, 520));
 
         jPanel5.setBackground(new java.awt.Color(153, 195, 84));
         jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        btnEliminarProveedor.setBackground(new java.awt.Color(153, 195, 84));
-        btnEliminarProveedor.setFont(new java.awt.Font("Microsoft JhengHei", 1, 18)); // NOI18N
-        btnEliminarProveedor.setForeground(new java.awt.Color(0, 0, 0));
-        btnEliminarProveedor.setText("Eliminar proveedor");
-        btnEliminarProveedor.setBorder(null);
-        btnEliminarProveedor.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnActualizarTablaProveedores.setBackground(new java.awt.Color(153, 195, 84));
+        btnActualizarTablaProveedores.setFont(new java.awt.Font("Microsoft JhengHei", 1, 18)); // NOI18N
+        btnActualizarTablaProveedores.setForeground(new java.awt.Color(0, 0, 0));
+        btnActualizarTablaProveedores.setText("Actualizar tabla");
+        btnActualizarTablaProveedores.setBorder(null);
+        btnActualizarTablaProveedores.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                btnEliminarProveedorMouseEntered(evt);
+                btnActualizarTablaProveedoresMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                btnEliminarProveedorMouseExited(evt);
+                btnActualizarTablaProveedoresMouseExited(evt);
             }
         });
-        jPanel5.add(btnEliminarProveedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 0, 280, 50));
-
-        btnBuscarProveedor.setBackground(new java.awt.Color(153, 195, 84));
-        btnBuscarProveedor.setFont(new java.awt.Font("Microsoft JhengHei", 1, 18)); // NOI18N
-        btnBuscarProveedor.setForeground(new java.awt.Color(0, 0, 0));
-        btnBuscarProveedor.setText("Buscar proveedor");
-        btnBuscarProveedor.setBorder(null);
-        btnBuscarProveedor.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                btnBuscarProveedorMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                btnBuscarProveedorMouseExited(evt);
-            }
-        });
-        jPanel5.add(btnBuscarProveedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 0, 280, 50));
-
-        btnGestionarProveedores.setBackground(new java.awt.Color(153, 195, 84));
-        btnGestionarProveedores.setFont(new java.awt.Font("Microsoft JhengHei", 1, 18)); // NOI18N
-        btnGestionarProveedores.setForeground(new java.awt.Color(0, 0, 0));
-        btnGestionarProveedores.setText("Gestionar proveedor");
-        btnGestionarProveedores.setBorder(null);
-        btnGestionarProveedores.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                btnGestionarProveedoresMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                btnGestionarProveedoresMouseExited(evt);
-            }
-        });
-        btnGestionarProveedores.addActionListener(new java.awt.event.ActionListener() {
+        btnActualizarTablaProveedores.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnGestionarProveedoresActionPerformed(evt);
+                btnActualizarTablaProveedoresActionPerformed(evt);
             }
         });
-        jPanel5.add(btnGestionarProveedores, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 0, 280, 50));
+        jPanel5.add(btnActualizarTablaProveedores, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 224, 50));
 
         btnAgregarProveedor.setBackground(new java.awt.Color(153, 195, 84));
         btnAgregarProveedor.setFont(new java.awt.Font("Microsoft JhengHei", 1, 18)); // NOI18N
@@ -617,7 +621,62 @@ public class AdministrativosFrame extends javax.swing.JFrame {
                 btnAgregarProveedorActionPerformed(evt);
             }
         });
-        jPanel5.add(btnAgregarProveedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 280, 50));
+        jPanel5.add(btnAgregarProveedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 0, 224, 50));
+
+        btnBuscarProveedor.setBackground(new java.awt.Color(153, 195, 84));
+        btnBuscarProveedor.setFont(new java.awt.Font("Microsoft JhengHei", 1, 18)); // NOI18N
+        btnBuscarProveedor.setForeground(new java.awt.Color(0, 0, 0));
+        btnBuscarProveedor.setText("Buscar proveedor");
+        btnBuscarProveedor.setBorder(null);
+        btnBuscarProveedor.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnBuscarProveedorMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnBuscarProveedorMouseExited(evt);
+            }
+        });
+        jPanel5.add(btnBuscarProveedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 0, 224, 50));
+
+        btnGestionarProveedores.setBackground(new java.awt.Color(153, 195, 84));
+        btnGestionarProveedores.setFont(new java.awt.Font("Microsoft JhengHei", 1, 18)); // NOI18N
+        btnGestionarProveedores.setForeground(new java.awt.Color(0, 0, 0));
+        btnGestionarProveedores.setText("Gestionar proveedor");
+        btnGestionarProveedores.setBorder(null);
+        btnGestionarProveedores.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnGestionarProveedoresMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnGestionarProveedoresMouseExited(evt);
+            }
+        });
+        btnGestionarProveedores.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGestionarProveedoresActionPerformed(evt);
+            }
+        });
+        jPanel5.add(btnGestionarProveedores, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 0, 224, 50));
+
+        btnEliminarProveedor.setBackground(new java.awt.Color(153, 195, 84));
+        btnEliminarProveedor.setFont(new java.awt.Font("Microsoft JhengHei", 1, 18)); // NOI18N
+        btnEliminarProveedor.setForeground(new java.awt.Color(0, 0, 0));
+        btnEliminarProveedor.setText("Eliminar proveedor");
+        btnEliminarProveedor.setBorder(null);
+        btnEliminarProveedor.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnEliminarProveedorMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnEliminarProveedorMouseExited(evt);
+            }
+        });
+        btnEliminarProveedor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarProveedorActionPerformed(evt);
+            }
+        });
+        jPanel5.add(btnEliminarProveedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 0, 230, 50));
 
         jPanel4.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, 1120, 50));
 
@@ -812,11 +871,10 @@ public class AdministrativosFrame extends javax.swing.JFrame {
 
     private void btnAgregarProveedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarProveedorActionPerformed
         AdministrativosAgregarProveedor adminAgregarProv = new AdministrativosAgregarProveedor();
-        
+
         adminAgregarProv.setLocationRelativeTo(null);
         adminAgregarProv.setResizable(false);
         adminAgregarProv.setVisible(true);
-
 
         // TODO add your handling code here:
     }//GEN-LAST:event_btnAgregarProveedorActionPerformed
@@ -832,6 +890,47 @@ public class AdministrativosFrame extends javax.swing.JFrame {
 
 // TODO add your handling code here:
     }//GEN-LAST:event_btnBuscarProveedorMouseExited
+
+    private void btnActualizarTablaProveedoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarTablaProveedoresActionPerformed
+
+        llenarTablaProveedores();
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnActualizarTablaProveedoresActionPerformed
+
+    private void btnActualizarTablaProveedoresMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnActualizarTablaProveedoresMouseEntered
+
+        botonPresionado(btnActualizarTablaProveedores);
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnActualizarTablaProveedoresMouseEntered
+
+    private void btnActualizarTablaProveedoresMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnActualizarTablaProveedoresMouseExited
+
+        botonProveedorDespresionado(btnActualizarTablaProveedores);
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnActualizarTablaProveedoresMouseExited
+
+    private void btnEliminarProveedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarProveedorActionPerformed
+
+        EliminarProveedor elim = new EliminarProveedor();
+
+        ListaVacia vacia = new ListaVacia();
+
+        if (ListaProveedores.getProveedoresCentroComercial().isEmpty()) {
+            vacia.setLocationRelativeTo(null);
+            vacia.setResizable(false);
+            vacia.setVisible(true);
+
+        } else {
+            elim.setLocationRelativeTo(null);
+            elim.setResizable(false);
+            elim.setVisible(true);
+        }
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnEliminarProveedorActionPerformed
 
     /**
      * @param args the command line arguments
@@ -869,6 +968,7 @@ public class AdministrativosFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnActualizarTablaProveedores;
     private javax.swing.JButton btnAgregarCapacitacion;
     private javax.swing.JButton btnAgregarEmpleado;
     private javax.swing.JButton btnAgregarEvento;
