@@ -30,7 +30,7 @@ public class ErrorAlEliminar extends javax.swing.JFrame {
         jPanel6 = new javax.swing.JPanel();
         jLabel20 = new javax.swing.JLabel();
         jLabel19 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        btnErrorIndice = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(600, 450));
@@ -54,14 +54,14 @@ public class ErrorAlEliminar extends javax.swing.JFrame {
         jLabel19.setForeground(new java.awt.Color(0, 0, 0));
         jLabel19.setText("Revise bien los datos al ingresados");
 
-        jButton1.setBackground(new java.awt.Color(127, 156, 90));
-        jButton1.setFont(new java.awt.Font("Microsoft JhengHei", 1, 18)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(0, 0, 0));
-        jButton1.setText("Volver");
-        jButton1.setBorder(null);
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnErrorIndice.setBackground(new java.awt.Color(127, 156, 90));
+        btnErrorIndice.setFont(new java.awt.Font("Microsoft JhengHei", 1, 18)); // NOI18N
+        btnErrorIndice.setForeground(new java.awt.Color(0, 0, 0));
+        btnErrorIndice.setText("Volver");
+        btnErrorIndice.setBorder(null);
+        btnErrorIndice.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnErrorIndiceActionPerformed(evt);
             }
         });
 
@@ -78,7 +78,7 @@ public class ErrorAlEliminar extends javax.swing.JFrame {
                         .addComponent(jLabel19))))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(228, 228, 228)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnErrorIndice, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -88,7 +88,7 @@ public class ErrorAlEliminar extends javax.swing.JFrame {
                 .addGap(100, 100, 100)
                 .addComponent(jLabel19)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 104, Short.MAX_VALUE)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnErrorIndice, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(82, 82, 82))
         );
 
@@ -97,11 +97,11 @@ public class ErrorAlEliminar extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnErrorIndiceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnErrorIndiceActionPerformed
         this.dispose();
 
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btnErrorIndiceActionPerformed
 
     /**
      * @param args the command line arguments
@@ -139,7 +139,7 @@ public class ErrorAlEliminar extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btnErrorIndice;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JPanel jPanel1;

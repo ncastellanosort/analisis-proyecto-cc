@@ -6,6 +6,7 @@ package ui.administrativos.proveedores;
 
 import javax.swing.JTextField;
 import logica.administrativos.ListaProveedores;
+import ui.utilidades.ErrorSeleccionarIndice;
 
 /**
  *

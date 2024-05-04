@@ -919,8 +919,14 @@ public class AdministrativosFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_btnBuscarProveedorMouseExited
 
     private void btnActualizarTablaProveedoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarTablaProveedoresActionPerformed
-
-        llenarTablaProveedores();
+        ListaVacia lv = new ListaVacia();
+        if (ListaProveedores.getProveedoresCentroComercial().isEmpty()) {
+            lv.setLocationRelativeTo(null);
+            lv.setResizable(false);
+            lv.setVisible(true);
+        } else {
+            llenarTablaProveedores();
+        }
 
         // TODO add your handling code here:
     }//GEN-LAST:event_btnActualizarTablaProveedoresActionPerformed
@@ -962,10 +968,19 @@ public class AdministrativosFrame extends javax.swing.JFrame {
     private void btnBuscarProveedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarProveedorActionPerformed
 
         BuscarProveedor buscarP = new BuscarProveedor();
+        ListaVacia vacia = new ListaVacia();
 
-        buscarP.setLocationRelativeTo(null);
-        buscarP.setResizable(false);
-        buscarP.setVisible(true);
+        if (ListaProveedores.getProveedoresCentroComercial().isEmpty()) {
+            vacia.setLocationRelativeTo(null);
+            vacia.setResizable(false);
+            vacia.setVisible(true);
+
+        } else {
+
+            buscarP.setLocationRelativeTo(null);
+            buscarP.setResizable(false);
+            buscarP.setVisible(true);
+        }
 
         // TODO add your handling code here:
     }//GEN-LAST:event_btnBuscarProveedorActionPerformed
