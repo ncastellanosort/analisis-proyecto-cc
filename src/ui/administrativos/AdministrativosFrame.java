@@ -528,7 +528,7 @@ public class AdministrativosFrame extends javax.swing.JFrame {
 
         gestionarProveedores.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel4.setBackground(new java.awt.Color(185, 197, 169));
+        jPanel4.setBackground(new java.awt.Color(255, 255, 255));
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         tblProveedores.setModel(new javax.swing.table.DefaultTableModel(
@@ -544,7 +544,7 @@ public class AdministrativosFrame extends javax.swing.JFrame {
         ));
         jScrollPane5.setViewportView(tblProveedores);
 
-        jPanel4.add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 190, 1030, -1));
+        jPanel4.add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, 1080, 440));
 
         jPanel5.setBackground(new java.awt.Color(153, 195, 84));
         jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -811,6 +811,13 @@ public class AdministrativosFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_btnEliminarProveedorMouseExited
 
     private void btnAgregarProveedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarProveedorActionPerformed
+        AdministrativosAgregarProveedor adminAgregarProv = new AdministrativosAgregarProveedor();
+        
+        adminAgregarProv.setLocationRelativeTo(null);
+        adminAgregarProv.setResizable(false);
+        adminAgregarProv.setVisible(true);
+
+
         // TODO add your handling code here:
     }//GEN-LAST:event_btnAgregarProveedorActionPerformed
 

@@ -5,12 +5,17 @@
 package logica.administrativos;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 /**
  *
  * @author Nicolas
  */
 public class ListaProveedores {
-        
-    private static ArrayList<Proveedores> proveedoresCentroComercial = new ArrayList<>();
+    
+    
+    // el integer es el numero de identificacion fiscal
+    private static HashMap<Integer, ArrayList<Proveedor>> proveedoresCentroComercial = new HashMap<>();
+    
+
 }
