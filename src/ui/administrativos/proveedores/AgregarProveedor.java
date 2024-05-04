@@ -4,8 +4,8 @@
  */
 package ui.administrativos.proveedores;
 
-import logica.administrativos.ListaProveedores;
-import logica.administrativos.Proveedor;
+import logica.administrativos.proveedores.ListaProveedores;
+import logica.administrativos.proveedores.Proveedor;
 import ui.utilidades.AgregadoExitosamente;
 import ui.utilidades.ErrorAlAgregar;
 
@@ -13,12 +13,12 @@ import ui.utilidades.ErrorAlAgregar;
  *
  * @author Nicolas
  */
-public class AdministrativosAgregarProveedor extends javax.swing.JFrame {
+public class AgregarProveedor extends javax.swing.JFrame {
 
     /**
      * Creates new form AdministrativosAgregarProveedor
      */
-    public AdministrativosAgregarProveedor() {
+    public AgregarProveedor() {
         initComponents();
     }
 
@@ -208,7 +208,7 @@ public class AdministrativosAgregarProveedor extends javax.swing.JFrame {
                 btnAgregarProveedorActionPerformed(evt);
             }
         });
-        jPanel1.add(btnAgregarProveedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 730, 250, 50));
+        jPanel1.add(btnAgregarProveedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 720, 250, 50));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -300,20 +300,21 @@ public class AdministrativosAgregarProveedor extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(AdministrativosAgregarProveedor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AgregarProveedor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(AdministrativosAgregarProveedor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AgregarProveedor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(AdministrativosAgregarProveedor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AgregarProveedor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(AdministrativosAgregarProveedor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AgregarProveedor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new AdministrativosAgregarProveedor().setVisible(true);
+                new AgregarProveedor().setVisible(true);
             }
         });
     }

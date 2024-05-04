@@ -8,9 +8,13 @@ import java.awt.Color;
 import java.util.Map;
 import javax.swing.JButton;
 import javax.swing.table.DefaultTableModel;
-import logica.administrativos.ListaProveedores;
-import logica.administrativos.Proveedor;
-import ui.administrativos.proveedores.AdministrativosAgregarProveedor;
+import logica.administrativos.capacitaciones.Capacitacion;
+import logica.administrativos.capacitaciones.ListaCapacitaciones;
+import logica.administrativos.proveedores.ListaProveedores;
+import logica.administrativos.proveedores.Proveedor;
+import ui.administrativos.capacitaciones.AgendarCapacitacion;
+import ui.administrativos.capacitaciones.EliminarCapacitacion;
+import ui.administrativos.proveedores.AgregarProveedor;
 import ui.administrativos.proveedores.BuscarProveedor;
 import ui.administrativos.proveedores.EliminarProveedor;
 import ui.administrativos.proveedores.IndiceEditarProveeedor;
@@ -27,9 +31,13 @@ public class AdministrativosFrame extends javax.swing.JFrame {
 
     Color colorBotonProveedorPresionado = new Color(153, 195, 84);
 
-    DefaultTableModel modelo = new DefaultTableModel();
+    DefaultTableModel modeloTablaProveedores = new DefaultTableModel();
 
-    String[] columnas = {"Identificación Fiscal", "Nombre empresa", "Dirección registrada", "Número contacto", "Dirección de correo", "Servicio suministrado", "Referencia comercial", "Término de pago"};
+    DefaultTableModel modeloTablaCapacitaciones = new DefaultTableModel();
+
+    String[] columnasTablaProveedores = {"Identificación Fiscal", "Nombre empresa", "Dirección registrada", "Número contacto", "Dirección de correo", "Servicio suministrado", "Referencia comercial", "Término de pago"};
+
+    String[] columnasTablaCapacitaciones = {"Identificador", "Nombre", "Instructor", "Descripción", "Área dirigida", "Fecha", "Hora inicio", "Hora fin", "Empresa encargada", "Finalizada?"};
 
     /**
      * Creates new form AdministrativosFrame
@@ -37,21 +45,18 @@ public class AdministrativosFrame extends javax.swing.JFrame {
     public AdministrativosFrame() {
         initComponents();
 
-        modelo.setColumnIdentifiers(columnas);
+        modeloTablaProveedores.setColumnIdentifiers(columnasTablaProveedores);
 
-        tblProveedores.setModel(modelo);
+        tblProveedores.setModel(modeloTablaProveedores);
 
         tblProveedores.setRowHeight(40);
 
-//        GestionarPersonalFrame gestionarPersonal = new GestionarPersonalFrame();
-//
-//        gestionarPersonal.setSize(1120, 770);
-//        gestionarPersonal.setLocation(0, 0);
-//
-//        content.removeAll();
-//        content.add(gestionarPersonal, BorderLayout.CENTER);
-//        content.revalidate();
-//        content.repaint();
+        modeloTablaCapacitaciones.setColumnIdentifiers(columnasTablaCapacitaciones);
+
+        tblCapacitaciones.setModel(modeloTablaCapacitaciones);
+
+        tblCapacitaciones.setRowHeight(40);
+
     }
 
     public void botonPresionado(JButton boton) {
@@ -93,6 +98,24 @@ public class AdministrativosFrame extends javax.swing.JFrame {
         }
 
         tblProveedores.setModel(modelo);
+
+    }
+
+    public void llenarTablaCapacitaciones() {
+        DefaultTableModel modelo = new DefaultTableModel(new String[]{"Identificador", "Nombre", "Instructor", "Descripción", "Área dirigida", "Fecha", "Hora inicio", "Hora fin", "Empresa encargada", "Finalizada?"},
+                0);
+
+        for (Map.Entry<Integer, Capacitacion> codigo : ListaCapacitaciones.getCapacitacionesCentroComercial().entrySet()) {
+            int clave = codigo.getKey();
+
+            Capacitacion valor = codigo.getValue();
+
+            Object[] fila = {clave, valor.getNombreCapacitacion(), valor.getNombreInstructorCapacitacion(), valor.getDescripcionCapacitacion(), valor.getAreaCapacitacion(), valor.getFecha(), valor.getHoraInicio(), valor.getHoraFin(), valor.getEmpresaEncargadaCapacitacion(), valor.getFinalizada()};
+            modelo.addRow(fila);
+
+        }
+
+        tblCapacitaciones.setModel(modelo);
 
     }
 
@@ -143,25 +166,27 @@ public class AdministrativosFrame extends javax.swing.JFrame {
         jLabel13 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
         gestionarCapacitacion = new javax.swing.JPanel();
-        jLabel15 = new javax.swing.JLabel();
-        jScrollPane4 = new javax.swing.JScrollPane();
+        jPanel7 = new javax.swing.JPanel();
+        btnActualizarTablaCapacitaciones = new javax.swing.JScrollPane();
         tblCapacitaciones = new javax.swing.JTable();
-        jLabel16 = new javax.swing.JLabel();
-        btnGestionarCapacitacion = new javax.swing.JButton();
+        jPanel8 = new javax.swing.JPanel();
+        jLabel20 = new javax.swing.JLabel();
+        jPanel9 = new javax.swing.JPanel();
         btnAgregarCapacitacion = new javax.swing.JButton();
-        jLabel17 = new javax.swing.JLabel();
-        jLabel18 = new javax.swing.JLabel();
+        btnGestionarCapacitacion = new javax.swing.JButton();
+        btnSeguimientoCapacitacion = new javax.swing.JButton();
+        btnACTUALIZARTABLAcapacitacion = new javax.swing.JButton();
         btnEliminarCapacitacion = new javax.swing.JButton();
         gestionarProveedores = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
         jScrollPane5 = new javax.swing.JScrollPane();
         tblProveedores = new javax.swing.JTable();
         jPanel5 = new javax.swing.JPanel();
-        btnActualizarTablaProveedores = new javax.swing.JButton();
         btnAgregarProveedor = new javax.swing.JButton();
         btnBuscarProveedor = new javax.swing.JButton();
         btnGestionarProveedores = new javax.swing.JButton();
         btnEliminarProveedor = new javax.swing.JButton();
+        btnActualizarTablaProveedores = new javax.swing.JButton();
         jPanel6 = new javax.swing.JPanel();
         jLabel19 = new javax.swing.JLabel();
 
@@ -500,14 +525,15 @@ public class AdministrativosFrame extends javax.swing.JFrame {
 
         panelGeneralAdmin.addTab("tab3", gestionarEventos);
 
+        gestionarCapacitacion.setMaximumSize(new java.awt.Dimension(1120, 770));
+        gestionarCapacitacion.setMinimumSize(new java.awt.Dimension(1120, 770));
+        gestionarCapacitacion.setPreferredSize(new java.awt.Dimension(1120, 770));
         gestionarCapacitacion.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel15.setBackground(new java.awt.Color(0, 0, 0));
-        jLabel15.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 36)); // NOI18N
-        jLabel15.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel15.setText("Gestionar capacitacion");
-        gestionarCapacitacion.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 30, -1, -1));
+        jPanel7.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel7.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        tblCapacitaciones.setFont(new java.awt.Font("Microsoft JhengHei", 1, 14)); // NOI18N
         tblCapacitaciones.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -518,49 +544,135 @@ public class AdministrativosFrame extends javax.swing.JFrame {
             new String [] {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
-        ));
-        jScrollPane4.setViewportView(tblCapacitaciones);
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
 
-        gestionarCapacitacion.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 120, 800, -1));
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        btnActualizarTablaCapacitaciones.setViewportView(tblCapacitaciones);
+        if (tblCapacitaciones.getColumnModel().getColumnCount() > 0) {
+            tblCapacitaciones.getColumnModel().getColumn(0).setResizable(false);
+            tblCapacitaciones.getColumnModel().getColumn(1).setResizable(false);
+            tblCapacitaciones.getColumnModel().getColumn(2).setResizable(false);
+            tblCapacitaciones.getColumnModel().getColumn(3).setResizable(false);
+        }
 
-        jLabel16.setBackground(new java.awt.Color(0, 0, 0));
-        jLabel16.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 24)); // NOI18N
-        jLabel16.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel16.setText("Gestionar datos empleado");
-        gestionarCapacitacion.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 570, -1, -1));
+        jPanel7.add(btnActualizarTablaCapacitaciones, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 200, 1090, -1));
 
-        btnGestionarCapacitacion.setBackground(new java.awt.Color(153, 195, 84));
-        btnGestionarCapacitacion.setFont(new java.awt.Font("Microsoft JhengHei", 1, 18)); // NOI18N
-        btnGestionarCapacitacion.setForeground(new java.awt.Color(0, 0, 0));
-        btnGestionarCapacitacion.setText("GESTIONAR");
-        btnGestionarCapacitacion.setBorder(null);
-        gestionarCapacitacion.add(btnGestionarCapacitacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 610, 160, 50));
+        jPanel8.setBackground(new java.awt.Color(127, 156, 90));
+        jPanel8.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel20.setBackground(new java.awt.Color(0, 0, 0));
+        jLabel20.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 36)); // NOI18N
+        jLabel20.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel20.setText("Gestionar capacitaciones");
+        jPanel8.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 20, -1, -1));
+
+        jPanel7.add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1130, 90));
+
+        jPanel9.setBackground(new java.awt.Color(153, 195, 84));
+        jPanel9.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         btnAgregarCapacitacion.setBackground(new java.awt.Color(153, 195, 84));
         btnAgregarCapacitacion.setFont(new java.awt.Font("Microsoft JhengHei", 1, 18)); // NOI18N
         btnAgregarCapacitacion.setForeground(new java.awt.Color(0, 0, 0));
-        btnAgregarCapacitacion.setText("AGENDAR");
+        btnAgregarCapacitacion.setText("Agendar");
         btnAgregarCapacitacion.setBorder(null);
-        gestionarCapacitacion.add(btnAgregarCapacitacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 610, 160, 50));
+        btnAgregarCapacitacion.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnAgregarCapacitacionMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnAgregarCapacitacionMouseExited(evt);
+            }
+        });
+        btnAgregarCapacitacion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAgregarCapacitacionActionPerformed(evt);
+            }
+        });
+        jPanel9.add(btnAgregarCapacitacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 0, 224, 50));
 
-        jLabel17.setBackground(new java.awt.Color(0, 0, 0));
-        jLabel17.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 24)); // NOI18N
-        jLabel17.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel17.setText("Agregar capacitacion");
-        gestionarCapacitacion.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 570, -1, -1));
+        btnGestionarCapacitacion.setBackground(new java.awt.Color(153, 195, 84));
+        btnGestionarCapacitacion.setFont(new java.awt.Font("Microsoft JhengHei", 1, 18)); // NOI18N
+        btnGestionarCapacitacion.setForeground(new java.awt.Color(0, 0, 0));
+        btnGestionarCapacitacion.setText("Gestionar ");
+        btnGestionarCapacitacion.setBorder(null);
+        btnGestionarCapacitacion.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnGestionarCapacitacionMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnGestionarCapacitacionMouseExited(evt);
+            }
+        });
+        jPanel9.add(btnGestionarCapacitacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 0, 224, 50));
 
-        jLabel18.setBackground(new java.awt.Color(0, 0, 0));
-        jLabel18.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 24)); // NOI18N
-        jLabel18.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel18.setText("Eliminar empleado");
-        gestionarCapacitacion.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 570, -1, -1));
+        btnSeguimientoCapacitacion.setBackground(new java.awt.Color(153, 195, 84));
+        btnSeguimientoCapacitacion.setFont(new java.awt.Font("Microsoft JhengHei", 1, 18)); // NOI18N
+        btnSeguimientoCapacitacion.setForeground(new java.awt.Color(0, 0, 0));
+        btnSeguimientoCapacitacion.setText("Seguimiento");
+        btnSeguimientoCapacitacion.setBorder(null);
+        btnSeguimientoCapacitacion.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnSeguimientoCapacitacionMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnSeguimientoCapacitacionMouseExited(evt);
+            }
+        });
+        jPanel9.add(btnSeguimientoCapacitacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 0, 224, 50));
+
+        btnACTUALIZARTABLAcapacitacion.setBackground(new java.awt.Color(153, 195, 84));
+        btnACTUALIZARTABLAcapacitacion.setFont(new java.awt.Font("Microsoft JhengHei", 1, 18)); // NOI18N
+        btnACTUALIZARTABLAcapacitacion.setForeground(new java.awt.Color(0, 0, 0));
+        btnACTUALIZARTABLAcapacitacion.setText("Actualizar tabla");
+        btnACTUALIZARTABLAcapacitacion.setBorder(null);
+        btnACTUALIZARTABLAcapacitacion.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnACTUALIZARTABLAcapacitacionMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnACTUALIZARTABLAcapacitacionMouseExited(evt);
+            }
+        });
+        btnACTUALIZARTABLAcapacitacion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnACTUALIZARTABLAcapacitacionActionPerformed(evt);
+            }
+        });
+        jPanel9.add(btnACTUALIZARTABLAcapacitacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 224, 50));
 
         btnEliminarCapacitacion.setBackground(new java.awt.Color(153, 195, 84));
         btnEliminarCapacitacion.setFont(new java.awt.Font("Microsoft JhengHei", 1, 18)); // NOI18N
         btnEliminarCapacitacion.setForeground(new java.awt.Color(0, 0, 0));
-        btnEliminarCapacitacion.setText("ELIMINAR");
+        btnEliminarCapacitacion.setText("Eliminar");
         btnEliminarCapacitacion.setBorder(null);
-        gestionarCapacitacion.add(btnEliminarCapacitacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 610, 160, 50));
+        btnEliminarCapacitacion.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnEliminarCapacitacionMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnEliminarCapacitacionMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnEliminarCapacitacionMouseExited(evt);
+            }
+        });
+        btnEliminarCapacitacion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarCapacitacionActionPerformed(evt);
+            }
+        });
+        jPanel9.add(btnEliminarCapacitacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 0, 230, 50));
+
+        jPanel7.add(jPanel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, 1120, 50));
+
+        gestionarCapacitacion.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1130, 770));
 
         panelGeneralAdmin.addTab("tab4", gestionarCapacitacion);
 
@@ -580,33 +692,27 @@ public class AdministrativosFrame extends javax.swing.JFrame {
             new String [] {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         jScrollPane5.setViewportView(tblProveedores);
+        if (tblProveedores.getColumnModel().getColumnCount() > 0) {
+            tblProveedores.getColumnModel().getColumn(0).setResizable(false);
+            tblProveedores.getColumnModel().getColumn(1).setResizable(false);
+            tblProveedores.getColumnModel().getColumn(2).setResizable(false);
+            tblProveedores.getColumnModel().getColumn(3).setResizable(false);
+        }
 
         jPanel4.add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 160, 1080, 520));
 
         jPanel5.setBackground(new java.awt.Color(153, 195, 84));
         jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        btnActualizarTablaProveedores.setBackground(new java.awt.Color(153, 195, 84));
-        btnActualizarTablaProveedores.setFont(new java.awt.Font("Microsoft JhengHei", 1, 18)); // NOI18N
-        btnActualizarTablaProveedores.setForeground(new java.awt.Color(0, 0, 0));
-        btnActualizarTablaProveedores.setText("Actualizar tabla");
-        btnActualizarTablaProveedores.setBorder(null);
-        btnActualizarTablaProveedores.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                btnActualizarTablaProveedoresMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                btnActualizarTablaProveedoresMouseExited(evt);
-            }
-        });
-        btnActualizarTablaProveedores.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnActualizarTablaProveedoresActionPerformed(evt);
-            }
-        });
-        jPanel5.add(btnActualizarTablaProveedores, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 224, 50));
 
         btnAgregarProveedor.setBackground(new java.awt.Color(153, 195, 84));
         btnAgregarProveedor.setFont(new java.awt.Font("Microsoft JhengHei", 1, 18)); // NOI18N
@@ -687,6 +793,26 @@ public class AdministrativosFrame extends javax.swing.JFrame {
             }
         });
         jPanel5.add(btnEliminarProveedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 0, 230, 50));
+
+        btnActualizarTablaProveedores.setBackground(new java.awt.Color(153, 195, 84));
+        btnActualizarTablaProveedores.setFont(new java.awt.Font("Microsoft JhengHei", 1, 18)); // NOI18N
+        btnActualizarTablaProveedores.setForeground(new java.awt.Color(0, 0, 0));
+        btnActualizarTablaProveedores.setText("Actualizar tabla");
+        btnActualizarTablaProveedores.setBorder(null);
+        btnActualizarTablaProveedores.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnActualizarTablaProveedoresMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnActualizarTablaProveedoresMouseExited(evt);
+            }
+        });
+        btnActualizarTablaProveedores.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnActualizarTablaProveedoresActionPerformed(evt);
+            }
+        });
+        jPanel5.add(btnActualizarTablaProveedores, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 224, 50));
 
         jPanel4.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, 1120, 50));
 
@@ -897,7 +1023,7 @@ public class AdministrativosFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_btnEliminarProveedorMouseExited
 
     private void btnAgregarProveedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarProveedorActionPerformed
-        AdministrativosAgregarProveedor adminAgregarProv = new AdministrativosAgregarProveedor();
+        AgregarProveedor adminAgregarProv = new AgregarProveedor();
 
         adminAgregarProv.setLocationRelativeTo(null);
         adminAgregarProv.setResizable(false);
@@ -919,14 +1045,8 @@ public class AdministrativosFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_btnBuscarProveedorMouseExited
 
     private void btnActualizarTablaProveedoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarTablaProveedoresActionPerformed
-        ListaVacia lv = new ListaVacia();
-        if (ListaProveedores.getProveedoresCentroComercial().isEmpty()) {
-            lv.setLocationRelativeTo(null);
-            lv.setResizable(false);
-            lv.setVisible(true);
-        } else {
-            llenarTablaProveedores();
-        }
+
+        llenarTablaCapacitaciones();
 
         // TODO add your handling code here:
     }//GEN-LAST:event_btnActualizarTablaProveedoresActionPerformed
@@ -985,6 +1105,108 @@ public class AdministrativosFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnBuscarProveedorActionPerformed
 
+    private void btnAgregarCapacitacionMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAgregarCapacitacionMouseEntered
+
+        botonPresionado(btnAgregarCapacitacion);
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnAgregarCapacitacionMouseEntered
+
+    private void btnAgregarCapacitacionMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAgregarCapacitacionMouseExited
+        botonProveedorDespresionado(btnAgregarCapacitacion);
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnAgregarCapacitacionMouseExited
+
+    private void btnACTUALIZARTABLAcapacitacionMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnACTUALIZARTABLAcapacitacionMouseEntered
+
+        botonPresionado(btnACTUALIZARTABLAcapacitacion);
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnACTUALIZARTABLAcapacitacionMouseEntered
+
+    private void btnACTUALIZARTABLAcapacitacionMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnACTUALIZARTABLAcapacitacionMouseExited
+        botonProveedorDespresionado(btnACTUALIZARTABLAcapacitacion);
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnACTUALIZARTABLAcapacitacionMouseExited
+
+    private void btnGestionarCapacitacionMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnGestionarCapacitacionMouseEntered
+        botonPresionado(btnGestionarCapacitacion);
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnGestionarCapacitacionMouseEntered
+
+    private void btnGestionarCapacitacionMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnGestionarCapacitacionMouseExited
+
+        botonProveedorDespresionado(btnGestionarCapacitacion);
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnGestionarCapacitacionMouseExited
+
+    private void btnSeguimientoCapacitacionMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSeguimientoCapacitacionMouseEntered
+        botonPresionado(btnSeguimientoCapacitacion);
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnSeguimientoCapacitacionMouseEntered
+
+    private void btnSeguimientoCapacitacionMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSeguimientoCapacitacionMouseExited
+
+        botonProveedorDespresionado(btnSeguimientoCapacitacion);
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnSeguimientoCapacitacionMouseExited
+
+    private void btnEliminarCapacitacionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEliminarCapacitacionMouseClicked
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnEliminarCapacitacionMouseClicked
+
+    private void btnEliminarCapacitacionMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEliminarCapacitacionMouseEntered
+        botonPresionado(btnEliminarCapacitacion);
+    }//GEN-LAST:event_btnEliminarCapacitacionMouseEntered
+
+    private void btnEliminarCapacitacionMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEliminarCapacitacionMouseExited
+
+        botonProveedorDespresionado(btnEliminarCapacitacion);
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnEliminarCapacitacionMouseExited
+
+    private void btnACTUALIZARTABLAcapacitacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnACTUALIZARTABLAcapacitacionActionPerformed
+        llenarTablaCapacitaciones();
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnACTUALIZARTABLAcapacitacionActionPerformed
+
+    private void btnAgregarCapacitacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarCapacitacionActionPerformed
+
+        AgendarCapacitacion agendarCapacitacion = new AgendarCapacitacion();
+
+        agendarCapacitacion.setLocationRelativeTo(null);
+        agendarCapacitacion.setResizable(false);
+        agendarCapacitacion.setVisible(true);
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnAgregarCapacitacionActionPerformed
+
+    private void btnEliminarCapacitacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarCapacitacionActionPerformed
+
+        EliminarCapacitacion elim = new EliminarCapacitacion();
+
+        ListaVacia vacia = new ListaVacia();
+
+        if (ListaCapacitaciones.getCapacitacionesCentroComercial().isEmpty()) {
+            vacia.setLocationRelativeTo(null);
+            vacia.setResizable(false);
+            vacia.setVisible(true);
+
+        } else {
+            elim.setLocationRelativeTo(null);
+            elim.setResizable(false);
+            elim.setVisible(true);
+        }
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnEliminarCapacitacionActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1021,6 +1243,8 @@ public class AdministrativosFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnACTUALIZARTABLAcapacitacion;
+    private javax.swing.JScrollPane btnActualizarTablaCapacitaciones;
     private javax.swing.JButton btnActualizarTablaProveedores;
     private javax.swing.JButton btnAgregarCapacitacion;
     private javax.swing.JButton btnAgregarEmpleado;
@@ -1043,6 +1267,7 @@ public class AdministrativosFrame extends javax.swing.JFrame {
     private javax.swing.JButton btnProveedoresAdmin;
     private javax.swing.JButton btnRegistrarHorarioPersonal;
     private javax.swing.JButton btnRegresarInicioAdmin;
+    private javax.swing.JButton btnSeguimientoCapacitacion;
     private javax.swing.JPanel gestionarCapacitacion;
     private javax.swing.JPanel gestionarEventos;
     private javax.swing.JPanel gestionarHorarioPersonal;
@@ -1054,11 +1279,8 @@ public class AdministrativosFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel16;
-    private javax.swing.JLabel jLabel17;
-    private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
+    private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel8;
@@ -1069,10 +1291,12 @@ public class AdministrativosFrame extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
+    private javax.swing.JPanel jPanel7;
+    private javax.swing.JPanel jPanel8;
+    private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JTabbedPane panelGeneralAdmin;
     private javax.swing.JTable tblCapacitaciones;

@@ -4,7 +4,7 @@
  */
 package ui.administrativos.proveedores;
 
-import logica.administrativos.ListaProveedores;
+import logica.administrativos.proveedores.ListaProveedores;
 import ui.utilidades.EliminadoExitosamente;
 import ui.utilidades.ErrorAlEliminar;
 
@@ -36,7 +36,7 @@ public class EliminarProveedor extends javax.swing.JFrame {
         btnVolverElimProvHeadr = new javax.swing.JButton();
         jLabel19 = new javax.swing.JLabel();
         txtfEliminarProvNumID = new javax.swing.JTextField();
-        btnProvEliminarID = new javax.swing.JButton();
+        btnEliminarCapacitacion = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -81,24 +81,24 @@ public class EliminarProveedor extends javax.swing.JFrame {
         txtfEliminarProvNumID.setBorder(null);
         jPanel1.add(txtfEliminarProvNumID, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 210, 350, 45));
 
-        btnProvEliminarID.setBackground(new java.awt.Color(127, 156, 90));
-        btnProvEliminarID.setFont(new java.awt.Font("Microsoft JhengHei", 1, 18)); // NOI18N
-        btnProvEliminarID.setForeground(new java.awt.Color(0, 0, 0));
-        btnProvEliminarID.setText("Eliminar");
-        btnProvEliminarID.setBorder(null);
-        btnProvEliminarID.addActionListener(new java.awt.event.ActionListener() {
+        btnEliminarCapacitacion.setBackground(new java.awt.Color(127, 156, 90));
+        btnEliminarCapacitacion.setFont(new java.awt.Font("Microsoft JhengHei", 1, 18)); // NOI18N
+        btnEliminarCapacitacion.setForeground(new java.awt.Color(0, 0, 0));
+        btnEliminarCapacitacion.setText("Eliminar");
+        btnEliminarCapacitacion.setBorder(null);
+        btnEliminarCapacitacion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnProvEliminarIDActionPerformed(evt);
+                btnEliminarCapacitacionActionPerformed(evt);
             }
         });
-        jPanel1.add(btnProvEliminarID, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 330, 140, 50));
+        jPanel1.add(btnEliminarCapacitacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 330, 140, 50));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 600, 450));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnProvEliminarIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProvEliminarIDActionPerformed
+    private void btnEliminarCapacitacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarCapacitacionActionPerformed
 
         ErrorAlEliminar err = new ErrorAlEliminar();
         
@@ -124,7 +124,7 @@ public class EliminarProveedor extends javax.swing.JFrame {
         }
 
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnProvEliminarIDActionPerformed
+    }//GEN-LAST:event_btnEliminarCapacitacionActionPerformed
 
     private void btnVolverElimProvHeadrActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverElimProvHeadrActionPerformed
         this.dispose();
@@ -168,7 +168,7 @@ public class EliminarProveedor extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnProvEliminarID;
+    private javax.swing.JButton btnEliminarCapacitacion;
     private javax.swing.JButton btnVolverElimProvHeadr;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel20;

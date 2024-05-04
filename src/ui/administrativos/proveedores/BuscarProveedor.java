@@ -5,7 +5,7 @@
 package ui.administrativos.proveedores;
 
 import javax.swing.table.DefaultTableModel;
-import logica.administrativos.ListaProveedores;
+import logica.administrativos.proveedores.ListaProveedores;
 
 /**
  *
