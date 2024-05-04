@@ -77,6 +77,7 @@ public class EliminarProveedor extends javax.swing.JFrame {
         txtfEliminarProvNumID.setBackground(new java.awt.Color(153, 195, 84));
         txtfEliminarProvNumID.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         txtfEliminarProvNumID.setForeground(new java.awt.Color(0, 0, 0));
+        txtfEliminarProvNumID.setBorder(null);
         jPanel1.add(txtfEliminarProvNumID, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 210, 350, 45));
 
         btnProvEliminarID.setBackground(new java.awt.Color(127, 156, 90));

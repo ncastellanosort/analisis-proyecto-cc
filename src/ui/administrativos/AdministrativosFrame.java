@@ -636,6 +636,11 @@ public class AdministrativosFrame extends javax.swing.JFrame {
                 btnBuscarProveedorMouseExited(evt);
             }
         });
+        btnBuscarProveedor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscarProveedorActionPerformed(evt);
+            }
+        });
         jPanel5.add(btnBuscarProveedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 0, 224, 50));
 
         btnGestionarProveedores.setBackground(new java.awt.Color(153, 195, 84));
@@ -931,6 +936,18 @@ public class AdministrativosFrame extends javax.swing.JFrame {
 
         // TODO add your handling code here:
     }//GEN-LAST:event_btnEliminarProveedorActionPerformed
+
+    private void btnBuscarProveedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarProveedorActionPerformed
+
+        BuscarProveedor buscarP = new BuscarProveedor();
+        
+             buscarP.setLocationRelativeTo(null);
+            buscarP.setResizable(false);
+            buscarP.setVisible(true);
+                
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnBuscarProveedorActionPerformed
 
     /**
      * @param args the command line arguments
