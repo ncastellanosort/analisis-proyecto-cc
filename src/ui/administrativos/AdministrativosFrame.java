@@ -14,7 +14,9 @@ import ui.login.Login;
  */
 public class AdministrativosFrame extends javax.swing.JFrame {
 
-    Color colorBotonPresionado = new Color(153, 195, 84);
+    Color colorBotonPresionado = new Color(108, 136, 69);
+
+    Color colorBotonProveedorPresionado = new Color(153, 195, 84);
 
     /**
      * Creates new form AdministrativosFrame
@@ -31,7 +33,6 @@ public class AdministrativosFrame extends javax.swing.JFrame {
 //        content.add(gestionarPersonal, BorderLayout.CENTER);
 //        content.revalidate();
 //        content.repaint();
-
     }
 
     public void botonPresionado(JButton boton) {
@@ -45,6 +46,14 @@ public class AdministrativosFrame extends javax.swing.JFrame {
     public void botonDespresionado(JButton boton) {
 
         boton.setBackground(Color.white);
+
+        boton.setForeground(Color.BLACK);
+
+    }
+
+    public void botonProveedorDespresionado(JButton boton) {
+
+        boton.setBackground(colorBotonProveedorPresionado);
 
         boton.setForeground(Color.BLACK);
 
@@ -67,17 +76,16 @@ public class AdministrativosFrame extends javax.swing.JFrame {
         btnRegistrarHorarioPersonal = new javax.swing.JButton();
         btnGestionarEventos = new javax.swing.JButton();
         btnGestionarEncuentrosCapacitacion = new javax.swing.JButton();
+        btnProveedoresAdmin = new javax.swing.JButton();
         btnRegresarInicioAdmin = new javax.swing.JButton();
         panelGeneralAdmin = new javax.swing.JTabbedPane();
         gestionarPersonalFrame = new javax.swing.JPanel();
+        jPanel3 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblPersonal = new javax.swing.JTable();
-        jLabel5 = new javax.swing.JLabel();
         btnGestionarEmpleado = new javax.swing.JButton();
-        jLabel6 = new javax.swing.JLabel();
         btnAgregarEmpleado = new javax.swing.JButton();
-        jLabel7 = new javax.swing.JLabel();
         btnEliminarEmpleado = new javax.swing.JButton();
         gestionarHorarioPersonal = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
@@ -107,6 +115,17 @@ public class AdministrativosFrame extends javax.swing.JFrame {
         jLabel17 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
         btnEliminarCapacitacion = new javax.swing.JButton();
+        gestionarProveedores = new javax.swing.JPanel();
+        jPanel4 = new javax.swing.JPanel();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        tblProveedores = new javax.swing.JTable();
+        jPanel5 = new javax.swing.JPanel();
+        btnEliminarProveedor = new javax.swing.JButton();
+        btnBuscarProveedor = new javax.swing.JButton();
+        btnGestionarProveedores = new javax.swing.JButton();
+        btnAgregarProveedor = new javax.swing.JButton();
+        jPanel6 = new javax.swing.JPanel();
+        jLabel19 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(1400, 880));
@@ -115,14 +134,14 @@ public class AdministrativosFrame extends javax.swing.JFrame {
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBackground(new java.awt.Color(153, 195, 84));
+        jPanel1.setBackground(new java.awt.Color(108, 136, 69));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel3.setBackground(new java.awt.Color(0, 0, 0));
         jLabel3.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 36)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("Administrativos");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 30, -1, -1));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 30, -1, -1));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 0, 1320, 110));
 
@@ -225,6 +244,27 @@ public class AdministrativosFrame extends javax.swing.JFrame {
         });
         jPanel2.add(btnGestionarEncuentrosCapacitacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 360, 280, 50));
 
+        btnProveedoresAdmin.setBackground(new java.awt.Color(255, 255, 255));
+        btnProveedoresAdmin.setFont(new java.awt.Font("Microsoft JhengHei", 1, 18)); // NOI18N
+        btnProveedoresAdmin.setForeground(new java.awt.Color(0, 0, 0));
+        btnProveedoresAdmin.setText("     Proveedores");
+        btnProveedoresAdmin.setBorder(null);
+        btnProveedoresAdmin.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btnProveedoresAdmin.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnProveedoresAdminMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnProveedoresAdminMouseExited(evt);
+            }
+        });
+        btnProveedoresAdmin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnProveedoresAdminActionPerformed(evt);
+            }
+        });
+        jPanel2.add(btnProveedoresAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 410, 280, 50));
+
         btnRegresarInicioAdmin.setBackground(new java.awt.Color(255, 255, 255));
         btnRegresarInicioAdmin.setFont(new java.awt.Font("Microsoft JhengHei", 1, 18)); // NOI18N
         btnRegresarInicioAdmin.setForeground(new java.awt.Color(0, 0, 0));
@@ -244,17 +284,23 @@ public class AdministrativosFrame extends javax.swing.JFrame {
                 btnRegresarInicioAdminActionPerformed(evt);
             }
         });
-        jPanel2.add(btnRegresarInicioAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 410, 280, 50));
+        jPanel2.add(btnRegresarInicioAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 460, 280, 50));
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 280, 880));
 
+        panelGeneralAdmin.setTabLayoutPolicy(javax.swing.JTabbedPane.SCROLL_TAB_LAYOUT);
+        panelGeneralAdmin.setTabPlacement(javax.swing.JTabbedPane.RIGHT);
+
         gestionarPersonalFrame.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel4.setBackground(new java.awt.Color(0, 0, 0));
         jLabel4.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 36)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setText("Gestionar personal");
-        gestionarPersonalFrame.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 30, -1, -1));
+        jPanel3.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, -1, -1));
 
         tblPersonal.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -269,46 +315,35 @@ public class AdministrativosFrame extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(tblPersonal);
 
-        gestionarPersonalFrame.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 120, 800, -1));
-
-        jLabel5.setBackground(new java.awt.Color(0, 0, 0));
-        jLabel5.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 24)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel5.setText("Gestionar datos empleado");
-        gestionarPersonalFrame.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 570, -1, -1));
+        jPanel3.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 120, 800, -1));
 
         btnGestionarEmpleado.setBackground(new java.awt.Color(153, 195, 84));
         btnGestionarEmpleado.setFont(new java.awt.Font("Microsoft JhengHei", 1, 18)); // NOI18N
         btnGestionarEmpleado.setForeground(new java.awt.Color(0, 0, 0));
-        btnGestionarEmpleado.setText("GESTIONAR");
+        btnGestionarEmpleado.setText("GESTIONAR EMPLEADO");
         btnGestionarEmpleado.setBorder(null);
-        gestionarPersonalFrame.add(btnGestionarEmpleado, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 610, 160, 50));
-
-        jLabel6.setBackground(new java.awt.Color(0, 0, 0));
-        jLabel6.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 24)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel6.setText("Agregar empleado");
-        gestionarPersonalFrame.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 570, -1, -1));
+        jPanel3.add(btnGestionarEmpleado, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 600, 250, 50));
 
         btnAgregarEmpleado.setBackground(new java.awt.Color(153, 195, 84));
         btnAgregarEmpleado.setFont(new java.awt.Font("Microsoft JhengHei", 1, 18)); // NOI18N
         btnAgregarEmpleado.setForeground(new java.awt.Color(0, 0, 0));
-        btnAgregarEmpleado.setText("AGREGAR");
+        btnAgregarEmpleado.setText("AGREGAR EMPLEADO");
         btnAgregarEmpleado.setBorder(null);
-        gestionarPersonalFrame.add(btnAgregarEmpleado, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 610, 160, 50));
-
-        jLabel7.setBackground(new java.awt.Color(0, 0, 0));
-        jLabel7.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 24)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel7.setText("Eliminar empleado");
-        gestionarPersonalFrame.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 570, -1, -1));
+        jPanel3.add(btnAgregarEmpleado, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 590, 230, 50));
 
         btnEliminarEmpleado.setBackground(new java.awt.Color(153, 195, 84));
         btnEliminarEmpleado.setFont(new java.awt.Font("Microsoft JhengHei", 1, 18)); // NOI18N
         btnEliminarEmpleado.setForeground(new java.awt.Color(0, 0, 0));
-        btnEliminarEmpleado.setText("ELIMINAR");
+        btnEliminarEmpleado.setText("ELIMINAR EMPLEADO");
         btnEliminarEmpleado.setBorder(null);
-        gestionarPersonalFrame.add(btnEliminarEmpleado, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 610, 160, 50));
+        btnEliminarEmpleado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarEmpleadoActionPerformed(evt);
+            }
+        });
+        jPanel3.add(btnEliminarEmpleado, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 600, 220, 50));
+
+        gestionarPersonalFrame.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1120, 780));
 
         panelGeneralAdmin.addTab("tab1", gestionarPersonalFrame);
 
@@ -491,14 +526,124 @@ public class AdministrativosFrame extends javax.swing.JFrame {
 
         panelGeneralAdmin.addTab("tab4", gestionarCapacitacion);
 
-        getContentPane().add(panelGeneralAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 70, 1120, 810));
+        gestionarProveedores.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel4.setBackground(new java.awt.Color(185, 197, 169));
+        jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        tblProveedores.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane5.setViewportView(tblProveedores);
+
+        jPanel4.add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 190, 1030, -1));
+
+        jPanel5.setBackground(new java.awt.Color(153, 195, 84));
+        jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        btnEliminarProveedor.setBackground(new java.awt.Color(153, 195, 84));
+        btnEliminarProveedor.setFont(new java.awt.Font("Microsoft JhengHei", 1, 18)); // NOI18N
+        btnEliminarProveedor.setForeground(new java.awt.Color(0, 0, 0));
+        btnEliminarProveedor.setText("Eliminar proveedor");
+        btnEliminarProveedor.setBorder(null);
+        btnEliminarProveedor.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnEliminarProveedorMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnEliminarProveedorMouseExited(evt);
+            }
+        });
+        jPanel5.add(btnEliminarProveedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 0, 280, 50));
+
+        btnBuscarProveedor.setBackground(new java.awt.Color(153, 195, 84));
+        btnBuscarProveedor.setFont(new java.awt.Font("Microsoft JhengHei", 1, 18)); // NOI18N
+        btnBuscarProveedor.setForeground(new java.awt.Color(0, 0, 0));
+        btnBuscarProveedor.setText("Buscar proveedor");
+        btnBuscarProveedor.setBorder(null);
+        btnBuscarProveedor.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnBuscarProveedorMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnBuscarProveedorMouseExited(evt);
+            }
+        });
+        jPanel5.add(btnBuscarProveedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 0, 280, 50));
+
+        btnGestionarProveedores.setBackground(new java.awt.Color(153, 195, 84));
+        btnGestionarProveedores.setFont(new java.awt.Font("Microsoft JhengHei", 1, 18)); // NOI18N
+        btnGestionarProveedores.setForeground(new java.awt.Color(0, 0, 0));
+        btnGestionarProveedores.setText("Gestionar proveedor");
+        btnGestionarProveedores.setBorder(null);
+        btnGestionarProveedores.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnGestionarProveedoresMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnGestionarProveedoresMouseExited(evt);
+            }
+        });
+        btnGestionarProveedores.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGestionarProveedoresActionPerformed(evt);
+            }
+        });
+        jPanel5.add(btnGestionarProveedores, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 0, 280, 50));
+
+        btnAgregarProveedor.setBackground(new java.awt.Color(153, 195, 84));
+        btnAgregarProveedor.setFont(new java.awt.Font("Microsoft JhengHei", 1, 18)); // NOI18N
+        btnAgregarProveedor.setForeground(new java.awt.Color(0, 0, 0));
+        btnAgregarProveedor.setText("Agregar proveedor");
+        btnAgregarProveedor.setBorder(null);
+        btnAgregarProveedor.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnAgregarProveedorMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnAgregarProveedorMouseExited(evt);
+            }
+        });
+        btnAgregarProveedor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAgregarProveedorActionPerformed(evt);
+            }
+        });
+        jPanel5.add(btnAgregarProveedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 280, 50));
+
+        jPanel4.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, 1120, 50));
+
+        jPanel6.setBackground(new java.awt.Color(127, 156, 90));
+        jPanel6.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel19.setBackground(new java.awt.Color(0, 0, 0));
+        jLabel19.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 36)); // NOI18N
+        jLabel19.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel19.setText("Gestionar proveedores");
+        jPanel6.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 20, -1, -1));
+
+        jPanel4.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1120, 90));
+
+        gestionarProveedores.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1120, 770));
+
+        panelGeneralAdmin.addTab("tab5", gestionarProveedores);
+
+        getContentPane().add(panelGeneralAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 110, 1180, 770));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnGestionarEmpleados2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGestionarEmpleados2ActionPerformed
         panelGeneralAdmin.setSelectedIndex(0);
-                
+
         // TODO add your handling code here:
     }//GEN-LAST:event_btnGestionarEmpleados2ActionPerformed
 
@@ -571,8 +716,47 @@ public class AdministrativosFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnGestionarEncuentrosCapacitacionMouseExited
 
-    private void btnRegresarInicioAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegresarInicioAdminActionPerformed
+    private void btnProveedoresAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProveedoresAdminActionPerformed
+        panelGeneralAdmin.setSelectedIndex(4);
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnProveedoresAdminActionPerformed
 
+    private void btnProveedoresAdminMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnProveedoresAdminMouseEntered
+        botonPresionado(btnProveedoresAdmin);
+
+// TODO add your handling code here:
+    }//GEN-LAST:event_btnProveedoresAdminMouseEntered
+
+    private void btnProveedoresAdminMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnProveedoresAdminMouseExited
+        botonDespresionado(btnProveedoresAdmin);// TODO add your handling code here:
+    }//GEN-LAST:event_btnProveedoresAdminMouseExited
+
+    private void btnRegistrarHorarioPersonalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarHorarioPersonalActionPerformed
+        panelGeneralAdmin.setSelectedIndex(1);        // TODO add your handling code here:
+    }//GEN-LAST:event_btnRegistrarHorarioPersonalActionPerformed
+
+    private void btnGestionarEventosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGestionarEventosActionPerformed
+        panelGeneralAdmin.setSelectedIndex(2);
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnGestionarEventosActionPerformed
+
+    private void btnEliminarEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarEmpleadoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnEliminarEmpleadoActionPerformed
+
+    private void btnRegresarInicioAdminMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRegresarInicioAdminMouseEntered
+        botonPresionado(btnRegresarInicioAdmin);
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnRegresarInicioAdminMouseEntered
+
+    private void btnRegresarInicioAdminMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRegresarInicioAdminMouseExited
+        botonDespresionado(btnRegresarInicioAdmin);
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnRegresarInicioAdminMouseExited
+
+    private void btnRegresarInicioAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegresarInicioAdminActionPerformed
         Login login = new Login();
 
         login.setLocationRelativeTo(null);
@@ -584,24 +768,63 @@ public class AdministrativosFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnRegresarInicioAdminActionPerformed
 
-    private void btnRegresarInicioAdminMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRegresarInicioAdminMouseEntered
-        botonPresionado(btnRegresarInicioAdmin);
+    private void btnAgregarProveedorMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAgregarProveedorMouseEntered
+        botonPresionado(btnAgregarProveedor);
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnAgregarProveedorMouseEntered
+
+    private void btnAgregarProveedorMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAgregarProveedorMouseExited
+        botonProveedorDespresionado(btnAgregarProveedor);
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnAgregarProveedorMouseExited
+
+    private void btnGestionarProveedoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGestionarProveedoresActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnGestionarProveedoresActionPerformed
+
+    private void btnGestionarProveedoresMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnGestionarProveedoresMouseEntered
+        botonPresionado(btnGestionarProveedores);
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnGestionarProveedoresMouseEntered
+
+    private void btnGestionarProveedoresMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnGestionarProveedoresMouseExited
+
+        botonProveedorDespresionado(btnGestionarProveedores);
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnGestionarProveedoresMouseExited
+
+    private void btnEliminarProveedorMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEliminarProveedorMouseEntered
+
+        botonPresionado(btnEliminarProveedor);
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnEliminarProveedorMouseEntered
+
+    private void btnEliminarProveedorMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEliminarProveedorMouseExited
+        botonProveedorDespresionado(btnEliminarProveedor);
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnEliminarProveedorMouseExited
+
+    private void btnAgregarProveedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarProveedorActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnAgregarProveedorActionPerformed
+
+    private void btnBuscarProveedorMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBuscarProveedorMouseEntered
+        botonPresionado(btnBuscarProveedor);
 
 // TODO add your handling code here:
-    }//GEN-LAST:event_btnRegresarInicioAdminMouseEntered
+    }//GEN-LAST:event_btnBuscarProveedorMouseEntered
 
-    private void btnRegresarInicioAdminMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRegresarInicioAdminMouseExited
-        botonDespresionado(btnRegresarInicioAdmin);// TODO add your handling code here:
-    }//GEN-LAST:event_btnRegresarInicioAdminMouseExited
+    private void btnBuscarProveedorMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBuscarProveedorMouseExited
+        botonProveedorDespresionado(btnBuscarProveedor);
 
-    private void btnRegistrarHorarioPersonalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarHorarioPersonalActionPerformed
-panelGeneralAdmin.setSelectedIndex(1);        // TODO add your handling code here:
-    }//GEN-LAST:event_btnRegistrarHorarioPersonalActionPerformed
-
-    private void btnGestionarEventosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGestionarEventosActionPerformed
-panelGeneralAdmin.setSelectedIndex(2);
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnGestionarEventosActionPerformed
+// TODO add your handling code here:
+    }//GEN-LAST:event_btnBuscarProveedorMouseExited
 
     /**
      * @param args the command line arguments
@@ -643,9 +866,12 @@ panelGeneralAdmin.setSelectedIndex(2);
     private javax.swing.JButton btnAgregarEmpleado;
     private javax.swing.JButton btnAgregarEvento;
     private javax.swing.JButton btnAgregarHorasExtra;
+    private javax.swing.JButton btnAgregarProveedor;
+    private javax.swing.JButton btnBuscarProveedor;
     private javax.swing.JButton btnEliminarCapacitacion;
     private javax.swing.JButton btnEliminarEmpleado;
     private javax.swing.JButton btnEliminarEvento;
+    private javax.swing.JButton btnEliminarProveedor;
     private javax.swing.JButton btnGestionarCapacitacion;
     private javax.swing.JButton btnGestionarEmpleado;
     private javax.swing.JButton btnGestionarEmpleados2;
@@ -653,12 +879,15 @@ panelGeneralAdmin.setSelectedIndex(2);
     private javax.swing.JButton btnGestionarEvento;
     private javax.swing.JButton btnGestionarEventos;
     private javax.swing.JButton btnGestionarHorasPersonal;
+    private javax.swing.JButton btnGestionarProveedores;
+    private javax.swing.JButton btnProveedoresAdmin;
     private javax.swing.JButton btnRegistrarHorarioPersonal;
     private javax.swing.JButton btnRegresarInicioAdmin;
     private javax.swing.JPanel gestionarCapacitacion;
     private javax.swing.JPanel gestionarEventos;
     private javax.swing.JPanel gestionarHorarioPersonal;
     private javax.swing.JPanel gestionarPersonalFrame;
+    private javax.swing.JPanel gestionarProveedores;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -669,23 +898,27 @@ panelGeneralAdmin.setSelectedIndex(2);
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JTabbedPane panelGeneralAdmin;
     private javax.swing.JTable tblCapacitaciones;
     private javax.swing.JTable tblGestionarEventos;
     private javax.swing.JTable tblHorarioPersonal;
     private javax.swing.JTable tblPersonal;
+    private javax.swing.JTable tblProveedores;
     // End of variables declaration//GEN-END:variables
 }
