@@ -10,7 +10,12 @@ import javax.swing.JButton;
 import javax.swing.table.DefaultTableModel;
 import logica.administrativos.ListaProveedores;
 import logica.administrativos.Proveedor;
+import ui.administrativos.proveedores.AdministrativosAgregarProveedor;
+import ui.administrativos.proveedores.BuscarProveedor;
+import ui.administrativos.proveedores.EliminarProveedor;
+import ui.administrativos.proveedores.IndiceEditarProveeedor;
 import ui.login.Login;
+import ui.utilidades.ListaVacia;
 
 /**
  *
@@ -845,6 +850,23 @@ public class AdministrativosFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAgregarProveedorMouseExited
 
     private void btnGestionarProveedoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGestionarProveedoresActionPerformed
+
+        IndiceEditarProveeedor IDeditar = new IndiceEditarProveeedor();
+
+        ListaVacia listav = new ListaVacia();
+
+        if (ListaProveedores.getProveedoresCentroComercial().isEmpty()) {
+            listav.setLocationRelativeTo(null);
+            listav.setResizable(false);
+            listav.setVisible(true);
+        } else {
+
+            IDeditar.setLocationRelativeTo(null);
+            IDeditar.setResizable(false);
+            IDeditar.setVisible(true);
+
+        }
+
         // TODO add your handling code here:
     }//GEN-LAST:event_btnGestionarProveedoresActionPerformed
 
@@ -940,11 +962,10 @@ public class AdministrativosFrame extends javax.swing.JFrame {
     private void btnBuscarProveedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarProveedorActionPerformed
 
         BuscarProveedor buscarP = new BuscarProveedor();
-        
-             buscarP.setLocationRelativeTo(null);
-            buscarP.setResizable(false);
-            buscarP.setVisible(true);
-                
+
+        buscarP.setLocationRelativeTo(null);
+        buscarP.setResizable(false);
+        buscarP.setVisible(true);
 
         // TODO add your handling code here:
     }//GEN-LAST:event_btnBuscarProveedorActionPerformed
