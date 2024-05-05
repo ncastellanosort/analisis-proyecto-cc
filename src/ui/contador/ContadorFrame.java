@@ -5,8 +5,16 @@
 package ui.contador;
 
 import java.awt.Color;
+import java.util.Map;
 import javax.swing.JButton;
+import javax.swing.table.DefaultTableModel;
+import logica.contador.gastos.ListaGastos;
+import logica.contador.ingresos.Ingreso;
+import logica.contador.ingresos.ListaIngresos;
+import ui.contador.ingresos.AgregarIngresos;
+import ui.contador.ingresos.BuscarIngreso;
 import ui.login.Login;
+import ui.utilidades.ListaVacia;
 
 /**
  *
@@ -18,11 +26,30 @@ public class ContadorFrame extends javax.swing.JFrame {
 
     Color colorBotonProveedorPresionado = new Color(153, 195, 84);
 
+    DefaultTableModel modeloTablaIngresos = new DefaultTableModel();
+    DefaultTableModel modeloTablaGastos = new DefaultTableModel();
+
+    String[] columnasTablaIngresos = {"Identificación", "Cantidad monetaria", "Fecha ingreso", "Origen ingreso", "Tipo de ingreso", "Método de pago", "Área origen"};
+
+    String[] columnasTablaGastos = {"Identificación", "Cantidad monetaria", "Fecha gasto", "Concepto gasto", "Proveedor", "Número de recibo", "Categoria", "Área destino", "Método de pago"};
+
     /**
      * Creates new form ContadorFrame
      */
     public ContadorFrame() {
         initComponents();
+
+        modeloTablaIngresos.setColumnIdentifiers(columnasTablaIngresos);
+
+        tblIngresos.setModel(modeloTablaIngresos);
+
+        tblIngresos.setRowHeight(40);
+
+        modeloTablaGastos.setColumnIdentifiers(columnasTablaGastos);
+
+        tblGastos.setModel(modeloTablaGastos);
+
+        tblGastos.setRowHeight(40);
     }
 
     public void botonPresionado(JButton boton) {
@@ -65,6 +92,7 @@ public class ContadorFrame extends javax.swing.JFrame {
         btnGestionarIngresosContador = new javax.swing.JButton();
         btnGestionarGastosContador = new javax.swing.JButton();
         btnCerrarSesionContador = new javax.swing.JButton();
+        btnIngresarEstadoFinanciero = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         panelGeneralContador = new javax.swing.JTabbedPane();
@@ -102,7 +130,6 @@ public class ContadorFrame extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(1400, 880));
         setMinimumSize(new java.awt.Dimension(1400, 880));
-        setPreferredSize(new java.awt.Dimension(1400, 880));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
@@ -199,7 +226,23 @@ public class ContadorFrame extends javax.swing.JFrame {
                 btnCerrarSesionContadorActionPerformed(evt);
             }
         });
-        jPanel2.add(btnCerrarSesionContador, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 360, 280, 50));
+        jPanel2.add(btnCerrarSesionContador, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 410, 280, 50));
+
+        btnIngresarEstadoFinanciero.setBackground(new java.awt.Color(255, 255, 255));
+        btnIngresarEstadoFinanciero.setFont(new java.awt.Font("Microsoft JhengHei", 1, 18)); // NOI18N
+        btnIngresarEstadoFinanciero.setForeground(new java.awt.Color(0, 0, 0));
+        btnIngresarEstadoFinanciero.setText("     Estado financiero");
+        btnIngresarEstadoFinanciero.setBorder(null);
+        btnIngresarEstadoFinanciero.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btnIngresarEstadoFinanciero.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnIngresarEstadoFinancieroMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnIngresarEstadoFinancieroMouseExited(evt);
+            }
+        });
+        jPanel2.add(btnIngresarEstadoFinanciero, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 360, 280, 50));
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 280, 880));
 
@@ -251,6 +294,11 @@ public class ContadorFrame extends javax.swing.JFrame {
                 btnActualizarTablaIngresosMouseExited(evt);
             }
         });
+        btnActualizarTablaIngresos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnActualizarTablaIngresosActionPerformed(evt);
+            }
+        });
         jPanel10.add(btnActualizarTablaIngresos, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 373, 50));
 
         btnRegistrarIngreso.setBackground(new java.awt.Color(153, 195, 84));
@@ -264,6 +312,11 @@ public class ContadorFrame extends javax.swing.JFrame {
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 btnRegistrarIngresoMouseExited(evt);
+            }
+        });
+        btnRegistrarIngreso.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegistrarIngresoActionPerformed(evt);
             }
         });
         jPanel10.add(btnRegistrarIngreso, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 0, 373, 50));
@@ -281,10 +334,16 @@ public class ContadorFrame extends javax.swing.JFrame {
                 btnBuscarIngresoMouseExited(evt);
             }
         });
-        jPanel10.add(btnBuscarIngreso, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 0, 373, 50));
+        btnBuscarIngreso.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscarIngresoActionPerformed(evt);
+            }
+        });
+        jPanel10.add(btnBuscarIngreso, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 0, 380, 50));
 
         jPanel4.add(jPanel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, 1120, 50));
 
+        tblIngresos.setFont(new java.awt.Font("Microsoft JhengHei", 1, 14)); // NOI18N
         tblIngresos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -367,7 +426,7 @@ public class ContadorFrame extends javax.swing.JFrame {
                 btnBuscarGastoActionPerformed(evt);
             }
         });
-        jPanel11.add(btnBuscarGasto, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 0, 373, 50));
+        jPanel11.add(btnBuscarGasto, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 0, 380, 50));
 
         btnActualizarTablaGastos.setBackground(new java.awt.Color(153, 195, 84));
         btnActualizarTablaGastos.setFont(new java.awt.Font("Microsoft JhengHei", 1, 18)); // NOI18N
@@ -399,7 +458,7 @@ public class ContadorFrame extends javax.swing.JFrame {
         ));
         jScrollPane2.setViewportView(tblGastos);
 
-        jPanel5.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 150, 1070, -1));
+        jPanel5.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 150, 1080, -1));
 
         panelGestionarGastos.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1120, 770));
 
@@ -504,7 +563,7 @@ public class ContadorFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnGestionarFacturasContadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGestionarFacturasContadorActionPerformed
-        panelGeneralContador.setSelectedIndex(2);        // TODO add your handling code here:
+//        panelGeneralContador.setSelectedIndex(2);        // este todavia no
     }//GEN-LAST:event_btnGestionarFacturasContadorActionPerformed
 
     private void btnGestionarIngresosContadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGestionarIngresosContadorActionPerformed
@@ -608,6 +667,21 @@ public class ContadorFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_btnBuscarIngresoMouseExited
 
     private void btnBuscarGastoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarGastoActionPerformed
+
+        ListaVacia vacia = new ListaVacia();
+
+        if (ListaGastos.getGastosCentroComercial().isEmpty()) {
+
+            vacia.setLocationRelativeTo(null);
+            vacia.setResizable(false);
+            vacia.setVisible(true);
+
+        } else {
+//            buscarP.setLocationRelativeTo(null);
+//            buscarP.setResizable(false);
+//            buscarP.setVisible(true);
+        }
+
         // TODO add your handling code here:
     }//GEN-LAST:event_btnBuscarGastoActionPerformed
 
@@ -663,6 +737,73 @@ public class ContadorFrame extends javax.swing.JFrame {
         botonProveedorDespresionado(btnBuscarFactura);// TODO add your handling code here:
     }//GEN-LAST:event_btnBuscarFacturaMouseExited
 
+    private void btnIngresarEstadoFinancieroMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnIngresarEstadoFinancieroMouseEntered
+        botonPresionado(btnIngresarEstadoFinanciero);
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnIngresarEstadoFinancieroMouseEntered
+
+    private void btnIngresarEstadoFinancieroMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnIngresarEstadoFinancieroMouseExited
+        botonDespresionado(btnIngresarEstadoFinanciero);
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnIngresarEstadoFinancieroMouseExited
+
+    private void btnBuscarIngresoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarIngresoActionPerformed
+
+        ListaVacia vacia = new ListaVacia();
+
+        BuscarIngreso buscarIn = new BuscarIngreso();
+
+        if (ListaIngresos.getIngresosCentroComercial().isEmpty()) {
+
+            vacia.setLocationRelativeTo(null);
+            vacia.setResizable(false);
+            vacia.setVisible(true);
+
+        } else {
+
+            buscarIn.setLocationRelativeTo(null);
+            buscarIn.setResizable(false);
+            buscarIn.setVisible(true);
+        }
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnBuscarIngresoActionPerformed
+
+    private void btnRegistrarIngresoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarIngresoActionPerformed
+        AgregarIngresos agregarIngreso = new AgregarIngresos();
+        agregarIngreso.setLocationRelativeTo(null);
+        agregarIngreso.setResizable(false);
+        agregarIngreso.setVisible(true);
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnRegistrarIngresoActionPerformed
+
+    private void btnActualizarTablaIngresosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarTablaIngresosActionPerformed
+
+        llenarTablaIngresos();
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnActualizarTablaIngresosActionPerformed
+
+    public void llenarTablaIngresos() {
+        DefaultTableModel modelo = new DefaultTableModel(new String[]{"Identificación", "Cantidad monetaria", "Fecha ingreso", "Origen ingreso", "Tipo de ingreso", "Método de pago", "Área origen"},
+                0);
+
+        for (Map.Entry<Integer, Ingreso> codigo : ListaIngresos.getIngresosCentroComercial().entrySet()) {
+            int clave = codigo.getKey();
+
+            Ingreso valor = codigo.getValue();
+
+            Object[] fila = {clave, valor.getCantidadMonetariaIngreso(), valor.getFechaIngreso(), valor.getOrigenIngreso(), valor.getTipoDeIngresoIngreso(), valor.getMetodoDePagoIngreso(), valor.getAreaOrigenIngreso()};
+            modelo.addRow(fila);
+
+        }
+
+        tblIngresos.setModel(modelo);
+
+    }
+
     /**
      * @param args the command line arguments
      */
@@ -709,6 +850,7 @@ public class ContadorFrame extends javax.swing.JFrame {
     private javax.swing.JButton btnGestionarFacturasContador;
     private javax.swing.JButton btnGestionarGastosContador;
     private javax.swing.JButton btnGestionarIngresosContador;
+    private javax.swing.JButton btnIngresarEstadoFinanciero;
     private javax.swing.JButton btnRegistrarFactura;
     private javax.swing.JButton btnRegistrarGasto;
     private javax.swing.JButton btnRegistrarIngreso;

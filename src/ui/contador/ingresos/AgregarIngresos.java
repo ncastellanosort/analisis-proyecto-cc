@@ -4,6 +4,11 @@
  */
 package ui.contador.ingresos;
 
+import logica.contador.ingresos.Ingreso;
+import logica.contador.ingresos.ListaIngresos;
+import ui.utilidades.AgregadoExitosamente;
+import ui.utilidades.ErrorAlAgregar;
+
 /**
  *
  * @author Nicolas
@@ -26,21 +31,197 @@ public class AgregarIngresos extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        jPanel1 = new javax.swing.JPanel();
+        jPanel6 = new javax.swing.JPanel();
+        jLabel19 = new javax.swing.JLabel();
+        btnVolverInicioINgresoREg = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        txtfREGAreaOrigenIngr = new javax.swing.JTextField();
+        txtfREGIdentificacionIngreso = new javax.swing.JTextField();
+        txtfREGCAntMonetariaIngres = new javax.swing.JTextField();
+        txtfREGFechaIngreso = new javax.swing.JTextField();
+        txtfREGOrignIngres = new javax.swing.JTextField();
+        txtfREGTipoIngreso = new javax.swing.JTextField();
+        txtfREGMetodPagoINg = new javax.swing.JTextField();
+        btnRegistrarIngresoTabla = new javax.swing.JButton();
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
-        );
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMaximumSize(new java.awt.Dimension(983, 880));
+        setMinimumSize(new java.awt.Dimension(983, 880));
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel6.setBackground(new java.awt.Color(127, 156, 90));
+        jPanel6.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel19.setBackground(new java.awt.Color(0, 0, 0));
+        jLabel19.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 36)); // NOI18N
+        jLabel19.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel19.setText("Registrar ingreso");
+        jPanel6.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 20, -1, -1));
+
+        btnVolverInicioINgresoREg.setBackground(new java.awt.Color(127, 156, 90));
+        btnVolverInicioINgresoREg.setFont(new java.awt.Font("Microsoft JhengHei", 1, 24)); // NOI18N
+        btnVolverInicioINgresoREg.setForeground(new java.awt.Color(0, 0, 0));
+        btnVolverInicioINgresoREg.setText("X");
+        btnVolverInicioINgresoREg.setBorder(null);
+        btnVolverInicioINgresoREg.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVolverInicioINgresoREgActionPerformed(evt);
+            }
+        });
+        jPanel6.add(btnVolverInicioINgresoREg, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 0, 40, 40));
+
+        jPanel1.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1600, 90));
+
+        jLabel1.setFont(new java.awt.Font("Microsoft JhengHei", 1, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel1.setText("Número de identificación");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 130, -1, 30));
+
+        jLabel6.setFont(new java.awt.Font("Microsoft JhengHei", 1, 18)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel6.setText("Tipo de ingreso");
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 130, -1, 30));
+
+        jLabel7.setFont(new java.awt.Font("Microsoft JhengHei", 1, 18)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel7.setText("Método de pago");
+        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 240, -1, 30));
+
+        jLabel2.setFont(new java.awt.Font("Microsoft JhengHei", 1, 18)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel2.setText("Cantidad monetaria");
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 240, -1, 30));
+
+        jLabel3.setFont(new java.awt.Font("Microsoft JhengHei", 1, 18)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel3.setText("Fecha de ingreso");
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 350, -1, 30));
+
+        jLabel8.setFont(new java.awt.Font("Microsoft JhengHei", 1, 18)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel8.setText("Área de origen");
+        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 350, -1, 30));
+
+        jLabel4.setFont(new java.awt.Font("Microsoft JhengHei", 1, 18)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel4.setText("Origen de ingreso");
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 460, -1, 30));
+
+        txtfREGAreaOrigenIngr.setBackground(new java.awt.Color(153, 195, 84));
+        txtfREGAreaOrigenIngr.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        txtfREGAreaOrigenIngr.setForeground(new java.awt.Color(0, 0, 0));
+        txtfREGAreaOrigenIngr.setText("Pendiente");
+        txtfREGAreaOrigenIngr.setBorder(null);
+        jPanel1.add(txtfREGAreaOrigenIngr, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 390, 350, 45));
+
+        txtfREGIdentificacionIngreso.setBackground(new java.awt.Color(153, 195, 84));
+        txtfREGIdentificacionIngreso.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        txtfREGIdentificacionIngreso.setForeground(new java.awt.Color(0, 0, 0));
+        txtfREGIdentificacionIngreso.setText("0");
+        txtfREGIdentificacionIngreso.setBorder(null);
+        jPanel1.add(txtfREGIdentificacionIngreso, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 170, 350, 45));
+
+        txtfREGCAntMonetariaIngres.setBackground(new java.awt.Color(153, 195, 84));
+        txtfREGCAntMonetariaIngres.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        txtfREGCAntMonetariaIngres.setForeground(new java.awt.Color(0, 0, 0));
+        txtfREGCAntMonetariaIngres.setText("0");
+        txtfREGCAntMonetariaIngres.setBorder(null);
+        jPanel1.add(txtfREGCAntMonetariaIngres, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 280, 350, 45));
+
+        txtfREGFechaIngreso.setBackground(new java.awt.Color(153, 195, 84));
+        txtfREGFechaIngreso.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        txtfREGFechaIngreso.setForeground(new java.awt.Color(0, 0, 0));
+        txtfREGFechaIngreso.setText("Pendiente");
+        txtfREGFechaIngreso.setBorder(null);
+        jPanel1.add(txtfREGFechaIngreso, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 390, 350, 45));
+
+        txtfREGOrignIngres.setBackground(new java.awt.Color(153, 195, 84));
+        txtfREGOrignIngres.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        txtfREGOrignIngres.setForeground(new java.awt.Color(0, 0, 0));
+        txtfREGOrignIngres.setText("Pendiente");
+        txtfREGOrignIngres.setBorder(null);
+        jPanel1.add(txtfREGOrignIngres, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 500, 350, 45));
+
+        txtfREGTipoIngreso.setBackground(new java.awt.Color(153, 195, 84));
+        txtfREGTipoIngreso.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        txtfREGTipoIngreso.setForeground(new java.awt.Color(0, 0, 0));
+        txtfREGTipoIngreso.setText("Pendiente");
+        txtfREGTipoIngreso.setBorder(null);
+        jPanel1.add(txtfREGTipoIngreso, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 170, 350, 45));
+
+        txtfREGMetodPagoINg.setBackground(new java.awt.Color(153, 195, 84));
+        txtfREGMetodPagoINg.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        txtfREGMetodPagoINg.setForeground(new java.awt.Color(0, 0, 0));
+        txtfREGMetodPagoINg.setText("Pendiente");
+        txtfREGMetodPagoINg.setBorder(null);
+        jPanel1.add(txtfREGMetodPagoINg, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 280, 350, 45));
+
+        btnRegistrarIngresoTabla.setBackground(new java.awt.Color(127, 156, 90));
+        btnRegistrarIngresoTabla.setFont(new java.awt.Font("Microsoft JhengHei", 1, 18)); // NOI18N
+        btnRegistrarIngresoTabla.setForeground(new java.awt.Color(0, 0, 0));
+        btnRegistrarIngresoTabla.setText("Registrar ingreso");
+        btnRegistrarIngresoTabla.setBorder(null);
+        btnRegistrarIngresoTabla.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegistrarIngresoTablaActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnRegistrarIngresoTabla, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 720, 250, 50));
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 990, 880));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnVolverInicioINgresoREgActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverInicioINgresoREgActionPerformed
+
+        this.dispose();
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnVolverInicioINgresoREgActionPerformed
+
+    private void btnRegistrarIngresoTablaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarIngresoTablaActionPerformed
+
+        ErrorAlAgregar error = new ErrorAlAgregar();
+
+        AgregadoExitosamente bien = new AgregadoExitosamente();
+
+        try {
+            int INPUTnumIdentificacionIngreso = Integer.parseInt(txtfREGIdentificacionIngreso.getText());
+            int INPUTcantidadMonetariaIngreso = Integer.parseInt(txtfREGCAntMonetariaIngres.getText());
+            String INPUTfechaIngreso = txtfREGFechaIngreso.getText();
+            String INPUTorigenIngreso = txtfREGOrignIngres.getText();
+            String INPUTtipoIngreso = txtfREGTipoIngreso.getText();
+            String INPUTmetodoPago = txtfREGMetodPagoINg.getText();
+            String INPUTareaOrigen = txtfREGAreaOrigenIngr.getText();
+
+            ListaIngresos.getIngresosCentroComercial().put(INPUTnumIdentificacionIngreso, new Ingreso(INPUTcantidadMonetariaIngreso, INPUTfechaIngreso, INPUTorigenIngreso, INPUTtipoIngreso, INPUTmetodoPago, INPUTareaOrigen));
+
+            bien.setLocationRelativeTo(null);
+            bien.setResizable(false);
+            bien.setVisible(true);
+
+            this.dispose();
+
+        } catch (Exception e) {
+
+            error.setLocationRelativeTo(null);
+            error.setResizable(false);
+            error.setVisible(true);
+
+        }
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnRegistrarIngresoTablaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -78,5 +259,24 @@ public class AgregarIngresos extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnRegistrarIngresoTabla;
+    private javax.swing.JButton btnVolverInicioINgresoREg;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel19;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel6;
+    private javax.swing.JTextField txtfREGAreaOrigenIngr;
+    private javax.swing.JTextField txtfREGCAntMonetariaIngres;
+    private javax.swing.JTextField txtfREGFechaIngreso;
+    private javax.swing.JTextField txtfREGIdentificacionIngreso;
+    private javax.swing.JTextField txtfREGMetodPagoINg;
+    private javax.swing.JTextField txtfREGOrignIngres;
+    private javax.swing.JTextField txtfREGTipoIngreso;
     // End of variables declaration//GEN-END:variables
 }

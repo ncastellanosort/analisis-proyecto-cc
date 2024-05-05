@@ -4,10 +4,24 @@
  */
 package logica.contador.gastos;
 
+import java.util.HashMap;
+
 /**
  *
  * @author Nicolas
  */
 public class ListaGastos {
+    
+    // integer el identificador del gasto
+    
+    private static HashMap<Integer, Gasto> gastosCentroComercial = new HashMap<>();
+
+    public static HashMap<Integer, Gasto> getGastosCentroComercial() {
+        return gastosCentroComercial;
+    }
+
+    public static void setGastosCentroComercial(HashMap<Integer, Gasto> gastosCentroComercial) {
+        ListaGastos.gastosCentroComercial = gastosCentroComercial;
+    }
     
 }

@@ -4,10 +4,25 @@
  */
 package logica.contador.ingresos;
 
+import java.util.HashMap;
+
 /**
  *
  * @author Nicolas
  */
 public class ListaIngresos {
     
+    
+    //identificador los ingresos es el id de transaccion
+
+    private static HashMap<Integer, Ingreso> ingresosCentroComercial = new HashMap<>();
+
+    public static HashMap<Integer, Ingreso> getIngresosCentroComercial() {
+        return ingresosCentroComercial;
+    }
+
+    public static void setIngresosCentroComercial(HashMap<Integer, Ingreso> ingresosCentroComercial) {
+        ListaIngresos.ingresosCentroComercial = ingresosCentroComercial;
+    }
+
 }
