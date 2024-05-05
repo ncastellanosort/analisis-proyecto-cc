@@ -561,7 +561,7 @@ public class AdministrativosFrame extends javax.swing.JFrame {
             tblCapacitaciones.getColumnModel().getColumn(3).setResizable(false);
         }
 
-        jPanel7.add(btnActualizarTablaCapacitaciones, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 200, 1090, -1));
+        jPanel7.add(btnActualizarTablaCapacitaciones, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 160, 1090, -1));
 
         jPanel8.setBackground(new java.awt.Color(127, 156, 90));
         jPanel8.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());

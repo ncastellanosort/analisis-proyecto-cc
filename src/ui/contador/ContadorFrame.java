@@ -4,17 +4,49 @@
  */
 package ui.contador;
 
+import java.awt.Color;
+import javax.swing.JButton;
+import ui.login.Login;
+
 /**
  *
  * @author Nicolas
  */
 public class ContadorFrame extends javax.swing.JFrame {
 
+    Color colorBotonPresionado = new Color(108, 136, 69);
+
+    Color colorBotonProveedorPresionado = new Color(153, 195, 84);
+
     /**
      * Creates new form ContadorFrame
      */
     public ContadorFrame() {
         initComponents();
+    }
+
+    public void botonPresionado(JButton boton) {
+
+        boton.setBackground(colorBotonPresionado);
+
+        boton.setForeground(Color.white);
+
+    }
+
+    public void botonDespresionado(JButton boton) {
+
+        boton.setBackground(Color.white);
+
+        boton.setForeground(Color.BLACK);
+
+    }
+
+    public void botonProveedorDespresionado(JButton boton) {
+
+        boton.setBackground(colorBotonProveedorPresionado);
+
+        boton.setForeground(Color.BLACK);
+
     }
 
     /**
@@ -27,59 +59,297 @@ public class ContadorFrame extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
+        jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
+        btnGestionarFacturasContador = new javax.swing.JButton();
+        btnGestionarIngresosContador = new javax.swing.JButton();
+        btnGestionarGastosContador = new javax.swing.JButton();
+        btnCerrarSesionContador = new javax.swing.JButton();
+        jPanel3 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        btnRealizarRevisionEstadoFinanciero = new javax.swing.JButton();
-        jLabel4 = new javax.swing.JLabel();
-        btnRealizarInformeEstadoFinanciero = new javax.swing.JButton();
+        panelGeneralContador = new javax.swing.JTabbedPane();
+        panelGestionarIngresos = new javax.swing.JPanel();
+        jPanel4 = new javax.swing.JPanel();
+        jPanel6 = new javax.swing.JPanel();
+        jLabel19 = new javax.swing.JLabel();
+        panelGestionarGastos = new javax.swing.JPanel();
+        jPanel5 = new javax.swing.JPanel();
+        jPanel7 = new javax.swing.JPanel();
+        jLabel20 = new javax.swing.JLabel();
+        panelGestionarFacturas = new javax.swing.JPanel();
+        jPanel8 = new javax.swing.JPanel();
+        jPanel9 = new javax.swing.JPanel();
+        jLabel21 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMaximumSize(new java.awt.Dimension(1400, 880));
+        setMinimumSize(new java.awt.Dimension(1400, 880));
+        setPreferredSize(new java.awt.Dimension(1400, 880));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setMaximumSize(new java.awt.Dimension(1400, 880));
+        jPanel1.setMinimumSize(new java.awt.Dimension(1400, 880));
+        jPanel1.setPreferredSize(new java.awt.Dimension(1400, 880));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/logo.png"))); // NOI18N
-        jLabel1.setText("jLabel1");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 180, 170));
+        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 20, -1, 170));
+
+        btnGestionarFacturasContador.setBackground(new java.awt.Color(255, 255, 255));
+        btnGestionarFacturasContador.setFont(new java.awt.Font("Microsoft JhengHei", 1, 18)); // NOI18N
+        btnGestionarFacturasContador.setForeground(new java.awt.Color(0, 0, 0));
+        btnGestionarFacturasContador.setText("     Gestionar facturas");
+        btnGestionarFacturasContador.setBorder(null);
+        btnGestionarFacturasContador.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btnGestionarFacturasContador.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnGestionarFacturasContadorMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnGestionarFacturasContadorMouseExited(evt);
+            }
+        });
+        btnGestionarFacturasContador.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGestionarFacturasContadorActionPerformed(evt);
+            }
+        });
+        jPanel2.add(btnGestionarFacturasContador, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 310, 280, 50));
+
+        btnGestionarIngresosContador.setBackground(new java.awt.Color(255, 255, 255));
+        btnGestionarIngresosContador.setFont(new java.awt.Font("Microsoft JhengHei", 1, 18)); // NOI18N
+        btnGestionarIngresosContador.setForeground(new java.awt.Color(0, 0, 0));
+        btnGestionarIngresosContador.setText("     Gestionar ingresos");
+        btnGestionarIngresosContador.setBorder(null);
+        btnGestionarIngresosContador.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btnGestionarIngresosContador.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnGestionarIngresosContadorMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnGestionarIngresosContadorMouseExited(evt);
+            }
+        });
+        btnGestionarIngresosContador.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGestionarIngresosContadorActionPerformed(evt);
+            }
+        });
+        jPanel2.add(btnGestionarIngresosContador, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 210, 280, 50));
+
+        btnGestionarGastosContador.setBackground(new java.awt.Color(255, 255, 255));
+        btnGestionarGastosContador.setFont(new java.awt.Font("Microsoft JhengHei", 1, 18)); // NOI18N
+        btnGestionarGastosContador.setForeground(new java.awt.Color(0, 0, 0));
+        btnGestionarGastosContador.setText("     Gestionar gastos");
+        btnGestionarGastosContador.setBorder(null);
+        btnGestionarGastosContador.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btnGestionarGastosContador.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnGestionarGastosContadorMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnGestionarGastosContadorMouseExited(evt);
+            }
+        });
+        btnGestionarGastosContador.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGestionarGastosContadorActionPerformed(evt);
+            }
+        });
+        jPanel2.add(btnGestionarGastosContador, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 260, 280, 50));
+
+        btnCerrarSesionContador.setBackground(new java.awt.Color(255, 255, 255));
+        btnCerrarSesionContador.setFont(new java.awt.Font("Microsoft JhengHei", 1, 18)); // NOI18N
+        btnCerrarSesionContador.setForeground(new java.awt.Color(0, 0, 0));
+        btnCerrarSesionContador.setText("     Cerrar sesión");
+        btnCerrarSesionContador.setBorder(null);
+        btnCerrarSesionContador.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btnCerrarSesionContador.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnCerrarSesionContadorMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnCerrarSesionContadorMouseExited(evt);
+            }
+        });
+        btnCerrarSesionContador.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCerrarSesionContadorActionPerformed(evt);
+            }
+        });
+        jPanel2.add(btnCerrarSesionContador, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 360, 280, 50));
+
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 280, 880));
+
+        jPanel3.setBackground(new java.awt.Color(108, 136, 69));
+        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel3.setBackground(new java.awt.Color(0, 0, 0));
         jLabel3.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 36)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("Contador");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 30, -1, -1));
+        jPanel3.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 30, -1, -1));
 
-        jLabel5.setBackground(new java.awt.Color(0, 0, 0));
-        jLabel5.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 24)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel5.setText("Realizar revision de estados financieros");
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 290, -1, -1));
+        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 0, 1320, 110));
 
-        btnRealizarRevisionEstadoFinanciero.setBackground(new java.awt.Color(153, 195, 84));
-        btnRealizarRevisionEstadoFinanciero.setFont(new java.awt.Font("Microsoft JhengHei", 1, 18)); // NOI18N
-        btnRealizarRevisionEstadoFinanciero.setForeground(new java.awt.Color(0, 0, 0));
-        btnRealizarRevisionEstadoFinanciero.setText("ENTRAR");
-        btnRealizarRevisionEstadoFinanciero.setBorder(null);
-        jPanel1.add(btnRealizarRevisionEstadoFinanciero, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 340, 160, 50));
+        panelGeneralContador.setTabPlacement(javax.swing.JTabbedPane.RIGHT);
 
-        jLabel4.setBackground(new java.awt.Color(0, 0, 0));
-        jLabel4.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 24)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel4.setText("Realizar informe de estado financiero mensual");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 420, -1, -1));
+        panelGestionarIngresos.setMaximumSize(new java.awt.Dimension(1117, 770));
+        panelGestionarIngresos.setMinimumSize(new java.awt.Dimension(1117, 770));
+        panelGestionarIngresos.setPreferredSize(new java.awt.Dimension(1117, 770));
+        panelGestionarIngresos.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        btnRealizarInformeEstadoFinanciero.setBackground(new java.awt.Color(153, 195, 84));
-        btnRealizarInformeEstadoFinanciero.setFont(new java.awt.Font("Microsoft JhengHei", 1, 18)); // NOI18N
-        btnRealizarInformeEstadoFinanciero.setForeground(new java.awt.Color(0, 0, 0));
-        btnRealizarInformeEstadoFinanciero.setText("ENTRAR");
-        btnRealizarInformeEstadoFinanciero.setBorder(null);
-        jPanel1.add(btnRealizarInformeEstadoFinanciero, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 470, 160, 50));
+        jPanel4.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1280, 720));
+        jPanel6.setBackground(new java.awt.Color(127, 156, 90));
+        jPanel6.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel19.setBackground(new java.awt.Color(0, 0, 0));
+        jLabel19.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 36)); // NOI18N
+        jLabel19.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel19.setText("Gestionar ingresos");
+        jPanel6.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 20, -1, -1));
+
+        jPanel4.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1600, 90));
+
+        panelGestionarIngresos.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1120, 770));
+
+        panelGeneralContador.addTab("tab1", panelGestionarIngresos);
+
+        panelGestionarGastos.setMaximumSize(new java.awt.Dimension(1117, 770));
+        panelGestionarGastos.setMinimumSize(new java.awt.Dimension(1117, 770));
+        panelGestionarGastos.setPreferredSize(new java.awt.Dimension(1117, 770));
+        panelGestionarGastos.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel5.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel5.setMaximumSize(new java.awt.Dimension(1117, 770));
+        jPanel5.setMinimumSize(new java.awt.Dimension(1117, 770));
+        jPanel5.setPreferredSize(new java.awt.Dimension(1117, 770));
+        jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel7.setBackground(new java.awt.Color(127, 156, 90));
+        jPanel7.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel20.setBackground(new java.awt.Color(0, 0, 0));
+        jLabel20.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 36)); // NOI18N
+        jLabel20.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel20.setText("Gestionar gastos");
+        jPanel7.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 20, -1, -1));
+
+        jPanel5.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1600, 90));
+
+        panelGestionarGastos.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1120, 770));
+
+        panelGeneralContador.addTab("tab2", panelGestionarGastos);
+
+        panelGestionarFacturas.setMaximumSize(new java.awt.Dimension(1117, 770));
+        panelGestionarFacturas.setMinimumSize(new java.awt.Dimension(1117, 770));
+        panelGestionarFacturas.setPreferredSize(new java.awt.Dimension(1117, 770));
+        panelGestionarFacturas.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel8.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel8.setMaximumSize(new java.awt.Dimension(1117, 770));
+        jPanel8.setMinimumSize(new java.awt.Dimension(1117, 770));
+        jPanel8.setPreferredSize(new java.awt.Dimension(1117, 770));
+        jPanel8.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel9.setBackground(new java.awt.Color(127, 156, 90));
+        jPanel9.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel21.setBackground(new java.awt.Color(0, 0, 0));
+        jLabel21.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 36)); // NOI18N
+        jLabel21.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel21.setText("Gestionar facturas");
+        jPanel9.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 20, -1, -1));
+
+        jPanel8.add(jPanel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1600, 90));
+
+        panelGestionarFacturas.add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1120, 770));
+
+        panelGeneralContador.addTab("tab3", panelGestionarFacturas);
+
+        jPanel1.add(panelGeneralContador, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 110, 1170, 770));
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1400, 880));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnGestionarFacturasContadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGestionarFacturasContadorActionPerformed
+panelGeneralContador.setSelectedIndex(2);        // TODO add your handling code here:
+    }//GEN-LAST:event_btnGestionarFacturasContadorActionPerformed
+
+    private void btnGestionarIngresosContadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGestionarIngresosContadorActionPerformed
+panelGeneralContador.setSelectedIndex(0);
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnGestionarIngresosContadorActionPerformed
+
+    private void btnGestionarGastosContadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGestionarGastosContadorActionPerformed
+panelGeneralContador.setSelectedIndex(1);        // TODO add your handling code here:
+    }//GEN-LAST:event_btnGestionarGastosContadorActionPerformed
+
+    private void btnGestionarIngresosContadorMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnGestionarIngresosContadorMouseEntered
+        botonPresionado(btnGestionarIngresosContador);
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnGestionarIngresosContadorMouseEntered
+
+    private void btnGestionarIngresosContadorMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnGestionarIngresosContadorMouseExited
+        botonDespresionado(btnGestionarIngresosContador);
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnGestionarIngresosContadorMouseExited
+
+    private void btnGestionarGastosContadorMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnGestionarGastosContadorMouseEntered
+
+        botonPresionado(btnGestionarGastosContador);// TODO add your handling code here:
+    }//GEN-LAST:event_btnGestionarGastosContadorMouseEntered
+
+    private void btnGestionarGastosContadorMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnGestionarGastosContadorMouseExited
+
+        botonDespresionado(btnGestionarGastosContador);
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnGestionarGastosContadorMouseExited
+
+    private void btnGestionarFacturasContadorMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnGestionarFacturasContadorMouseEntered
+
+        botonPresionado(btnGestionarFacturasContador);
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnGestionarFacturasContadorMouseEntered
+
+    private void btnGestionarFacturasContadorMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnGestionarFacturasContadorMouseExited
+        botonDespresionado(btnGestionarFacturasContador);// TODO add your handling code here:
+    }//GEN-LAST:event_btnGestionarFacturasContadorMouseExited
+
+    private void btnCerrarSesionContadorMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCerrarSesionContadorMouseEntered
+        botonPresionado(btnCerrarSesionContador);
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnCerrarSesionContadorMouseEntered
+
+    private void btnCerrarSesionContadorMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCerrarSesionContadorMouseExited
+        botonDespresionado(btnCerrarSesionContador);
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnCerrarSesionContadorMouseExited
+
+    private void btnCerrarSesionContadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCerrarSesionContadorActionPerformed
+        Login login = new Login();
+
+        login.setLocationRelativeTo(null);
+        login.setResizable(false);
+        login.setVisible(true);
+
+        this.dispose();
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnCerrarSesionContadorActionPerformed
 
     /**
      * @param args the command line arguments
@@ -117,12 +387,27 @@ public class ContadorFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnRealizarInformeEstadoFinanciero;
-    private javax.swing.JButton btnRealizarRevisionEstadoFinanciero;
+    private javax.swing.JButton btnCerrarSesionContador;
+    private javax.swing.JButton btnGestionarFacturasContador;
+    private javax.swing.JButton btnGestionarGastosContador;
+    private javax.swing.JButton btnGestionarIngresosContador;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel19;
+    private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
+    private javax.swing.JPanel jPanel7;
+    private javax.swing.JPanel jPanel8;
+    private javax.swing.JPanel jPanel9;
+    private javax.swing.JTabbedPane panelGeneralContador;
+    private javax.swing.JPanel panelGestionarFacturas;
+    private javax.swing.JPanel panelGestionarGastos;
+    private javax.swing.JPanel panelGestionarIngresos;
     // End of variables declaration//GEN-END:variables
 }

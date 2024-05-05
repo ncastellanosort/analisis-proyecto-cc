@@ -89,7 +89,7 @@ public class BuscarCapacitacion extends javax.swing.JFrame {
         lbEstadoCapacitacion.setBackground(new java.awt.Color(0, 0, 0));
         lbEstadoCapacitacion.setFont(new java.awt.Font("Microsoft JhengHei UI", 0, 18)); // NOI18N
         lbEstadoCapacitacion.setForeground(new java.awt.Color(0, 0, 0));
-        jPanel1.add(lbEstadoCapacitacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 150, 310, 30));
+        jPanel1.add(lbEstadoCapacitacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 160, 310, 30));
 
         txtfIDBuscarCapacitacion.setBackground(new java.awt.Color(153, 195, 84));
         txtfIDBuscarCapacitacion.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
@@ -143,7 +143,7 @@ public class BuscarCapacitacion extends javax.swing.JFrame {
                 btnFinalizarLaCapacitacionActionPerformed(evt);
             }
         });
-        jPanel1.add(btnFinalizarLaCapacitacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 430, 240, 45));
+        jPanel1.add(btnFinalizarLaCapacitacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 220, 240, 45));
 
         jLabel23.setBackground(new java.awt.Color(0, 0, 0));
         jLabel23.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 18)); // NOI18N
