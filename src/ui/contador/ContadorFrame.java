@@ -72,14 +72,32 @@ public class ContadorFrame extends javax.swing.JFrame {
         jPanel4 = new javax.swing.JPanel();
         jPanel6 = new javax.swing.JPanel();
         jLabel19 = new javax.swing.JLabel();
+        jPanel10 = new javax.swing.JPanel();
+        btnActualizarTablaIngresos = new javax.swing.JButton();
+        btnRegistrarIngreso = new javax.swing.JButton();
+        btnBuscarIngreso = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tblIngresos = new javax.swing.JTable();
         panelGestionarGastos = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
         jPanel7 = new javax.swing.JPanel();
         jLabel20 = new javax.swing.JLabel();
+        jPanel11 = new javax.swing.JPanel();
+        btnRegistrarGasto = new javax.swing.JButton();
+        btnBuscarGasto = new javax.swing.JButton();
+        btnActualizarTablaGastos = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        tblGastos = new javax.swing.JTable();
         panelGestionarFacturas = new javax.swing.JPanel();
         jPanel8 = new javax.swing.JPanel();
         jPanel9 = new javax.swing.JPanel();
         jLabel21 = new javax.swing.JLabel();
+        jPanel12 = new javax.swing.JPanel();
+        btnRegistrarFactura = new javax.swing.JButton();
+        btnBuscarFactura = new javax.swing.JButton();
+        btnActualizarTablaFacturas = new javax.swing.JButton();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        tblFacturas = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(1400, 880));
@@ -217,6 +235,71 @@ public class ContadorFrame extends javax.swing.JFrame {
 
         jPanel4.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1600, 90));
 
+        jPanel10.setBackground(new java.awt.Color(153, 195, 84));
+        jPanel10.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        btnActualizarTablaIngresos.setBackground(new java.awt.Color(153, 195, 84));
+        btnActualizarTablaIngresos.setFont(new java.awt.Font("Microsoft JhengHei", 1, 18)); // NOI18N
+        btnActualizarTablaIngresos.setForeground(new java.awt.Color(0, 0, 0));
+        btnActualizarTablaIngresos.setText("Actualizar tabla");
+        btnActualizarTablaIngresos.setBorder(null);
+        btnActualizarTablaIngresos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnActualizarTablaIngresosMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnActualizarTablaIngresosMouseExited(evt);
+            }
+        });
+        jPanel10.add(btnActualizarTablaIngresos, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 373, 50));
+
+        btnRegistrarIngreso.setBackground(new java.awt.Color(153, 195, 84));
+        btnRegistrarIngreso.setFont(new java.awt.Font("Microsoft JhengHei", 1, 18)); // NOI18N
+        btnRegistrarIngreso.setForeground(new java.awt.Color(0, 0, 0));
+        btnRegistrarIngreso.setText("Registrar ingreso");
+        btnRegistrarIngreso.setBorder(null);
+        btnRegistrarIngreso.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnRegistrarIngresoMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnRegistrarIngresoMouseExited(evt);
+            }
+        });
+        jPanel10.add(btnRegistrarIngreso, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 0, 373, 50));
+
+        btnBuscarIngreso.setBackground(new java.awt.Color(153, 195, 84));
+        btnBuscarIngreso.setFont(new java.awt.Font("Microsoft JhengHei", 1, 18)); // NOI18N
+        btnBuscarIngreso.setForeground(new java.awt.Color(0, 0, 0));
+        btnBuscarIngreso.setText("Buscar ingreso");
+        btnBuscarIngreso.setBorder(null);
+        btnBuscarIngreso.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnBuscarIngresoMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnBuscarIngresoMouseExited(evt);
+            }
+        });
+        jPanel10.add(btnBuscarIngreso, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 0, 373, 50));
+
+        jPanel4.add(jPanel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, 1120, 50));
+
+        tblIngresos.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(tblIngresos);
+
+        jPanel4.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 150, 1080, -1));
+
         panelGestionarIngresos.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1120, 770));
 
         panelGeneralContador.addTab("tab1", panelGestionarIngresos);
@@ -242,6 +325,81 @@ public class ContadorFrame extends javax.swing.JFrame {
         jPanel7.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 20, -1, -1));
 
         jPanel5.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1600, 90));
+
+        jPanel11.setBackground(new java.awt.Color(153, 195, 84));
+        jPanel11.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        btnRegistrarGasto.setBackground(new java.awt.Color(153, 195, 84));
+        btnRegistrarGasto.setFont(new java.awt.Font("Microsoft JhengHei", 1, 18)); // NOI18N
+        btnRegistrarGasto.setForeground(new java.awt.Color(0, 0, 0));
+        btnRegistrarGasto.setText("Registrar gasto");
+        btnRegistrarGasto.setBorder(null);
+        btnRegistrarGasto.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnRegistrarGastoMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnRegistrarGastoMouseExited(evt);
+            }
+        });
+        btnRegistrarGasto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegistrarGastoActionPerformed(evt);
+            }
+        });
+        jPanel11.add(btnRegistrarGasto, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 0, 373, 50));
+
+        btnBuscarGasto.setBackground(new java.awt.Color(153, 195, 84));
+        btnBuscarGasto.setFont(new java.awt.Font("Microsoft JhengHei", 1, 18)); // NOI18N
+        btnBuscarGasto.setForeground(new java.awt.Color(0, 0, 0));
+        btnBuscarGasto.setText("Buscar gasto");
+        btnBuscarGasto.setBorder(null);
+        btnBuscarGasto.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnBuscarGastoMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnBuscarGastoMouseExited(evt);
+            }
+        });
+        btnBuscarGasto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscarGastoActionPerformed(evt);
+            }
+        });
+        jPanel11.add(btnBuscarGasto, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 0, 373, 50));
+
+        btnActualizarTablaGastos.setBackground(new java.awt.Color(153, 195, 84));
+        btnActualizarTablaGastos.setFont(new java.awt.Font("Microsoft JhengHei", 1, 18)); // NOI18N
+        btnActualizarTablaGastos.setForeground(new java.awt.Color(0, 0, 0));
+        btnActualizarTablaGastos.setText("Actualizar tabla");
+        btnActualizarTablaGastos.setBorder(null);
+        btnActualizarTablaGastos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnActualizarTablaGastosMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnActualizarTablaGastosMouseExited(evt);
+            }
+        });
+        jPanel11.add(btnActualizarTablaGastos, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 373, 50));
+
+        jPanel5.add(jPanel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, 1120, 50));
+
+        tblGastos.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane2.setViewportView(tblGastos);
+
+        jPanel5.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 150, 1070, -1));
 
         panelGestionarGastos.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1120, 770));
 
@@ -269,6 +427,71 @@ public class ContadorFrame extends javax.swing.JFrame {
 
         jPanel8.add(jPanel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1600, 90));
 
+        jPanel12.setBackground(new java.awt.Color(153, 195, 84));
+        jPanel12.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        btnRegistrarFactura.setBackground(new java.awt.Color(153, 195, 84));
+        btnRegistrarFactura.setFont(new java.awt.Font("Microsoft JhengHei", 1, 18)); // NOI18N
+        btnRegistrarFactura.setForeground(new java.awt.Color(0, 0, 0));
+        btnRegistrarFactura.setText("Registrar factura");
+        btnRegistrarFactura.setBorder(null);
+        btnRegistrarFactura.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnRegistrarFacturaMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnRegistrarFacturaMouseExited(evt);
+            }
+        });
+        jPanel12.add(btnRegistrarFactura, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 0, 373, 50));
+
+        btnBuscarFactura.setBackground(new java.awt.Color(153, 195, 84));
+        btnBuscarFactura.setFont(new java.awt.Font("Microsoft JhengHei", 1, 18)); // NOI18N
+        btnBuscarFactura.setForeground(new java.awt.Color(0, 0, 0));
+        btnBuscarFactura.setText("Buscar factura");
+        btnBuscarFactura.setBorder(null);
+        btnBuscarFactura.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnBuscarFacturaMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnBuscarFacturaMouseExited(evt);
+            }
+        });
+        jPanel12.add(btnBuscarFactura, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 0, 373, 50));
+
+        btnActualizarTablaFacturas.setBackground(new java.awt.Color(153, 195, 84));
+        btnActualizarTablaFacturas.setFont(new java.awt.Font("Microsoft JhengHei", 1, 18)); // NOI18N
+        btnActualizarTablaFacturas.setForeground(new java.awt.Color(0, 0, 0));
+        btnActualizarTablaFacturas.setText("Actualizar tabla");
+        btnActualizarTablaFacturas.setBorder(null);
+        btnActualizarTablaFacturas.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnActualizarTablaFacturasMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnActualizarTablaFacturasMouseExited(evt);
+            }
+        });
+        jPanel12.add(btnActualizarTablaFacturas, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 373, 50));
+
+        jPanel8.add(jPanel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, 1120, 50));
+
+        tblFacturas.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane3.setViewportView(tblFacturas);
+
+        jPanel8.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 150, 1080, -1));
+
         panelGestionarFacturas.add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1120, 770));
 
         panelGeneralContador.addTab("tab3", panelGestionarFacturas);
@@ -281,17 +504,17 @@ public class ContadorFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnGestionarFacturasContadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGestionarFacturasContadorActionPerformed
-panelGeneralContador.setSelectedIndex(2);        // TODO add your handling code here:
+        panelGeneralContador.setSelectedIndex(2);        // TODO add your handling code here:
     }//GEN-LAST:event_btnGestionarFacturasContadorActionPerformed
 
     private void btnGestionarIngresosContadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGestionarIngresosContadorActionPerformed
-panelGeneralContador.setSelectedIndex(0);
+        panelGeneralContador.setSelectedIndex(0);
 
         // TODO add your handling code here:
     }//GEN-LAST:event_btnGestionarIngresosContadorActionPerformed
 
     private void btnGestionarGastosContadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGestionarGastosContadorActionPerformed
-panelGeneralContador.setSelectedIndex(1);        // TODO add your handling code here:
+        panelGeneralContador.setSelectedIndex(1);        // TODO add your handling code here:
     }//GEN-LAST:event_btnGestionarGastosContadorActionPerformed
 
     private void btnGestionarIngresosContadorMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnGestionarIngresosContadorMouseEntered
@@ -351,6 +574,95 @@ panelGeneralContador.setSelectedIndex(1);        // TODO add your handling code 
         // TODO add your handling code here:
     }//GEN-LAST:event_btnCerrarSesionContadorActionPerformed
 
+    private void btnActualizarTablaIngresosMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnActualizarTablaIngresosMouseEntered
+        botonPresionado(btnActualizarTablaIngresos);
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnActualizarTablaIngresosMouseEntered
+
+    private void btnActualizarTablaIngresosMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnActualizarTablaIngresosMouseExited
+        botonProveedorDespresionado(btnActualizarTablaIngresos);
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnActualizarTablaIngresosMouseExited
+
+    private void btnRegistrarIngresoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRegistrarIngresoMouseEntered
+        botonPresionado(btnRegistrarIngreso);// TODO add your handling code here:
+    }//GEN-LAST:event_btnRegistrarIngresoMouseEntered
+
+    private void btnRegistrarIngresoMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRegistrarIngresoMouseExited
+
+        botonProveedorDespresionado(btnRegistrarIngreso);// TODO add your handling code here:
+    }//GEN-LAST:event_btnRegistrarIngresoMouseExited
+
+    private void btnBuscarIngresoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBuscarIngresoMouseEntered
+
+        botonPresionado(btnBuscarIngreso);
+// TODO add your handling code here:
+    }//GEN-LAST:event_btnBuscarIngresoMouseEntered
+
+    private void btnBuscarIngresoMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBuscarIngresoMouseExited
+        botonProveedorDespresionado(btnBuscarIngreso);
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnBuscarIngresoMouseExited
+
+    private void btnBuscarGastoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarGastoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnBuscarGastoActionPerformed
+
+    private void btnRegistrarGastoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarGastoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnRegistrarGastoActionPerformed
+
+    private void btnActualizarTablaGastosMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnActualizarTablaGastosMouseEntered
+        botonPresionado(btnActualizarTablaGastos);// TODO add your handling code here:
+    }//GEN-LAST:event_btnActualizarTablaGastosMouseEntered
+
+    private void btnActualizarTablaGastosMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnActualizarTablaGastosMouseExited
+        botonProveedorDespresionado(btnActualizarTablaGastos);// TODO add your handling code here:
+    }//GEN-LAST:event_btnActualizarTablaGastosMouseExited
+
+    private void btnRegistrarGastoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRegistrarGastoMouseEntered
+        botonPresionado(btnRegistrarGasto);// TODO add your handling code here:
+    }//GEN-LAST:event_btnRegistrarGastoMouseEntered
+
+    private void btnRegistrarGastoMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRegistrarGastoMouseExited
+        botonProveedorDespresionado(btnRegistrarGasto);// TODO add your handling code here:
+    }//GEN-LAST:event_btnRegistrarGastoMouseExited
+
+    private void btnBuscarGastoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBuscarGastoMouseEntered
+        botonPresionado(btnBuscarGasto);// TODO add your handling code here:
+    }//GEN-LAST:event_btnBuscarGastoMouseEntered
+
+    private void btnBuscarGastoMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBuscarGastoMouseExited
+        botonProveedorDespresionado(btnBuscarGasto);// TODO add your handling code here:
+    }//GEN-LAST:event_btnBuscarGastoMouseExited
+
+    private void btnActualizarTablaFacturasMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnActualizarTablaFacturasMouseEntered
+        botonPresionado(btnActualizarTablaFacturas);// TODO add your handling code here:
+    }//GEN-LAST:event_btnActualizarTablaFacturasMouseEntered
+
+    private void btnActualizarTablaFacturasMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnActualizarTablaFacturasMouseExited
+        botonProveedorDespresionado(btnActualizarTablaFacturas);// TODO add your handling code here:
+    }//GEN-LAST:event_btnActualizarTablaFacturasMouseExited
+
+    private void btnRegistrarFacturaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRegistrarFacturaMouseEntered
+        botonPresionado(btnRegistrarFactura);// TODO add your handling code here:
+    }//GEN-LAST:event_btnRegistrarFacturaMouseEntered
+
+    private void btnRegistrarFacturaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRegistrarFacturaMouseExited
+        botonProveedorDespresionado(btnRegistrarFactura);// TODO add your handling code here:
+    }//GEN-LAST:event_btnRegistrarFacturaMouseExited
+
+    private void btnBuscarFacturaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBuscarFacturaMouseEntered
+        botonPresionado(btnBuscarFactura);// TODO add your handling code here:
+    }//GEN-LAST:event_btnBuscarFacturaMouseEntered
+
+    private void btnBuscarFacturaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBuscarFacturaMouseExited
+        botonProveedorDespresionado(btnBuscarFactura);// TODO add your handling code here:
+    }//GEN-LAST:event_btnBuscarFacturaMouseExited
+
     /**
      * @param args the command line arguments
      */
@@ -387,16 +699,28 @@ panelGeneralContador.setSelectedIndex(1);        // TODO add your handling code 
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnActualizarTablaFacturas;
+    private javax.swing.JButton btnActualizarTablaGastos;
+    private javax.swing.JButton btnActualizarTablaIngresos;
+    private javax.swing.JButton btnBuscarFactura;
+    private javax.swing.JButton btnBuscarGasto;
+    private javax.swing.JButton btnBuscarIngreso;
     private javax.swing.JButton btnCerrarSesionContador;
     private javax.swing.JButton btnGestionarFacturasContador;
     private javax.swing.JButton btnGestionarGastosContador;
     private javax.swing.JButton btnGestionarIngresosContador;
+    private javax.swing.JButton btnRegistrarFactura;
+    private javax.swing.JButton btnRegistrarGasto;
+    private javax.swing.JButton btnRegistrarIngreso;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel10;
+    private javax.swing.JPanel jPanel11;
+    private javax.swing.JPanel jPanel12;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
@@ -405,9 +729,15 @@ panelGeneralContador.setSelectedIndex(1);        // TODO add your handling code 
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTabbedPane panelGeneralContador;
     private javax.swing.JPanel panelGestionarFacturas;
     private javax.swing.JPanel panelGestionarGastos;
     private javax.swing.JPanel panelGestionarIngresos;
+    private javax.swing.JTable tblFacturas;
+    private javax.swing.JTable tblGastos;
+    private javax.swing.JTable tblIngresos;
     // End of variables declaration//GEN-END:variables
 }

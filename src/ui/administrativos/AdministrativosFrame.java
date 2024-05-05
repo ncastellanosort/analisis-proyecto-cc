@@ -561,7 +561,7 @@ public class AdministrativosFrame extends javax.swing.JFrame {
             tblCapacitaciones.getColumnModel().getColumn(3).setResizable(false);
         }
 
-        jPanel7.add(btnActualizarTablaCapacitaciones, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 160, 1090, -1));
+        jPanel7.add(btnActualizarTablaCapacitaciones, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 150, 1090, -1));
 
         jPanel8.setBackground(new java.awt.Color(127, 156, 90));
         jPanel8.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -699,7 +699,7 @@ public class AdministrativosFrame extends javax.swing.JFrame {
             tblProveedores.getColumnModel().getColumn(3).setResizable(false);
         }
 
-        jPanel4.add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 160, 1080, 520));
+        jPanel4.add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 150, 1080, 520));
 
         jPanel5.setBackground(new java.awt.Color(153, 195, 84));
         jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
