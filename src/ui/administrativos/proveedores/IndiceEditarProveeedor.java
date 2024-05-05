@@ -102,7 +102,7 @@ public class IndiceEditarProveeedor extends javax.swing.JFrame {
         });
         jPanel1.add(btnSeleccionarIDEditarPRov, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 320, 160, 50));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1120, 640));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1120, 430));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

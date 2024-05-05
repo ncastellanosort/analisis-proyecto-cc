@@ -13,6 +13,7 @@ import logica.administrativos.capacitaciones.ListaCapacitaciones;
 import logica.administrativos.proveedores.ListaProveedores;
 import logica.administrativos.proveedores.Proveedor;
 import ui.administrativos.capacitaciones.AgendarCapacitacion;
+import ui.administrativos.capacitaciones.BuscarCapacitacion;
 import ui.administrativos.capacitaciones.EliminarCapacitacion;
 import ui.administrativos.proveedores.AgregarProveedor;
 import ui.administrativos.proveedores.BuscarProveedor;
@@ -173,7 +174,6 @@ public class AdministrativosFrame extends javax.swing.JFrame {
         jLabel20 = new javax.swing.JLabel();
         jPanel9 = new javax.swing.JPanel();
         btnAgregarCapacitacion = new javax.swing.JButton();
-        btnGestionarCapacitacion = new javax.swing.JButton();
         btnSeguimientoCapacitacion = new javax.swing.JButton();
         btnACTUALIZARTABLAcapacitacion = new javax.swing.JButton();
         btnEliminarCapacitacion = new javax.swing.JButton();
@@ -595,22 +595,7 @@ public class AdministrativosFrame extends javax.swing.JFrame {
                 btnAgregarCapacitacionActionPerformed(evt);
             }
         });
-        jPanel9.add(btnAgregarCapacitacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 0, 224, 50));
-
-        btnGestionarCapacitacion.setBackground(new java.awt.Color(153, 195, 84));
-        btnGestionarCapacitacion.setFont(new java.awt.Font("Microsoft JhengHei", 1, 18)); // NOI18N
-        btnGestionarCapacitacion.setForeground(new java.awt.Color(0, 0, 0));
-        btnGestionarCapacitacion.setText("Gestionar ");
-        btnGestionarCapacitacion.setBorder(null);
-        btnGestionarCapacitacion.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                btnGestionarCapacitacionMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                btnGestionarCapacitacionMouseExited(evt);
-            }
-        });
-        jPanel9.add(btnGestionarCapacitacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 0, 224, 50));
+        jPanel9.add(btnAgregarCapacitacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 0, 280, 50));
 
         btnSeguimientoCapacitacion.setBackground(new java.awt.Color(153, 195, 84));
         btnSeguimientoCapacitacion.setFont(new java.awt.Font("Microsoft JhengHei", 1, 18)); // NOI18N
@@ -625,7 +610,12 @@ public class AdministrativosFrame extends javax.swing.JFrame {
                 btnSeguimientoCapacitacionMouseExited(evt);
             }
         });
-        jPanel9.add(btnSeguimientoCapacitacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 0, 224, 50));
+        btnSeguimientoCapacitacion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSeguimientoCapacitacionActionPerformed(evt);
+            }
+        });
+        jPanel9.add(btnSeguimientoCapacitacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 0, 280, 50));
 
         btnACTUALIZARTABLAcapacitacion.setBackground(new java.awt.Color(153, 195, 84));
         btnACTUALIZARTABLAcapacitacion.setFont(new java.awt.Font("Microsoft JhengHei", 1, 18)); // NOI18N
@@ -645,7 +635,7 @@ public class AdministrativosFrame extends javax.swing.JFrame {
                 btnACTUALIZARTABLAcapacitacionActionPerformed(evt);
             }
         });
-        jPanel9.add(btnACTUALIZARTABLAcapacitacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 224, 50));
+        jPanel9.add(btnACTUALIZARTABLAcapacitacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 280, 50));
 
         btnEliminarCapacitacion.setBackground(new java.awt.Color(153, 195, 84));
         btnEliminarCapacitacion.setFont(new java.awt.Font("Microsoft JhengHei", 1, 18)); // NOI18N
@@ -668,7 +658,7 @@ public class AdministrativosFrame extends javax.swing.JFrame {
                 btnEliminarCapacitacionActionPerformed(evt);
             }
         });
-        jPanel9.add(btnEliminarCapacitacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 0, 230, 50));
+        jPanel9.add(btnEliminarCapacitacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 0, 280, 50));
 
         jPanel7.add(jPanel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, 1120, 50));
 
@@ -1045,8 +1035,9 @@ public class AdministrativosFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_btnBuscarProveedorMouseExited
 
     private void btnActualizarTablaProveedoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarTablaProveedoresActionPerformed
+        
+        llenarTablaProveedores();
 
-        llenarTablaCapacitaciones();
 
         // TODO add your handling code here:
     }//GEN-LAST:event_btnActualizarTablaProveedoresActionPerformed
@@ -1130,18 +1121,6 @@ public class AdministrativosFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnACTUALIZARTABLAcapacitacionMouseExited
 
-    private void btnGestionarCapacitacionMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnGestionarCapacitacionMouseEntered
-        botonPresionado(btnGestionarCapacitacion);
-
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnGestionarCapacitacionMouseEntered
-
-    private void btnGestionarCapacitacionMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnGestionarCapacitacionMouseExited
-
-        botonProveedorDespresionado(btnGestionarCapacitacion);
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnGestionarCapacitacionMouseExited
-
     private void btnSeguimientoCapacitacionMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSeguimientoCapacitacionMouseEntered
         botonPresionado(btnSeguimientoCapacitacion);
 
@@ -1207,6 +1186,25 @@ public class AdministrativosFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnEliminarCapacitacionActionPerformed
 
+    private void btnSeguimientoCapacitacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSeguimientoCapacitacionActionPerformed
+        BuscarCapacitacion buscarCapa = new BuscarCapacitacion();
+
+        ListaVacia vacia = new ListaVacia();
+
+        if (ListaCapacitaciones.getCapacitacionesCentroComercial().isEmpty()) {
+            vacia.setLocationRelativeTo(null);
+            vacia.setResizable(false);
+            vacia.setVisible(true);
+
+        } else {
+            buscarCapa.setLocationRelativeTo(null);
+            buscarCapa.setResizable(false);
+            buscarCapa.setVisible(true);
+        }
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnSeguimientoCapacitacionActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1256,7 +1254,6 @@ public class AdministrativosFrame extends javax.swing.JFrame {
     private javax.swing.JButton btnEliminarEmpleado;
     private javax.swing.JButton btnEliminarEvento;
     private javax.swing.JButton btnEliminarProveedor;
-    private javax.swing.JButton btnGestionarCapacitacion;
     private javax.swing.JButton btnGestionarEmpleado;
     private javax.swing.JButton btnGestionarEmpleados2;
     private javax.swing.JButton btnGestionarEncuentrosCapacitacion;

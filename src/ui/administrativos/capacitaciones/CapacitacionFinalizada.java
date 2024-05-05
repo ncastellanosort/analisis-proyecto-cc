@@ -2,18 +2,18 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package ui.utilidades;
+package ui.administrativos.capacitaciones;
 
 /**
  *
  * @author Nicolas
  */
-public class AgregadoExitosamente extends javax.swing.JFrame {
+public class CapacitacionFinalizada extends javax.swing.JFrame {
 
     /**
-     * Creates new form ProveedorAgregadoExitosamente
+     * Creates new form CapacitacionFinalizada
      */
-    public AgregadoExitosamente() {
+    public CapacitacionFinalizada() {
         initComponents();
     }
 
@@ -29,12 +29,13 @@ public class AgregadoExitosamente extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jPanel6 = new javax.swing.JPanel();
         jLabel20 = new javax.swing.JLabel();
-        jLabel19 = new javax.swing.JLabel();
-        btnVolverAgregado = new javax.swing.JButton();
         jLabel21 = new javax.swing.JLabel();
+        btnVolverCapaFinalizada = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMaximumSize(new java.awt.Dimension(600, 450));
         setMinimumSize(new java.awt.Dimension(600, 450));
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setMaximumSize(new java.awt.Dimension(600, 450));
@@ -47,55 +48,40 @@ public class AgregadoExitosamente extends javax.swing.JFrame {
         jLabel20.setBackground(new java.awt.Color(0, 0, 0));
         jLabel20.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 36)); // NOI18N
         jLabel20.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel20.setText("Agregado correctamente");
-        jPanel6.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 20, -1, -1));
+        jLabel20.setText("Capacitacion finalizada");
+        jPanel6.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 20, -1, -1));
 
         jPanel1.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 600, 90));
-
-        jLabel19.setBackground(new java.awt.Color(0, 0, 0));
-        jLabel19.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 18)); // NOI18N
-        jLabel19.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel19.setText("Agregado correctamente");
-        jPanel1.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 200, -1, -1));
-
-        btnVolverAgregado.setBackground(new java.awt.Color(127, 156, 90));
-        btnVolverAgregado.setFont(new java.awt.Font("Microsoft JhengHei", 1, 18)); // NOI18N
-        btnVolverAgregado.setForeground(new java.awt.Color(0, 0, 0));
-        btnVolverAgregado.setText("Volver");
-        btnVolverAgregado.setBorder(null);
-        btnVolverAgregado.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnVolverAgregadoActionPerformed(evt);
-            }
-        });
-        jPanel1.add(btnVolverAgregado, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 300, 140, 50));
 
         jLabel21.setBackground(new java.awt.Color(0, 0, 0));
         jLabel21.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 18)); // NOI18N
         jLabel21.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel21.setText("Agregado correctamente");
-        jPanel1.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 200, -1, -1));
+        jLabel21.setText("Capacitacion finalizada");
+        jPanel1.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 210, -1, -1));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
+        btnVolverCapaFinalizada.setBackground(new java.awt.Color(127, 156, 90));
+        btnVolverCapaFinalizada.setFont(new java.awt.Font("Microsoft JhengHei", 1, 18)); // NOI18N
+        btnVolverCapaFinalizada.setForeground(new java.awt.Color(0, 0, 0));
+        btnVolverCapaFinalizada.setText("Volver");
+        btnVolverCapaFinalizada.setBorder(null);
+        btnVolverCapaFinalizada.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVolverCapaFinalizadaActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnVolverCapaFinalizada, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 330, 140, 50));
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 600, 450));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnVolverAgregadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverAgregadoActionPerformed
+    private void btnVolverCapaFinalizadaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverCapaFinalizadaActionPerformed
 
         this.dispose();
 
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnVolverAgregadoActionPerformed
+    }//GEN-LAST:event_btnVolverCapaFinalizadaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -114,28 +100,26 @@ public class AgregadoExitosamente extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(AgregadoExitosamente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CapacitacionFinalizada.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(AgregadoExitosamente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CapacitacionFinalizada.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(AgregadoExitosamente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CapacitacionFinalizada.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(AgregadoExitosamente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CapacitacionFinalizada.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new AgregadoExitosamente().setVisible(true);
+                new CapacitacionFinalizada().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnVolverAgregado;
-    private javax.swing.JLabel jLabel19;
+    private javax.swing.JButton btnVolverCapaFinalizada;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JPanel jPanel1;
