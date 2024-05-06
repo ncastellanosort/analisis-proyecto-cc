@@ -46,10 +46,11 @@ public class BuscarIngreso extends javax.swing.JFrame {
         btnSalirVentanaBuscIngreso = new javax.swing.JButton();
         jLabel23 = new javax.swing.JLabel();
         txtfBuscarIngresoID = new javax.swing.JTextField();
-        btnEliminarIngreso = new javax.swing.JButton();
+        btnEditarIngreso = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblUnicoINgreso = new javax.swing.JTable();
         btnBUscarIngresoID1 = new javax.swing.JButton();
+        btnEliminarIngreso1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(1120, 550));
@@ -96,17 +97,17 @@ public class BuscarIngreso extends javax.swing.JFrame {
         txtfBuscarIngresoID.setBorder(null);
         jPanel1.add(txtfBuscarIngresoID, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 150, 350, 45));
 
-        btnEliminarIngreso.setBackground(new java.awt.Color(127, 156, 90));
-        btnEliminarIngreso.setFont(new java.awt.Font("Microsoft JhengHei", 1, 18)); // NOI18N
-        btnEliminarIngreso.setForeground(new java.awt.Color(0, 0, 0));
-        btnEliminarIngreso.setText("Eliminarlo");
-        btnEliminarIngreso.setBorder(null);
-        btnEliminarIngreso.addActionListener(new java.awt.event.ActionListener() {
+        btnEditarIngreso.setBackground(new java.awt.Color(127, 156, 90));
+        btnEditarIngreso.setFont(new java.awt.Font("Microsoft JhengHei", 1, 18)); // NOI18N
+        btnEditarIngreso.setForeground(new java.awt.Color(0, 0, 0));
+        btnEditarIngreso.setText("Editarlo");
+        btnEditarIngreso.setBorder(null);
+        btnEditarIngreso.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEliminarIngresoActionPerformed(evt);
+                btnEditarIngresoActionPerformed(evt);
             }
         });
-        jPanel1.add(btnEliminarIngreso, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 220, 130, 45));
+        jPanel1.add(btnEditarIngreso, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 320, 130, 45));
 
         tblUnicoINgreso.setFont(new java.awt.Font("Microsoft JhengHei", 1, 14)); // NOI18N
         tblUnicoINgreso.setModel(new javax.swing.table.DefaultTableModel(
@@ -122,7 +123,7 @@ public class BuscarIngreso extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(tblUnicoINgreso);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 310, 1090, 80));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 220, 1090, 80));
 
         btnBUscarIngresoID1.setBackground(new java.awt.Color(127, 156, 90));
         btnBUscarIngresoID1.setFont(new java.awt.Font("Microsoft JhengHei", 1, 18)); // NOI18N
@@ -134,7 +135,19 @@ public class BuscarIngreso extends javax.swing.JFrame {
                 btnBUscarIngresoID1ActionPerformed(evt);
             }
         });
-        jPanel1.add(btnBUscarIngresoID1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 220, 130, 45));
+        jPanel1.add(btnBUscarIngresoID1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 320, 130, 45));
+
+        btnEliminarIngreso1.setBackground(new java.awt.Color(127, 156, 90));
+        btnEliminarIngreso1.setFont(new java.awt.Font("Microsoft JhengHei", 1, 18)); // NOI18N
+        btnEliminarIngreso1.setForeground(new java.awt.Color(0, 0, 0));
+        btnEliminarIngreso1.setText("Eliminarlo");
+        btnEliminarIngreso1.setBorder(null);
+        btnEliminarIngreso1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarIngreso1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnEliminarIngreso1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 320, 130, 45));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1120, 550));
 
@@ -145,21 +158,29 @@ public class BuscarIngreso extends javax.swing.JFrame {
         this.dispose();        // TODO add your handling code here:
     }//GEN-LAST:event_btnSalirVentanaBuscIngresoActionPerformed
 
-    private void btnEliminarIngresoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarIngresoActionPerformed
-
+    private void btnEditarIngresoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarIngresoActionPerformed
         int ID = Integer.parseInt(txtfBuscarIngresoID.getText());
 
-        ListaIngresos.getIngresosCentroComercial().remove(ID);
+        EditarIngreso editarIngreso = new EditarIngreso();
+
+        editarIngreso.getLbIDingreso().setText(String.valueOf(ID));
+
+        editarIngreso.getTxtfNUEVOcantMonetaria().setText(String.valueOf(ListaIngresos.getIngresosCentroComercial().get(ID).getCantidadMonetariaIngreso()));
+        editarIngreso.getTxtfNUEVOfechaIngreso().setText(ListaIngresos.getIngresosCentroComercial().get(ID).getFechaIngreso());
+        editarIngreso.getTxtfNUEVOorigenIngreso().setText(ListaIngresos.getIngresosCentroComercial().get(ID).getOrigenIngreso());
+        editarIngreso.getTxtfNUEVOtipoIngreso().setText(ListaIngresos.getIngresosCentroComercial().get(ID).getTipoDeIngresoIngreso());
+        editarIngreso.getTxtfNUEVOmetodoPagoIngreso().setText(ListaIngresos.getIngresosCentroComercial().get(ID).getMetodoDePagoIngreso());
+        editarIngreso.getTxtfNUEVOareaOrigenIngreso().setText(ListaIngresos.getIngresosCentroComercial().get(ID).getAreaOrigenIngreso());
+
+        editarIngreso.setIdentificador(ID);
 
         this.dispose();
-        EliminadoExitosamente elim = new EliminadoExitosamente();
 
-        elim.setLocationRelativeTo(null);
-        elim.setResizable(false);
-        elim.setVisible(true);
-
+        editarIngreso.setLocationRelativeTo(null);
+        editarIngreso.setResizable(false);
+        editarIngreso.setVisible(true);
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnEliminarIngresoActionPerformed
+    }//GEN-LAST:event_btnEditarIngresoActionPerformed
 
     private void btnBUscarIngresoID1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBUscarIngresoID1ActionPerformed
 
@@ -173,6 +194,22 @@ public class BuscarIngreso extends javax.swing.JFrame {
 
         // TODO add your handling code here:
     }//GEN-LAST:event_btnBUscarIngresoID1ActionPerformed
+
+    private void btnEliminarIngreso1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarIngreso1ActionPerformed
+
+        int ID = Integer.parseInt(txtfBuscarIngresoID.getText());
+
+        ListaIngresos.getIngresosCentroComercial().remove(ID);
+
+        this.dispose();
+        EliminadoExitosamente elim = new EliminadoExitosamente();
+
+        elim.setLocationRelativeTo(null);
+        elim.setResizable(false);
+        elim.setVisible(true);
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnEliminarIngreso1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -211,7 +248,8 @@ public class BuscarIngreso extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBUscarIngresoID1;
-    private javax.swing.JButton btnEliminarIngreso;
+    private javax.swing.JButton btnEditarIngreso;
+    private javax.swing.JButton btnEliminarIngreso1;
     private javax.swing.JButton btnSalirVentanaBuscIngreso;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel23;
