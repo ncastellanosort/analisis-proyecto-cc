@@ -4,10 +4,13 @@
  */
 package logica.empleados;
 
+import java.util.HashMap;
+
+
 /**
  *
  * @author Nicolas
  */
 public class ListaEmpleados {
-    
+    private static HashMap<Integer, Empleado> empleadosCentroComercial = new HashMap<>();
 }

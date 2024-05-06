@@ -4,10 +4,21 @@
  */
 package logica.seguridad.incidentes;
 
+import java.util.HashMap;
+
 /**
  *
  * @author Nicolas
  */
 public class ListaIncidentes {
+    private static HashMap<Integer, Incidente> incidentesCentroComercial = new HashMap<>();
+
+    public static HashMap<Integer, Incidente> getIncidentesCentroComercial() {
+        return incidentesCentroComercial;
+    }
+
+    public static void setIncidentesCentroComercial(HashMap<Integer, Incidente> incidentesCentroComercial) {
+        ListaIncidentes.incidentesCentroComercial = incidentesCentroComercial;
+    }
     
 }

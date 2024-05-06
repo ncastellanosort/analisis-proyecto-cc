@@ -10,13 +10,13 @@ package logica.administrativos.proveedores;
  */
 public class Proveedor {
 
-    private String nombreEmpresaProveedor = " ";
-    private String direccionRegistradaProveedor = " ";
-    private long numeroContactoProveedor = 0;
-    private String direccionCorreoProveedor = " ";
-    private String servicioSuministradoProveedor = " ";
-    private String referenciaComercialProveedor = " ";
-    private String terminoDePagoProveedor = " ";
+    private String nombreEmpresaProveedor;
+    private String direccionRegistradaProveedor;
+    private long numeroContactoProveedor;
+    private String direccionCorreoProveedor;
+    private String servicioSuministradoProveedor;
+    private String referenciaComercialProveedor;
+    private String terminoDePagoProveedor;
     
     public Proveedor(){
     

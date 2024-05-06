@@ -4,22 +4,20 @@
  */
 package logica.revisorFiscal;
 
-import java.util.HashMap;
-
 /**
  *
  * @author Nicolas
  */
 public class RevisorFiscal {
+    private static final String USUARIOREVISORFISCAL = "revisor";
+    private static final String CLAVEREVISORFISCAL = "revisor";
 
-    public static HashMap<String, String> claveValor = new HashMap<>() {
-        {
-            put("Nicolas", "12");
-        }   
-    };
-    
-    public static HashMap<String, String> getEmployes(){
-        return claveValor;
+    public static String getUSUARIOREVISORFISCAL() {
+        return USUARIOREVISORFISCAL;
+    }
+
+    public static String getCLAVEREVISORFISCAL() {
+        return CLAVEREVISORFISCAL;
     }
 
 

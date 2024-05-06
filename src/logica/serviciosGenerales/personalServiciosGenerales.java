@@ -8,6 +8,17 @@ package logica.serviciosGenerales;
  *
  * @author Nicolas
  */
-public class personalServiciosGenerales {
+public class PersonalServiciosGenerales {
+    private static final String USUARIOSERVICIOSGENERALES = "servicios";
+    private static final String CLAVESERVICIOSGENERALES = "servicios";
+
+    public static String getUSUARIOSERVICIOSGENERALES() {
+        return USUARIOSERVICIOSGENERALES;
+    }
+
+    public static String getCLAVESERVICIOSGENERALES() {
+        return CLAVESERVICIOSGENERALES;
+    }
+    
     
 }

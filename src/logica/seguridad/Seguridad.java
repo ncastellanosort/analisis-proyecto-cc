@@ -9,5 +9,15 @@ package logica.seguridad;
  * @author Nicolas
  */
 public class Seguridad {
+    private static final String USUARIOSEGURIDAD = "seguridad";
+    private static final String CLAVESEGURIDAD = "seguridad";
+
+    public static String getUSUARIOSEGURIDAD() {
+        return USUARIOSEGURIDAD;
+    }
+
+    public static String getCLAVESEGURIDAD() {
+        return CLAVESEGURIDAD;
+    }
     
 }

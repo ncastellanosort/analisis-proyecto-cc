@@ -7,8 +7,14 @@ package ui.login;
 import java.awt.Color;
 import logica.administrativos.Administrativos;
 import logica.contador.Contador;
+import logica.mantenimiento.PersonalMantenimiento;
+import logica.seguridad.Seguridad;
+import logica.serviciosGenerales.PersonalServiciosGenerales;
 import ui.administrativos.AdministrativosFrame;
 import ui.contador.ContadorFrame;
+import ui.mantenimiento.MantenimientoFrame;
+import ui.seguridad.SeguridadFrame;
+import ui.serviciosGenerales.ServiciosGeneralesFrame;
 
 /**
  *
@@ -167,6 +173,9 @@ public class Login extends javax.swing.JFrame {
 
         AdministrativosFrame admin = new AdministrativosFrame();
         ContadorFrame contador = new ContadorFrame();
+        ServiciosGeneralesFrame serviciosGenerales = new ServiciosGeneralesFrame();
+        MantenimientoFrame mantenimiento = new MantenimientoFrame();
+        SeguridadFrame seguridad = new SeguridadFrame();
 
         LoginNoAceptado noAceptado = new LoginNoAceptado();
 
@@ -177,13 +186,34 @@ public class Login extends javax.swing.JFrame {
             admin.setLocationRelativeTo(null);
             admin.setResizable(false);
             admin.setVisible(true);
-            
+
             this.dispose();
         } else if (usuarioInput.equals(Contador.getUsuarioContador()) && claveInput.equals(Contador.getClaveContador())) {
 
             contador.setLocationRelativeTo(null);
             contador.setResizable(false);
             contador.setVisible(true);
+            this.dispose();
+
+        } else if (usuarioInput.equals(PersonalServiciosGenerales.getUSUARIOSERVICIOSGENERALES()) && claveInput.equals(PersonalServiciosGenerales.getCLAVESERVICIOSGENERALES())) {
+
+            serviciosGenerales.setLocationRelativeTo(null);
+            serviciosGenerales.setResizable(false);
+            serviciosGenerales.setVisible(true);
+            this.dispose();
+
+        } else if (usuarioInput.equals(PersonalMantenimiento.getUSUARIOMANTENIMIENTO()) && claveInput.equals(PersonalMantenimiento.getCLAVEMANTENIMIENTO())) {
+
+            mantenimiento.setLocationRelativeTo(null);
+            mantenimiento.setResizable(false);
+            mantenimiento.setVisible(true);
+            this.dispose();
+
+        } else if (usuarioInput.equals(Seguridad.getUSUARIOSEGURIDAD()) && claveInput.equals(Seguridad.getCLAVESEGURIDAD())) {
+
+            seguridad.setLocationRelativeTo(null);
+            seguridad.setResizable(false);
+            seguridad.setVisible(true);
             this.dispose();
 
         } else {
@@ -194,7 +224,6 @@ public class Login extends javax.swing.JFrame {
             this.dispose();
 
         }
-
 
         //
         // TODO add your handling code here:

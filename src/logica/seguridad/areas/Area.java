@@ -10,4 +10,41 @@ package logica.seguridad.areas;
  */
 public class Area {
     
+    private String nombreArea;
+    private String ubicacionArea;
+    private String tamanoArea;
+    
+
+    public Area(String nombreArea, String ubicacionArea, String tamanoArea) {
+        this.nombreArea = nombreArea;
+        this.ubicacionArea = ubicacionArea;
+        this.tamanoArea = tamanoArea;
+    }
+
+    public String getNombreArea() {
+        return nombreArea;
+    }
+
+    public void setNombreArea(String nombreArea) {
+        this.nombreArea = nombreArea;
+    }
+
+    public String getUbicacionArea() {
+        return ubicacionArea;
+    }
+
+    public void setUbicacionArea(String ubicacionArea) {
+        this.ubicacionArea = ubicacionArea;
+    }
+
+    public String getTamanoArea() {
+        return tamanoArea;
+    }
+
+    public void setTamanoArea(String tamanoArea) {
+        this.tamanoArea = tamanoArea;
+    }
+    
+    
+    
 }
