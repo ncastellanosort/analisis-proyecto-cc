@@ -6,6 +6,7 @@ package ui.contador.ingresos;
 
 import javax.swing.table.DefaultTableModel;
 import logica.contador.ingresos.ListaIngresos;
+import ui.utilidades.EliminadoExitosamente;
 
 /**
  *
@@ -45,9 +46,10 @@ public class BuscarIngreso extends javax.swing.JFrame {
         btnSalirVentanaBuscIngreso = new javax.swing.JButton();
         jLabel23 = new javax.swing.JLabel();
         txtfBuscarIngresoID = new javax.swing.JTextField();
-        btnBUscarIngresoID = new javax.swing.JButton();
+        btnEliminarIngreso = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblUnicoINgreso = new javax.swing.JTable();
+        btnBUscarIngresoID1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(1120, 550));
@@ -94,17 +96,17 @@ public class BuscarIngreso extends javax.swing.JFrame {
         txtfBuscarIngresoID.setBorder(null);
         jPanel1.add(txtfBuscarIngresoID, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 150, 350, 45));
 
-        btnBUscarIngresoID.setBackground(new java.awt.Color(127, 156, 90));
-        btnBUscarIngresoID.setFont(new java.awt.Font("Microsoft JhengHei", 1, 18)); // NOI18N
-        btnBUscarIngresoID.setForeground(new java.awt.Color(0, 0, 0));
-        btnBUscarIngresoID.setText("Buscar");
-        btnBUscarIngresoID.setBorder(null);
-        btnBUscarIngresoID.addActionListener(new java.awt.event.ActionListener() {
+        btnEliminarIngreso.setBackground(new java.awt.Color(127, 156, 90));
+        btnEliminarIngreso.setFont(new java.awt.Font("Microsoft JhengHei", 1, 18)); // NOI18N
+        btnEliminarIngreso.setForeground(new java.awt.Color(0, 0, 0));
+        btnEliminarIngreso.setText("Eliminarlo");
+        btnEliminarIngreso.setBorder(null);
+        btnEliminarIngreso.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBUscarIngresoIDActionPerformed(evt);
+                btnEliminarIngresoActionPerformed(evt);
             }
         });
-        jPanel1.add(btnBUscarIngresoID, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 220, 130, 45));
+        jPanel1.add(btnEliminarIngreso, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 220, 130, 45));
 
         tblUnicoINgreso.setFont(new java.awt.Font("Microsoft JhengHei", 1, 14)); // NOI18N
         tblUnicoINgreso.setModel(new javax.swing.table.DefaultTableModel(
@@ -122,6 +124,18 @@ public class BuscarIngreso extends javax.swing.JFrame {
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 310, 1090, 80));
 
+        btnBUscarIngresoID1.setBackground(new java.awt.Color(127, 156, 90));
+        btnBUscarIngresoID1.setFont(new java.awt.Font("Microsoft JhengHei", 1, 18)); // NOI18N
+        btnBUscarIngresoID1.setForeground(new java.awt.Color(0, 0, 0));
+        btnBUscarIngresoID1.setText("Buscar");
+        btnBUscarIngresoID1.setBorder(null);
+        btnBUscarIngresoID1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBUscarIngresoID1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnBUscarIngresoID1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 220, 130, 45));
+
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1120, 550));
 
         pack();
@@ -131,7 +145,23 @@ public class BuscarIngreso extends javax.swing.JFrame {
         this.dispose();        // TODO add your handling code here:
     }//GEN-LAST:event_btnSalirVentanaBuscIngresoActionPerformed
 
-    private void btnBUscarIngresoIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBUscarIngresoIDActionPerformed
+    private void btnEliminarIngresoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarIngresoActionPerformed
+
+        int ID = Integer.parseInt(txtfBuscarIngresoID.getText());
+
+        ListaIngresos.getIngresosCentroComercial().remove(ID);
+
+        this.dispose();
+        EliminadoExitosamente elim = new EliminadoExitosamente();
+
+        elim.setLocationRelativeTo(null);
+        elim.setResizable(false);
+        elim.setVisible(true);
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnEliminarIngresoActionPerformed
+
+    private void btnBUscarIngresoID1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBUscarIngresoID1ActionPerformed
 
         int ID = Integer.parseInt(txtfBuscarIngresoID.getText());
 
@@ -142,7 +172,7 @@ public class BuscarIngreso extends javax.swing.JFrame {
         modelo.addRow(ob);
 
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnBUscarIngresoIDActionPerformed
+    }//GEN-LAST:event_btnBUscarIngresoID1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -180,7 +210,8 @@ public class BuscarIngreso extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnBUscarIngresoID;
+    private javax.swing.JButton btnBUscarIngresoID1;
+    private javax.swing.JButton btnEliminarIngreso;
     private javax.swing.JButton btnSalirVentanaBuscIngreso;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel23;
