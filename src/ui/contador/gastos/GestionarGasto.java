@@ -46,10 +46,11 @@ public class GestionarGasto extends javax.swing.JFrame {
         btnSalirVentadaBuscarGasto = new javax.swing.JButton();
         jLabel23 = new javax.swing.JLabel();
         txtfBuscarGastoID = new javax.swing.JTextField();
-        btnEliminarGasto = new javax.swing.JButton();
+        btnEditarGasto = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblUnicoGasto = new javax.swing.JTable();
         btnBuscarGastoID1 = new javax.swing.JButton();
+        btnEliminarGasto1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(1120, 550));
@@ -99,17 +100,17 @@ public class GestionarGasto extends javax.swing.JFrame {
         txtfBuscarGastoID.setBorder(null);
         jPanel1.add(txtfBuscarGastoID, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 150, 350, 45));
 
-        btnEliminarGasto.setBackground(new java.awt.Color(127, 156, 90));
-        btnEliminarGasto.setFont(new java.awt.Font("Microsoft JhengHei", 1, 18)); // NOI18N
-        btnEliminarGasto.setForeground(new java.awt.Color(0, 0, 0));
-        btnEliminarGasto.setText("Eliminarlo");
-        btnEliminarGasto.setBorder(null);
-        btnEliminarGasto.addActionListener(new java.awt.event.ActionListener() {
+        btnEditarGasto.setBackground(new java.awt.Color(127, 156, 90));
+        btnEditarGasto.setFont(new java.awt.Font("Microsoft JhengHei", 1, 18)); // NOI18N
+        btnEditarGasto.setForeground(new java.awt.Color(0, 0, 0));
+        btnEditarGasto.setText("Editarlo");
+        btnEditarGasto.setBorder(null);
+        btnEditarGasto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEliminarGastoActionPerformed(evt);
+                btnEditarGastoActionPerformed(evt);
             }
         });
-        jPanel1.add(btnEliminarGasto, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 220, 130, 45));
+        jPanel1.add(btnEditarGasto, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 320, 130, 45));
 
         tblUnicoGasto.setFont(new java.awt.Font("Microsoft JhengHei", 1, 14)); // NOI18N
         tblUnicoGasto.setModel(new javax.swing.table.DefaultTableModel(
@@ -125,7 +126,7 @@ public class GestionarGasto extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(tblUnicoGasto);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 310, 1090, 80));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 220, 1090, 80));
 
         btnBuscarGastoID1.setBackground(new java.awt.Color(127, 156, 90));
         btnBuscarGastoID1.setFont(new java.awt.Font("Microsoft JhengHei", 1, 18)); // NOI18N
@@ -137,7 +138,19 @@ public class GestionarGasto extends javax.swing.JFrame {
                 btnBuscarGastoID1ActionPerformed(evt);
             }
         });
-        jPanel1.add(btnBuscarGastoID1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 220, 130, 45));
+        jPanel1.add(btnBuscarGastoID1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 320, 130, 45));
+
+        btnEliminarGasto1.setBackground(new java.awt.Color(127, 156, 90));
+        btnEliminarGasto1.setFont(new java.awt.Font("Microsoft JhengHei", 1, 18)); // NOI18N
+        btnEliminarGasto1.setForeground(new java.awt.Color(0, 0, 0));
+        btnEliminarGasto1.setText("Eliminarlo");
+        btnEliminarGasto1.setBorder(null);
+        btnEliminarGasto1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarGasto1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnEliminarGasto1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 320, 130, 45));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1120, 550));
 
@@ -148,21 +161,40 @@ public class GestionarGasto extends javax.swing.JFrame {
         this.dispose();        // TODO add your handling code here:
     }//GEN-LAST:event_btnSalirVentadaBuscarGastoActionPerformed
 
-    private void btnEliminarGastoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarGastoActionPerformed
+    private void btnEditarGastoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarGastoActionPerformed
 
         int ID = Integer.parseInt(txtfBuscarGastoID.getText());
 
-        ListaGastos.getGastosCentroComercial().remove(ID);
+        EditarGasto editarGasto = new EditarGasto();
+
+        editarGasto.getLbIdentificadorGasto().setText(String.valueOf(ID));
+
+        editarGasto.getTxtfNUEVOcantidadMon().setText(String.valueOf(ListaGastos.getGastosCentroComercial().get(ID).getCantidadMonetariaGasto()));
+
+        editarGasto.getTxtfNUEVOfechaGasto().setText(ListaGastos.getGastosCentroComercial().get(ID).getFechaGasto());
+
+        editarGasto.getTxtfNUEVOconcepto().setText(ListaGastos.getGastosCentroComercial().get(ID).getConceptoGasto());
+
+        editarGasto.getTxtfNUEVOproveedor().setText(ListaGastos.getGastosCentroComercial().get(ID).getProveedorGasto());
+
+        editarGasto.getTxtfNUEVOnumeroRecibo().setText(String.valueOf(ListaGastos.getGastosCentroComercial().get(ID).getNumeroReciboGasto()));
+
+        editarGasto.getTxtfNUEVOcategoria().setText(String.valueOf(ListaGastos.getGastosCentroComercial().get(ID).getCategoriaGasto()));
+
+        editarGasto.getTxtfNUEVOareaDestino().setText(String.valueOf(ListaGastos.getGastosCentroComercial().get(ID).getAreaDestinoGasto()));
+
+        editarGasto.getTxtfNUEVOmetodoPago().setText(String.valueOf(ListaGastos.getGastosCentroComercial().get(ID).getMetodoPagoGasto()));
+
+        editarGasto.setIDentificador(ID);
 
         this.dispose();
-        EliminadoExitosamente elim = new EliminadoExitosamente();
 
-        elim.setLocationRelativeTo(null);
-        elim.setResizable(false);
-        elim.setVisible(true);
+        editarGasto.setLocationRelativeTo(null);
+        editarGasto.setResizable(false);
+        editarGasto.setVisible(true);
 
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnEliminarGastoActionPerformed
+    }//GEN-LAST:event_btnEditarGastoActionPerformed
 
     private void btnBuscarGastoID1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarGastoID1ActionPerformed
 
@@ -176,6 +208,22 @@ public class GestionarGasto extends javax.swing.JFrame {
 
 // TODO add your handling code here:
     }//GEN-LAST:event_btnBuscarGastoID1ActionPerformed
+
+    private void btnEliminarGasto1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarGasto1ActionPerformed
+
+        int ID = Integer.parseInt(txtfBuscarGastoID.getText());
+
+        ListaGastos.getGastosCentroComercial().remove(ID);
+
+        this.dispose();
+        EliminadoExitosamente elim = new EliminadoExitosamente();
+
+        elim.setLocationRelativeTo(null);
+        elim.setResizable(false);
+        elim.setVisible(true);
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnEliminarGasto1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -215,7 +263,8 @@ public class GestionarGasto extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBuscarGastoID1;
-    private javax.swing.JButton btnEliminarGasto;
+    private javax.swing.JButton btnEditarGasto;
+    private javax.swing.JButton btnEliminarGasto1;
     private javax.swing.JButton btnSalirVentadaBuscarGasto;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel23;
