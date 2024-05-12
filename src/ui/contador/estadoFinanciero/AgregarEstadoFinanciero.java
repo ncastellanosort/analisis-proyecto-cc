@@ -59,7 +59,6 @@ public class AgregarEstadoFinanciero extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(983, 880));
         setMinimumSize(new java.awt.Dimension(983, 880));
-        setPreferredSize(new java.awt.Dimension(983, 880));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));

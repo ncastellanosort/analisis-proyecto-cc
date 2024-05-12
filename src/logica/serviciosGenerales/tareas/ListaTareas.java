@@ -4,10 +4,23 @@
  */
 package logica.serviciosGenerales.tareas;
 
+import java.util.HashMap;
+
 /**
  *
  * @author Nicolas
  */
 public class ListaTareas {
+    
+    private static HashMap<Integer, Tarea> tareasCentroComercial = new HashMap<>();
+
+    public static HashMap<Integer, Tarea> getTareasCentroComercial() {
+        return tareasCentroComercial;
+    }
+
+    public static void setTareasCentroComercial(HashMap<Integer, Tarea> tareasCentroComercial) {
+        ListaTareas.tareasCentroComercial = tareasCentroComercial;
+    }
+    
     
 }

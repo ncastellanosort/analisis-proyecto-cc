@@ -142,7 +142,6 @@ public class ContadorFrame extends javax.swing.JFrame {
         tblEstadosFinancieros = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(1400, 880));
         setMinimumSize(new java.awt.Dimension(1400, 880));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 

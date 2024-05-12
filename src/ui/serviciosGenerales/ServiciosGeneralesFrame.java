@@ -5,14 +5,25 @@
 package ui.serviciosGenerales;
 
 import java.awt.Color;
+import java.util.Map;
 import javax.swing.JButton;
+import javax.swing.table.DefaultTableModel;
+import logica.serviciosGenerales.tareas.ListaTareas;
+import logica.serviciosGenerales.tareas.Tarea;
 import ui.login.Login;
+import ui.serviciosGenerales.limpiezas.AgregarLimpieza;
+import ui.serviciosGenerales.limpiezas.GestionarLimpieza;
+import ui.utilidades.ListaVacia;
 
 /**
  *
  * @author Nicolas
  */
 public class ServiciosGeneralesFrame extends javax.swing.JFrame {
+
+    DefaultTableModel modeloTablaTareas = new DefaultTableModel();
+
+    String[] columnasTablaTareas = {"Identificación", "Nombre tarea", "Persona encargada", "Finalizada?", "Area tarea", "Descripcion de tarea"};
 
     Color colorBotonPresionado = new Color(108, 136, 69);
 
@@ -22,7 +33,15 @@ public class ServiciosGeneralesFrame extends javax.swing.JFrame {
      * Creates new form ServiciosGenerales
      */
     public ServiciosGeneralesFrame() {
+
         initComponents();
+
+        modeloTablaTareas.setColumnIdentifiers(columnasTablaTareas);
+
+        tbLimpiezasServiciosGen.setModel(modeloTablaTareas);
+
+        tbLimpiezasServiciosGen.setRowHeight(40);
+
     }
 
     /**
@@ -43,10 +62,20 @@ public class ServiciosGeneralesFrame extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         panelGeneralServiciosG = new javax.swing.JTabbedPane();
         panelPlanificarLimpieza = new javax.swing.JPanel();
+        jPanel7 = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tbLimpiezasServiciosGen = new javax.swing.JTable();
+        jPanel9 = new javax.swing.JPanel();
+        btnActualizarLimpiezas = new javax.swing.JButton();
+        btnCrearLimpieza = new javax.swing.JButton();
+        btnGestionarLimpieza = new javax.swing.JButton();
+        jPanel8 = new javax.swing.JPanel();
+        jLabel19 = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
+        jPanel4 = new javax.swing.JPanel();
+        jPanel6 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(1400, 880));
         setMinimumSize(new java.awt.Dimension(1400, 880));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -118,15 +147,116 @@ public class ServiciosGeneralesFrame extends javax.swing.JFrame {
 
         panelGeneralServiciosG.setTabPlacement(javax.swing.JTabbedPane.RIGHT);
 
+        panelPlanificarLimpieza.setMaximumSize(new java.awt.Dimension(1120, 770));
+        panelPlanificarLimpieza.setMinimumSize(new java.awt.Dimension(1120, 770));
+
+        jPanel7.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel7.setMaximumSize(new java.awt.Dimension(1120, 770));
+        jPanel7.setMinimumSize(new java.awt.Dimension(1120, 770));
+        jPanel7.setPreferredSize(new java.awt.Dimension(1120, 770));
+        jPanel7.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        tbLimpiezasServiciosGen.setFont(new java.awt.Font("Microsoft JhengHei", 1, 14)); // NOI18N
+        tbLimpiezasServiciosGen.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(tbLimpiezasServiciosGen);
+
+        jPanel7.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 150, 1080, -1));
+
+        jPanel9.setBackground(new java.awt.Color(153, 195, 84));
+        jPanel9.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        btnActualizarLimpiezas.setBackground(new java.awt.Color(153, 195, 84));
+        btnActualizarLimpiezas.setFont(new java.awt.Font("Microsoft JhengHei", 1, 18)); // NOI18N
+        btnActualizarLimpiezas.setForeground(new java.awt.Color(0, 0, 0));
+        btnActualizarLimpiezas.setText("Actualizar tabla");
+        btnActualizarLimpiezas.setBorder(null);
+        btnActualizarLimpiezas.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnActualizarLimpiezasMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnActualizarLimpiezasMouseExited(evt);
+            }
+        });
+        btnActualizarLimpiezas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnActualizarLimpiezasActionPerformed(evt);
+            }
+        });
+        jPanel9.add(btnActualizarLimpiezas, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 373, 50));
+
+        btnCrearLimpieza.setBackground(new java.awt.Color(153, 195, 84));
+        btnCrearLimpieza.setFont(new java.awt.Font("Microsoft JhengHei", 1, 18)); // NOI18N
+        btnCrearLimpieza.setForeground(new java.awt.Color(0, 0, 0));
+        btnCrearLimpieza.setText("Crear limpieza");
+        btnCrearLimpieza.setBorder(null);
+        btnCrearLimpieza.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnCrearLimpiezaMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnCrearLimpiezaMouseExited(evt);
+            }
+        });
+        btnCrearLimpieza.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCrearLimpiezaActionPerformed(evt);
+            }
+        });
+        jPanel9.add(btnCrearLimpieza, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 0, 373, 50));
+
+        btnGestionarLimpieza.setBackground(new java.awt.Color(153, 195, 84));
+        btnGestionarLimpieza.setFont(new java.awt.Font("Microsoft JhengHei", 1, 18)); // NOI18N
+        btnGestionarLimpieza.setForeground(new java.awt.Color(0, 0, 0));
+        btnGestionarLimpieza.setText("Gestionar limpieza");
+        btnGestionarLimpieza.setBorder(null);
+        btnGestionarLimpieza.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnGestionarLimpiezaMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnGestionarLimpiezaMouseExited(evt);
+            }
+        });
+        btnGestionarLimpieza.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGestionarLimpiezaActionPerformed(evt);
+            }
+        });
+        jPanel9.add(btnGestionarLimpieza, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 0, 380, 50));
+
+        jPanel7.add(jPanel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, 1120, 50));
+
+        jPanel8.setBackground(new java.awt.Color(127, 156, 90));
+        jPanel8.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel19.setBackground(new java.awt.Color(0, 0, 0));
+        jLabel19.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 36)); // NOI18N
+        jLabel19.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel19.setText("Gestionar limpieza");
+        jPanel8.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 20, -1, -1));
+
+        jPanel7.add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1600, 90));
+
         javax.swing.GroupLayout panelPlanificarLimpiezaLayout = new javax.swing.GroupLayout(panelPlanificarLimpieza);
         panelPlanificarLimpieza.setLayout(panelPlanificarLimpiezaLayout);
         panelPlanificarLimpiezaLayout.setHorizontalGroup(
             panelPlanificarLimpiezaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1067, Short.MAX_VALUE)
+            .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         panelPlanificarLimpiezaLayout.setVerticalGroup(
             panelPlanificarLimpiezaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 770, Short.MAX_VALUE)
+            .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         panelGeneralServiciosG.addTab("tab1", panelPlanificarLimpieza);
@@ -135,7 +265,7 @@ public class ServiciosGeneralesFrame extends javax.swing.JFrame {
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1067, Short.MAX_VALUE)
+            .addGap(0, 1117, Short.MAX_VALUE)
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -144,7 +274,33 @@ public class ServiciosGeneralesFrame extends javax.swing.JFrame {
 
         panelGeneralServiciosG.addTab("tab2", jPanel5);
 
-        jPanel1.add(panelGeneralServiciosG, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 110, 1120, 770));
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1117, Short.MAX_VALUE)
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 770, Short.MAX_VALUE)
+        );
+
+        panelGeneralServiciosG.addTab("tab3", jPanel4);
+
+        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
+        jPanel6.setLayout(jPanel6Layout);
+        jPanel6Layout.setHorizontalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1117, Short.MAX_VALUE)
+        );
+        jPanel6Layout.setVerticalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 770, Short.MAX_VALUE)
+        );
+
+        panelGeneralServiciosG.addTab("tab4", jPanel6);
+
+        jPanel1.add(panelGeneralServiciosG, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 110, 1170, 770));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1400, 880));
 
@@ -176,7 +332,7 @@ public class ServiciosGeneralesFrame extends javax.swing.JFrame {
     }
 
     private void btnPlanificarLimpiezaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPlanificarLimpiezaActionPerformed
-
+        panelGeneralServiciosG.setSelectedIndex(0);
         // TODO add your handling code here:
     }//GEN-LAST:event_btnPlanificarLimpiezaActionPerformed
 
@@ -207,6 +363,95 @@ public class ServiciosGeneralesFrame extends javax.swing.JFrame {
     private void btnCerrarSesionServiciosGenerales1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCerrarSesionServiciosGenerales1MouseExited
         botonDespresionado(btnCerrarSesionServiciosGenerales1);        // TODO add your handling code here:
     }//GEN-LAST:event_btnCerrarSesionServiciosGenerales1MouseExited
+
+    private void btnActualizarLimpiezasMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnActualizarLimpiezasMouseEntered
+        botonPresionado(btnActualizarLimpiezas);
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnActualizarLimpiezasMouseEntered
+
+    private void btnActualizarLimpiezasMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnActualizarLimpiezasMouseExited
+        botonProveedorDespresionado(btnActualizarLimpiezas);
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnActualizarLimpiezasMouseExited
+
+    private void btnActualizarLimpiezasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarLimpiezasActionPerformed
+
+        llenarTablaEstadosLimpiezas();
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnActualizarLimpiezasActionPerformed
+
+    private void btnCrearLimpiezaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCrearLimpiezaMouseEntered
+        botonPresionado(btnCrearLimpieza);// TODO add your handling code here:
+    }//GEN-LAST:event_btnCrearLimpiezaMouseEntered
+
+    private void btnCrearLimpiezaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCrearLimpiezaMouseExited
+
+        botonProveedorDespresionado(btnCrearLimpieza);// TODO add your handling code here:
+    }//GEN-LAST:event_btnCrearLimpiezaMouseExited
+
+    private void btnCrearLimpiezaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearLimpiezaActionPerformed
+        AgregarLimpieza agregarLimpieza = new AgregarLimpieza();
+        agregarLimpieza.setLocationRelativeTo(null);
+        agregarLimpieza.setResizable(false);
+        agregarLimpieza.setVisible(true);
+
+    }//GEN-LAST:event_btnCrearLimpiezaActionPerformed
+
+    private void btnGestionarLimpiezaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnGestionarLimpiezaMouseEntered
+
+        botonPresionado(btnGestionarLimpieza);
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnGestionarLimpiezaMouseEntered
+
+    private void btnGestionarLimpiezaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnGestionarLimpiezaMouseExited
+        botonProveedorDespresionado(btnGestionarLimpieza);
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnGestionarLimpiezaMouseExited
+
+    private void btnGestionarLimpiezaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGestionarLimpiezaActionPerformed
+
+        ListaVacia vacia = new ListaVacia();
+
+        GestionarLimpieza gestLim = new GestionarLimpieza();
+
+        if (ListaTareas.getTareasCentroComercial().isEmpty()) {
+
+            vacia.setLocationRelativeTo(null);
+            vacia.setResizable(false);
+            vacia.setVisible(true);
+
+        } else {
+
+            gestLim.setLocationRelativeTo(null);
+            gestLim.setResizable(false);
+            gestLim.setVisible(true);
+        }
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnGestionarLimpiezaActionPerformed
+
+    public void llenarTablaEstadosLimpiezas() {
+
+        DefaultTableModel modelo = new DefaultTableModel(new String[]{"Identificación", "Nombre tarea", "Persona encargada", "Finalizada?", "Descripcion de tarea", "Area tarea"},
+                0);
+
+        for (Map.Entry<Integer, Tarea> codigo : ListaTareas.getTareasCentroComercial().entrySet()) {
+            int clave = codigo.getKey();
+
+            Tarea valor = codigo.getValue();
+
+            Object[] fila = {clave, valor.getNombreTarea(), valor.getPersonaEncargada(), valor.getRealizadaTarea(), valor.getDescripcionTarea(), valor.getAreaTarea()};
+            modelo.addRow(fila);
+
+        }
+
+        tbLimpiezasServiciosGen.setModel(modelo);
+
+    }
 
     /**
      * @param args the command line arguments
@@ -245,15 +490,26 @@ public class ServiciosGeneralesFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnActualizarLimpiezas;
     private javax.swing.JButton btnCerrarSesionServiciosGenerales1;
+    private javax.swing.JButton btnCrearLimpieza;
+    private javax.swing.JButton btnGestionarLimpieza;
     private javax.swing.JButton btnPlanificarLimpieza;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
+    private javax.swing.JPanel jPanel7;
+    private javax.swing.JPanel jPanel8;
+    private javax.swing.JPanel jPanel9;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTabbedPane panelGeneralServiciosG;
     private javax.swing.JPanel panelPlanificarLimpieza;
+    private javax.swing.JTable tbLimpiezasServiciosGen;
     // End of variables declaration//GEN-END:variables
 }

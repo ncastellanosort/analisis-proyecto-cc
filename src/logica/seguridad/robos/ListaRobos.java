@@ -4,10 +4,23 @@
  */
 package logica.seguridad.robos;
 
+import java.util.HashMap;
+
 /**
  *
  * @author Nicolas
  */
 public class ListaRobos {
+    
+    private static HashMap<Integer, Robo> robosCentroComercial = new HashMap<>();
+
+    public static HashMap<Integer, Robo> getRobosCentroComercial() {
+        return robosCentroComercial;
+    }
+
+    public static void setRobosCentroComercial(HashMap<Integer, Robo> robosCentroComercial) {
+        ListaRobos.robosCentroComercial = robosCentroComercial;
+    }
+    
     
 }
