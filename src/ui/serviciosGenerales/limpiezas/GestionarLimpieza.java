@@ -4,17 +4,32 @@
  */
 package ui.serviciosGenerales.limpiezas;
 
+import javax.swing.table.DefaultTableModel;
+import logica.serviciosGenerales.tareas.ListaTareas;
+import ui.utilidades.EliminadoExitosamente;
+
 /**
  *
  * @author Nicolas
  */
 public class GestionarLimpieza extends javax.swing.JFrame {
+    
+    DefaultTableModel modelo = new DefaultTableModel();
+    
+    String[] columnas = {"Identificación", "Nombre tarea", "Persona encargada", "Finalizada?", "Area tarea", "Descripcion de tarea"};
 
     /**
      * Creates new form GestionarLimpieza
      */
     public GestionarLimpieza() {
+        
         initComponents();
+        
+        modelo.setColumnIdentifiers(columnas);
+        tblUnicaLimpieza.setRowHeight(40);
+        
+        tblUnicaLimpieza.setModel(modelo);
+        
     }
 
     /**
@@ -26,21 +41,273 @@ public class GestionarLimpieza extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        jPanel1 = new javax.swing.JPanel();
+        jPanel6 = new javax.swing.JPanel();
+        jLabel20 = new javax.swing.JLabel();
+        btnSalirVentanaGestiLimpieza = new javax.swing.JButton();
+        jLabel23 = new javax.swing.JLabel();
+        txtfBuscarLimpieza = new javax.swing.JTextField();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tblUnicaLimpieza = new javax.swing.JTable();
+        btnBuscarLimpiezaID = new javax.swing.JButton();
+        btnEliminarLimpieza = new javax.swing.JButton();
+        btnEditarLimpieza = new javax.swing.JButton();
+        btnEliminarEstado1 = new javax.swing.JButton();
+        btnRegistrarEstadoF = new javax.swing.JButton();
+        btnFinalizarTareaDesdeLimp = new javax.swing.JButton();
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
-        );
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel6.setBackground(new java.awt.Color(127, 156, 90));
+        jPanel6.setMinimumSize(new java.awt.Dimension(1120, 90));
+        jPanel6.setPreferredSize(new java.awt.Dimension(1120, 90));
+        jPanel6.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel20.setBackground(new java.awt.Color(0, 0, 0));
+        jLabel20.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 36)); // NOI18N
+        jLabel20.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel20.setText("Limpieza");
+        jPanel6.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 20, -1, -1));
+
+        btnSalirVentanaGestiLimpieza.setBackground(new java.awt.Color(127, 156, 90));
+        btnSalirVentanaGestiLimpieza.setFont(new java.awt.Font("Microsoft JhengHei", 1, 24)); // NOI18N
+        btnSalirVentanaGestiLimpieza.setForeground(new java.awt.Color(0, 0, 0));
+        btnSalirVentanaGestiLimpieza.setText("X");
+        btnSalirVentanaGestiLimpieza.setBorder(null);
+        btnSalirVentanaGestiLimpieza.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSalirVentanaGestiLimpiezaActionPerformed(evt);
+            }
+        });
+        jPanel6.add(btnSalirVentanaGestiLimpieza, new org.netbeans.lib.awtextra.AbsoluteConstraints(1090, 0, -1, -1));
+
+        jPanel1.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1120, 90));
+
+        jLabel23.setBackground(new java.awt.Color(0, 0, 0));
+        jLabel23.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 18)); // NOI18N
+        jLabel23.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel23.setText("Número de identificación ");
+        jPanel1.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 110, -1, -1));
+
+        txtfBuscarLimpieza.setBackground(new java.awt.Color(153, 195, 84));
+        txtfBuscarLimpieza.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        txtfBuscarLimpieza.setForeground(new java.awt.Color(0, 0, 0));
+        txtfBuscarLimpieza.setBorder(null);
+        jPanel1.add(txtfBuscarLimpieza, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 150, 350, 45));
+
+        tblUnicaLimpieza.setFont(new java.awt.Font("Microsoft JhengHei", 1, 14)); // NOI18N
+        tblUnicaLimpieza.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(tblUnicaLimpieza);
+
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 220, 1090, 80));
+
+        btnBuscarLimpiezaID.setBackground(new java.awt.Color(127, 156, 90));
+        btnBuscarLimpiezaID.setFont(new java.awt.Font("Microsoft JhengHei", 1, 18)); // NOI18N
+        btnBuscarLimpiezaID.setForeground(new java.awt.Color(0, 0, 0));
+        btnBuscarLimpiezaID.setText("Buscar");
+        btnBuscarLimpiezaID.setBorder(null);
+        btnBuscarLimpiezaID.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscarLimpiezaIDActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnBuscarLimpiezaID, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 320, 130, 45));
+
+        btnEliminarLimpieza.setBackground(new java.awt.Color(127, 156, 90));
+        btnEliminarLimpieza.setFont(new java.awt.Font("Microsoft JhengHei", 1, 18)); // NOI18N
+        btnEliminarLimpieza.setForeground(new java.awt.Color(0, 0, 0));
+        btnEliminarLimpieza.setText("Eliminarlo");
+        btnEliminarLimpieza.setBorder(null);
+        btnEliminarLimpieza.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarLimpiezaActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnEliminarLimpieza, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 320, 130, 45));
+
+        btnEditarLimpieza.setBackground(new java.awt.Color(127, 156, 90));
+        btnEditarLimpieza.setFont(new java.awt.Font("Microsoft JhengHei", 1, 18)); // NOI18N
+        btnEditarLimpieza.setForeground(new java.awt.Color(0, 0, 0));
+        btnEditarLimpieza.setText("Editarlo");
+        btnEditarLimpieza.setBorder(null);
+        btnEditarLimpieza.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEditarLimpiezaActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnEditarLimpieza, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 320, 130, 45));
+
+        btnEliminarEstado1.setBackground(new java.awt.Color(127, 156, 90));
+        btnEliminarEstado1.setFont(new java.awt.Font("Microsoft JhengHei", 1, 18)); // NOI18N
+        btnEliminarEstado1.setForeground(new java.awt.Color(0, 0, 0));
+        btnEliminarEstado1.setText("Eliminarlo");
+        btnEliminarEstado1.setBorder(null);
+        btnEliminarEstado1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarEstado1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnEliminarEstado1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 320, 130, 45));
+
+        btnRegistrarEstadoF.setBackground(new java.awt.Color(127, 156, 90));
+        btnRegistrarEstadoF.setFont(new java.awt.Font("Microsoft JhengHei", 1, 18)); // NOI18N
+        btnRegistrarEstadoF.setForeground(new java.awt.Color(0, 0, 0));
+        btnRegistrarEstadoF.setText("Registrar estado");
+        btnRegistrarEstadoF.setBorder(null);
+        btnRegistrarEstadoF.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegistrarEstadoFActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnRegistrarEstadoF, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 670, 250, 100));
+
+        btnFinalizarTareaDesdeLimp.setBackground(new java.awt.Color(127, 156, 90));
+        btnFinalizarTareaDesdeLimp.setFont(new java.awt.Font("Microsoft JhengHei", 1, 18)); // NOI18N
+        btnFinalizarTareaDesdeLimp.setForeground(new java.awt.Color(0, 0, 0));
+        btnFinalizarTareaDesdeLimp.setText("Finalizarla");
+        btnFinalizarTareaDesdeLimp.setBorder(null);
+        btnFinalizarTareaDesdeLimp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnFinalizarTareaDesdeLimpActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnFinalizarTareaDesdeLimp, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 320, 130, 45));
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1120, 550));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnSalirVentanaGestiLimpiezaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirVentanaGestiLimpiezaActionPerformed
+        this.dispose();        // TODO add your handling code here:
+    }//GEN-LAST:event_btnSalirVentanaGestiLimpiezaActionPerformed
+
+    private void btnBuscarLimpiezaIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarLimpiezaIDActionPerformed
+        
+        int ID = Integer.parseInt(txtfBuscarLimpieza.getText());
+        
+        Object[] ob = {ID, ListaTareas.getTareasCentroComercial().get(ID).getNombreTarea(), ListaTareas.getTareasCentroComercial().get(ID).getPersonaEncargada(), ListaTareas.getTareasCentroComercial().get(ID).getRealizadaTarea(), ListaTareas.getTareasCentroComercial().get(ID).getDescripcionTarea(), ListaTareas.getTareasCentroComercial().get(ID).getAreaTarea()};
+        
+        modelo.addRow(ob);
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnBuscarLimpiezaIDActionPerformed
+
+    private void btnEliminarLimpiezaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarLimpiezaActionPerformed
+        int ID = Integer.parseInt(txtfBuscarLimpieza.getText());
+        
+        ListaTareas.getTareasCentroComercial().remove(ID);
+        
+        this.dispose();
+        EliminadoExitosamente elim = new EliminadoExitosamente();
+        
+        elim.setLocationRelativeTo(null);
+        elim.setResizable(false);
+        elim.setVisible(true);
+    }//GEN-LAST:event_btnEliminarLimpiezaActionPerformed
+
+    private void btnEditarLimpiezaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarLimpiezaActionPerformed
+        
+        int ID = Integer.parseInt(txtfBuscarLimpieza.getText());
+        
+        EditarLimpieza editarLimpieza = new EditarLimpieza();
+        
+        editarLimpieza.getLbNumeroIdentificacionLimpieza().setText(String.valueOf(ID));
+        
+        editarLimpieza.getTxtfNUEVOnombreTarea().setText(ListaTareas.getTareasCentroComercial().get(ID).getNombreTarea());
+        
+        editarLimpieza.getTxtfNUEVOpersonaEncargada().setText(ListaTareas.getTareasCentroComercial().get(ID).getPersonaEncargada());
+        
+        editarLimpieza.getTxtfNUEVOestaFinalizada().setText(ListaTareas.getTareasCentroComercial().get(ID).getRealizadaTarea());
+        
+        editarLimpieza.getTxtfNUEVOdescripcionTarea().setText(ListaTareas.getTareasCentroComercial().get(ID).getDescripcionTarea());
+        
+        editarLimpieza.getTxtfNUEVOAreaTarea().setText(ListaTareas.getTareasCentroComercial().get(ID).getAreaTarea());
+        
+        editarLimpieza.setIDeditar(ID);
+        
+        this.dispose();
+        
+        editarLimpieza.setLocationRelativeTo(null);
+        editarLimpieza.setResizable(false);
+        editarLimpieza.setVisible(true);
+        // APENAS LE DE ACA A TODOS LOS TXTFIELD PONERLE LOS GETTER
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnEditarLimpiezaActionPerformed
+
+    private void btnEliminarEstado1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarEstado1ActionPerformed
+//        int ID = Integer.parseInt(txtfBuscarEstadoF.getText());
+//
+//        LIstaEstadosFinancieros.getEstadosFinancieros().remove(ID);
+//
+//        this.dispose();
+//        EliminadoExitosamente elim = new EliminadoExitosamente();
+//
+//        elim.setLocationRelativeTo(null);
+//        elim.setResizable(false);
+//        elim.setVisible(true);
+    }//GEN-LAST:event_btnEliminarEstado1ActionPerformed
+
+    private void btnRegistrarEstadoFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarEstadoFActionPerformed
+
+//        ErrorAlAgregar error = new ErrorAlAgregar();
+//
+//        AgregadoExitosamente bien = new AgregadoExitosamente();
+//
+//        try {
+//
+//            int identificacionEstado = Integer.parseInt(txtfIdentificadorEstado.getText());
+//            String mesInput = txtfMesInputEstadoF.getText();
+//            String activosInput = txtfInputActivosEstadoF.getText();
+//            String pasivosInput = txtfInputPasivosEstadoF.getText();
+//            String patrimonioNetoInput = txtfInputPatrimonioNetoEstadoF.getText();
+//            int flujoEfectivoEntranteInput = Integer.parseInt(txtfInputFlujoENTREstadoF.getText());
+//            int flujoEfectivoSalienteInput = Integer.parseInt(txtfInputFlujoSALIEstadoF.getText());
+//            int gananciasRetenidasInput = Integer.parseInt(txtfInputGananciasReteEstadoF.getText());
+//            int capitalContanteInput = Integer.parseInt(txtfInputCapitalContanteEstadoF.getText());
+//
+//            LIstaEstadosFinancieros.getEstadosFinancieros().put(identificacionEstado, new EstadoFinanciero(mesInput, activosInput, pasivosInput, patrimonioNetoInput, flujoEfectivoEntranteInput, flujoEfectivoSalienteInput, gananciasRetenidasInput, capitalContanteInput));
+//
+//            bien.setLocationRelativeTo(null);
+//            bien.setResizable(false);
+//            bien.setVisible(true);
+//
+//            this.dispose();
+//
+//        } catch (Exception e) {
+//
+//            error.setLocationRelativeTo(null);
+//            error.setResizable(false);
+//            error.setVisible(true);
+//
+//        }
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnRegistrarEstadoFActionPerformed
+
+    private void btnFinalizarTareaDesdeLimpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFinalizarTareaDesdeLimpActionPerformed
+        
+        int ID = Integer.parseInt(txtfBuscarLimpieza.getText());
+        
+        ListaTareas.getTareasCentroComercial().get(ID).setRealizadaTarea("Si");
+        
+        this.dispose();
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnFinalizarTareaDesdeLimpActionPerformed
 
     /**
      * @param args the command line arguments
@@ -78,5 +345,19 @@ public class GestionarLimpieza extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnBuscarLimpiezaID;
+    private javax.swing.JButton btnEditarLimpieza;
+    private javax.swing.JButton btnEliminarEstado1;
+    private javax.swing.JButton btnEliminarLimpieza;
+    private javax.swing.JButton btnFinalizarTareaDesdeLimp;
+    private javax.swing.JButton btnRegistrarEstadoF;
+    private javax.swing.JButton btnSalirVentanaGestiLimpieza;
+    private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel23;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel6;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable tblUnicaLimpieza;
+    private javax.swing.JTextField txtfBuscarLimpieza;
     // End of variables declaration//GEN-END:variables
 }
