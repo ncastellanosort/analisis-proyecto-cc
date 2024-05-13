@@ -10,11 +10,15 @@ import javax.swing.JButton;
 import javax.swing.table.DefaultTableModel;
 import logica.administrativos.capacitaciones.Capacitacion;
 import logica.administrativos.capacitaciones.ListaCapacitaciones;
+import logica.administrativos.contratosLocales.ContratoLocal;
+import logica.administrativos.contratosLocales.ListaContratosLocales;
 import logica.administrativos.proveedores.ListaProveedores;
 import logica.administrativos.proveedores.Proveedor;
 import ui.administrativos.capacitaciones.AgendarCapacitacion;
 import ui.administrativos.capacitaciones.BuscarCapacitacion;
 import ui.administrativos.capacitaciones.EliminarCapacitacion;
+import ui.administrativos.contratosLocal.AgregarContratoLocal;
+import ui.administrativos.contratosLocal.GestionarContratoLocal;
 import ui.administrativos.proveedores.AgregarProveedor;
 import ui.administrativos.proveedores.BuscarProveedor;
 import ui.administrativos.proveedores.EliminarProveedor;
@@ -36,9 +40,13 @@ public class AdministrativosFrame extends javax.swing.JFrame {
 
     DefaultTableModel modeloTablaCapacitaciones = new DefaultTableModel();
 
+    DefaultTableModel modeloTablaContratosLocales = new DefaultTableModel();
+
     String[] columnasTablaProveedores = {"Identificación Fiscal", "Nombre empresa", "Dirección registrada", "Número contacto", "Dirección de correo", "Servicio suministrado", "Referencia comercial", "Término de pago"};
 
     String[] columnasTablaCapacitaciones = {"Identificador", "Nombre", "Instructor", "Descripción", "Área dirigida", "Fecha", "Hora inicio", "Hora fin", "Empresa encargada", "Finalizada?"};
+
+    String[] columnasTablaContratosLocales = {"Identificación", "Nombre arrendatario", "Cedula", "Descripcion", "Duracion contrato", "Condiciones", "Monto mensual", "Plazos de pago", "Uso de local", "Nombre del local", "Seguros"};
 
     /**
      * Creates new form AdministrativosFrame
@@ -57,6 +65,11 @@ public class AdministrativosFrame extends javax.swing.JFrame {
         tblCapacitaciones.setModel(modeloTablaCapacitaciones);
 
         tblCapacitaciones.setRowHeight(40);
+
+        modeloTablaContratosLocales.setColumnIdentifiers(columnasTablaContratosLocales);
+
+        tblContratosLocales.setModel(modeloTablaContratosLocales);
+        tblContratosLocales.setRowHeight(45);
 
     }
 
@@ -129,16 +142,18 @@ public class AdministrativosFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel10 = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        btnGestionarEmpleados2 = new javax.swing.JButton();
+        btnGestionarContratos = new javax.swing.JButton();
         btnRegistrarHorarioPersonal = new javax.swing.JButton();
         btnGestionarEventos = new javax.swing.JButton();
         btnGestionarEncuentrosCapacitacion = new javax.swing.JButton();
         btnProveedoresAdmin = new javax.swing.JButton();
         btnRegresarInicioAdmin = new javax.swing.JButton();
+        btnGestionarEmpleados3 = new javax.swing.JButton();
         panelGeneralAdmin = new javax.swing.JTabbedPane();
         gestionarPersonalFrame = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
@@ -189,6 +204,15 @@ public class AdministrativosFrame extends javax.swing.JFrame {
         btnActualizarTablaProveedores = new javax.swing.JButton();
         jPanel6 = new javax.swing.JPanel();
         jLabel19 = new javax.swing.JLabel();
+        gestionarContratos = new javax.swing.JPanel();
+        jPanel11 = new javax.swing.JPanel();
+        jPanel12 = new javax.swing.JPanel();
+        jLabel21 = new javax.swing.JLabel();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        tblContratosLocales = new javax.swing.JTable();
+        btnActualizarContratosLocal = new javax.swing.JButton();
+        btnRegistrarContratoLocal = new javax.swing.JButton();
+        btnGestionarContratoLocal = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(1400, 880));
@@ -214,35 +238,35 @@ public class AdministrativosFrame extends javax.swing.JFrame {
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/logo.png"))); // NOI18N
         jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 10, -1, -1));
 
-        btnGestionarEmpleados2.setBackground(new java.awt.Color(255, 255, 255));
-        btnGestionarEmpleados2.setFont(new java.awt.Font("Microsoft JhengHei", 1, 18)); // NOI18N
-        btnGestionarEmpleados2.setForeground(new java.awt.Color(0, 0, 0));
-        btnGestionarEmpleados2.setText("     Gestionar personal");
-        btnGestionarEmpleados2.setBorder(null);
-        btnGestionarEmpleados2.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        btnGestionarEmpleados2.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnGestionarContratos.setBackground(new java.awt.Color(255, 255, 255));
+        btnGestionarContratos.setFont(new java.awt.Font("Microsoft JhengHei", 1, 18)); // NOI18N
+        btnGestionarContratos.setForeground(new java.awt.Color(0, 0, 0));
+        btnGestionarContratos.setText("     Gestionar contratos");
+        btnGestionarContratos.setBorder(null);
+        btnGestionarContratos.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btnGestionarContratos.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnGestionarEmpleados2MouseClicked(evt);
+                btnGestionarContratosMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                btnGestionarEmpleados2MouseEntered(evt);
+                btnGestionarContratosMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                btnGestionarEmpleados2MouseExited(evt);
+                btnGestionarContratosMouseExited(evt);
             }
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                btnGestionarEmpleados2MousePressed(evt);
+                btnGestionarContratosMousePressed(evt);
             }
             public void mouseReleased(java.awt.event.MouseEvent evt) {
-                btnGestionarEmpleados2MouseReleased(evt);
+                btnGestionarContratosMouseReleased(evt);
             }
         });
-        btnGestionarEmpleados2.addActionListener(new java.awt.event.ActionListener() {
+        btnGestionarContratos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnGestionarEmpleados2ActionPerformed(evt);
+                btnGestionarContratosActionPerformed(evt);
             }
         });
-        jPanel2.add(btnGestionarEmpleados2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 210, 280, 50));
+        jPanel2.add(btnGestionarContratos, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 460, 280, 50));
 
         btnRegistrarHorarioPersonal.setBackground(new java.awt.Color(255, 255, 255));
         btnRegistrarHorarioPersonal.setFont(new java.awt.Font("Microsoft JhengHei", 1, 18)); // NOI18N
@@ -347,7 +371,37 @@ public class AdministrativosFrame extends javax.swing.JFrame {
                 btnRegresarInicioAdminActionPerformed(evt);
             }
         });
-        jPanel2.add(btnRegresarInicioAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 460, 280, 50));
+        jPanel2.add(btnRegresarInicioAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 510, 280, 50));
+
+        btnGestionarEmpleados3.setBackground(new java.awt.Color(255, 255, 255));
+        btnGestionarEmpleados3.setFont(new java.awt.Font("Microsoft JhengHei", 1, 18)); // NOI18N
+        btnGestionarEmpleados3.setForeground(new java.awt.Color(0, 0, 0));
+        btnGestionarEmpleados3.setText("     Gestionar personal");
+        btnGestionarEmpleados3.setBorder(null);
+        btnGestionarEmpleados3.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btnGestionarEmpleados3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnGestionarEmpleados3MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnGestionarEmpleados3MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnGestionarEmpleados3MouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btnGestionarEmpleados3MousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                btnGestionarEmpleados3MouseReleased(evt);
+            }
+        });
+        btnGestionarEmpleados3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGestionarEmpleados3ActionPerformed(evt);
+            }
+        });
+        jPanel2.add(btnGestionarEmpleados3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 210, 280, 50));
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 280, 880));
 
@@ -821,48 +875,150 @@ public class AdministrativosFrame extends javax.swing.JFrame {
 
         panelGeneralAdmin.addTab("tab5", gestionarProveedores);
 
+        gestionarContratos.setMaximumSize(new java.awt.Dimension(1120, 770));
+        gestionarContratos.setMinimumSize(new java.awt.Dimension(1120, 770));
+        gestionarContratos.setPreferredSize(new java.awt.Dimension(1120, 770));
+        gestionarContratos.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel11.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel11.setMaximumSize(new java.awt.Dimension(1120, 770));
+        jPanel11.setMinimumSize(new java.awt.Dimension(1120, 770));
+        jPanel11.setPreferredSize(new java.awt.Dimension(1120, 770));
+        jPanel11.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel12.setBackground(new java.awt.Color(127, 156, 90));
+        jPanel12.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel21.setBackground(new java.awt.Color(0, 0, 0));
+        jLabel21.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 36)); // NOI18N
+        jLabel21.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel21.setText("Gestionar contratos de locales");
+        jPanel12.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 20, -1, -1));
+
+        jPanel11.add(jPanel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1600, 90));
+
+        tblContratosLocales.setFont(new java.awt.Font("Microsoft JhengHei", 1, 14)); // NOI18N
+        tblContratosLocales.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane4.setViewportView(tblContratosLocales);
+
+        jPanel11.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 150, 1080, -1));
+
+        btnActualizarContratosLocal.setBackground(new java.awt.Color(153, 195, 84));
+        btnActualizarContratosLocal.setFont(new java.awt.Font("Microsoft JhengHei", 1, 18)); // NOI18N
+        btnActualizarContratosLocal.setForeground(new java.awt.Color(0, 0, 0));
+        btnActualizarContratosLocal.setText("Actualizar tabla");
+        btnActualizarContratosLocal.setBorder(null);
+        btnActualizarContratosLocal.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnActualizarContratosLocalMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnActualizarContratosLocalMouseExited(evt);
+            }
+        });
+        btnActualizarContratosLocal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnActualizarContratosLocalActionPerformed(evt);
+            }
+        });
+        jPanel11.add(btnActualizarContratosLocal, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, 373, 50));
+
+        btnRegistrarContratoLocal.setBackground(new java.awt.Color(153, 195, 84));
+        btnRegistrarContratoLocal.setFont(new java.awt.Font("Microsoft JhengHei", 1, 18)); // NOI18N
+        btnRegistrarContratoLocal.setForeground(new java.awt.Color(0, 0, 0));
+        btnRegistrarContratoLocal.setText("Registrar contrato");
+        btnRegistrarContratoLocal.setBorder(null);
+        btnRegistrarContratoLocal.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnRegistrarContratoLocalMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnRegistrarContratoLocalMouseExited(evt);
+            }
+        });
+        btnRegistrarContratoLocal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegistrarContratoLocalActionPerformed(evt);
+            }
+        });
+        jPanel11.add(btnRegistrarContratoLocal, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 90, 373, 50));
+
+        btnGestionarContratoLocal.setBackground(new java.awt.Color(153, 195, 84));
+        btnGestionarContratoLocal.setFont(new java.awt.Font("Microsoft JhengHei", 1, 18)); // NOI18N
+        btnGestionarContratoLocal.setForeground(new java.awt.Color(0, 0, 0));
+        btnGestionarContratoLocal.setText("Gestionar contrato");
+        btnGestionarContratoLocal.setBorder(null);
+        btnGestionarContratoLocal.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnGestionarContratoLocalMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnGestionarContratoLocalMouseExited(evt);
+            }
+        });
+        btnGestionarContratoLocal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGestionarContratoLocalActionPerformed(evt);
+            }
+        });
+        jPanel11.add(btnGestionarContratoLocal, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 90, 380, 50));
+
+        gestionarContratos.add(jPanel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1120, 770));
+
+        panelGeneralAdmin.addTab("tab6", gestionarContratos);
+
         getContentPane().add(panelGeneralAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 110, 1180, 770));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnGestionarEmpleados2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGestionarEmpleados2ActionPerformed
-        panelGeneralAdmin.setSelectedIndex(0);
+    private void btnGestionarContratosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGestionarContratosActionPerformed
+        panelGeneralAdmin.setSelectedIndex(5);
 
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnGestionarEmpleados2ActionPerformed
+    }//GEN-LAST:event_btnGestionarContratosActionPerformed
 
     private void btnGestionarEncuentrosCapacitacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGestionarEncuentrosCapacitacionActionPerformed
         panelGeneralAdmin.setSelectedIndex(3);// TODO add your handling code here:
     }//GEN-LAST:event_btnGestionarEncuentrosCapacitacionActionPerformed
 
-    private void btnGestionarEmpleados2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnGestionarEmpleados2MouseClicked
+    private void btnGestionarContratosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnGestionarContratosMouseClicked
 
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnGestionarEmpleados2MouseClicked
+    }//GEN-LAST:event_btnGestionarContratosMouseClicked
 
-    private void btnGestionarEmpleados2MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnGestionarEmpleados2MousePressed
+    private void btnGestionarContratosMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnGestionarContratosMousePressed
 
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnGestionarEmpleados2MousePressed
+    }//GEN-LAST:event_btnGestionarContratosMousePressed
 
-    private void btnGestionarEmpleados2MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnGestionarEmpleados2MouseReleased
+    private void btnGestionarContratosMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnGestionarContratosMouseReleased
 //
 
-    }//GEN-LAST:event_btnGestionarEmpleados2MouseReleased
+    }//GEN-LAST:event_btnGestionarContratosMouseReleased
 
-    private void btnGestionarEmpleados2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnGestionarEmpleados2MouseEntered
-        botonPresionado(btnGestionarEmpleados2);
+    private void btnGestionarContratosMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnGestionarContratosMouseEntered
+        botonPresionado(btnGestionarContratos);
 
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnGestionarEmpleados2MouseEntered
+    }//GEN-LAST:event_btnGestionarContratosMouseEntered
 
-    private void btnGestionarEmpleados2MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnGestionarEmpleados2MouseExited
+    private void btnGestionarContratosMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnGestionarContratosMouseExited
 
-        botonDespresionado(btnGestionarEmpleados2);
+        botonDespresionado(btnGestionarContratos);
 
 // TODO add your handling code here:
-    }//GEN-LAST:event_btnGestionarEmpleados2MouseExited
+    }//GEN-LAST:event_btnGestionarContratosMouseExited
 
     private void btnRegistrarHorarioPersonalMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRegistrarHorarioPersonalMouseEntered
         botonPresionado(btnRegistrarHorarioPersonal);
@@ -1035,9 +1191,8 @@ public class AdministrativosFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_btnBuscarProveedorMouseExited
 
     private void btnActualizarTablaProveedoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarTablaProveedoresActionPerformed
-        
-        llenarTablaProveedores();
 
+        llenarTablaProveedores();
 
         // TODO add your handling code here:
     }//GEN-LAST:event_btnActualizarTablaProveedoresActionPerformed
@@ -1205,6 +1360,118 @@ public class AdministrativosFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnSeguimientoCapacitacionActionPerformed
 
+    private void btnGestionarEmpleados3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnGestionarEmpleados3MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnGestionarEmpleados3MouseClicked
+
+    private void btnGestionarEmpleados3MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnGestionarEmpleados3MouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnGestionarEmpleados3MouseEntered
+
+    private void btnGestionarEmpleados3MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnGestionarEmpleados3MouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnGestionarEmpleados3MouseExited
+
+    private void btnGestionarEmpleados3MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnGestionarEmpleados3MousePressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnGestionarEmpleados3MousePressed
+
+    private void btnGestionarEmpleados3MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnGestionarEmpleados3MouseReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnGestionarEmpleados3MouseReleased
+
+    private void btnGestionarEmpleados3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGestionarEmpleados3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnGestionarEmpleados3ActionPerformed
+
+    private void btnActualizarContratosLocalMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnActualizarContratosLocalMouseEntered
+        botonPresionado(btnActualizarContratosLocal);
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnActualizarContratosLocalMouseEntered
+
+    private void btnActualizarContratosLocalMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnActualizarContratosLocalMouseExited
+        botonProveedorDespresionado(btnActualizarContratosLocal);
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnActualizarContratosLocalMouseExited
+
+    private void btnActualizarContratosLocalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarContratosLocalActionPerformed
+
+        llenarTablaContratosLocal();
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnActualizarContratosLocalActionPerformed
+
+    public void llenarTablaContratosLocal() {
+
+        DefaultTableModel modelo = new DefaultTableModel(new String[]{"Identificación", "Nombre arrendatario", "Cedula", "Descripcion", "Duracion contrato", "Condiciones", "Monto mensual", "Plazos de pago", "Uso de local", "Nombre del local", "Seguros"},
+                0);
+
+        for (Map.Entry<Integer, ContratoLocal> codigo : ListaContratosLocales.getContratosCentroComercial().entrySet()) {
+            int clave = codigo.getKey();
+
+            ContratoLocal valor = codigo.getValue();
+
+            Object[] fila = {clave, valor.getNombreArrendatarioContrato(), valor.getCedulaArrendatario(), valor.getDescripcionContrato(), valor.getDuracionContrato(), valor.getCondicionesDeRenovacionContrato(), valor.getMontoMensualContrato(), valor.getPlazosDePagoContrato(), valor.getUsoDelLocalContrato(), valor.getNombreLocalContrato(), valor.getSeguros()};
+            modelo.addRow(fila);
+
+        }
+
+        tblContratosLocales.setModel(modelo);
+
+    }
+
+    private void btnRegistrarContratoLocalMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRegistrarContratoLocalMouseEntered
+        botonPresionado(btnRegistrarContratoLocal);// TODO add your handling code here:
+    }//GEN-LAST:event_btnRegistrarContratoLocalMouseEntered
+
+    private void btnRegistrarContratoLocalMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRegistrarContratoLocalMouseExited
+
+        botonProveedorDespresionado(btnRegistrarContratoLocal);// TODO add your handling code here:
+    }//GEN-LAST:event_btnRegistrarContratoLocalMouseExited
+
+    private void btnRegistrarContratoLocalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarContratoLocalActionPerformed
+        AgregarContratoLocal agregarContratoLocal = new AgregarContratoLocal();
+        agregarContratoLocal.setLocationRelativeTo(null);
+        agregarContratoLocal.setResizable(false);
+        agregarContratoLocal.setVisible(true);
+    }//GEN-LAST:event_btnRegistrarContratoLocalActionPerformed
+
+    private void btnGestionarContratoLocalMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnGestionarContratoLocalMouseEntered
+
+        botonPresionado(btnGestionarContratoLocal);
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnGestionarContratoLocalMouseEntered
+
+    private void btnGestionarContratoLocalMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnGestionarContratoLocalMouseExited
+        botonProveedorDespresionado(btnGestionarContratoLocal);
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnGestionarContratoLocalMouseExited
+
+    private void btnGestionarContratoLocalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGestionarContratoLocalActionPerformed
+
+        ListaVacia vacia = new ListaVacia();
+
+        GestionarContratoLocal gestCont = new GestionarContratoLocal();
+
+        if (ListaContratosLocales.getContratosCentroComercial().isEmpty()) {
+
+            vacia.setLocationRelativeTo(null);
+            vacia.setResizable(false);
+            vacia.setVisible(true);
+
+        } else {
+
+            gestCont.setLocationRelativeTo(null);
+            gestCont.setResizable(false);
+            gestCont.setVisible(true);
+        }
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnGestionarContratoLocalActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1242,6 +1509,7 @@ public class AdministrativosFrame extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnACTUALIZARTABLAcapacitacion;
+    private javax.swing.JButton btnActualizarContratosLocal;
     private javax.swing.JScrollPane btnActualizarTablaCapacitaciones;
     private javax.swing.JButton btnActualizarTablaProveedores;
     private javax.swing.JButton btnAgregarCapacitacion;
@@ -1254,18 +1522,22 @@ public class AdministrativosFrame extends javax.swing.JFrame {
     private javax.swing.JButton btnEliminarEmpleado;
     private javax.swing.JButton btnEliminarEvento;
     private javax.swing.JButton btnEliminarProveedor;
+    private javax.swing.JButton btnGestionarContratoLocal;
+    private javax.swing.JButton btnGestionarContratos;
     private javax.swing.JButton btnGestionarEmpleado;
-    private javax.swing.JButton btnGestionarEmpleados2;
+    private javax.swing.JButton btnGestionarEmpleados3;
     private javax.swing.JButton btnGestionarEncuentrosCapacitacion;
     private javax.swing.JButton btnGestionarEvento;
     private javax.swing.JButton btnGestionarEventos;
     private javax.swing.JButton btnGestionarHorasPersonal;
     private javax.swing.JButton btnGestionarProveedores;
     private javax.swing.JButton btnProveedoresAdmin;
+    private javax.swing.JButton btnRegistrarContratoLocal;
     private javax.swing.JButton btnRegistrarHorarioPersonal;
     private javax.swing.JButton btnRegresarInicioAdmin;
     private javax.swing.JButton btnSeguimientoCapacitacion;
     private javax.swing.JPanel gestionarCapacitacion;
+    private javax.swing.JPanel gestionarContratos;
     private javax.swing.JPanel gestionarEventos;
     private javax.swing.JPanel gestionarHorarioPersonal;
     private javax.swing.JPanel gestionarPersonalFrame;
@@ -1278,11 +1550,15 @@ public class AdministrativosFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel10;
+    private javax.swing.JPanel jPanel11;
+    private javax.swing.JPanel jPanel12;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
@@ -1294,9 +1570,11 @@ public class AdministrativosFrame extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JTabbedPane panelGeneralAdmin;
     private javax.swing.JTable tblCapacitaciones;
+    private javax.swing.JTable tblContratosLocales;
     private javax.swing.JTable tblGestionarEventos;
     private javax.swing.JTable tblHorarioPersonal;
     private javax.swing.JTable tblPersonal;

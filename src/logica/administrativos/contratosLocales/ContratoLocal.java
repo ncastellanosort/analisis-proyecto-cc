@@ -2,14 +2,16 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package logica.administrativos.contratos;
+package logica.administrativos.contratosLocales;
 
 /**
  *
  * @author Nicolas
  */
-public class Contrato {
+public class ContratoLocal {
+
     private String nombreArrendatarioContrato;
+    private String cedulaArrendatario;
     private String descripcionContrato;
     private String duracionContrato;
     private String condicionesDeRenovacionContrato;
@@ -19,8 +21,9 @@ public class Contrato {
     private String nombreLocalContrato;
     private String seguros;
 
-    public Contrato(String nombreArrendatarioContrato, String descripcionContrato, String duracionContrato, String condicionesDeRenovacionContrato, int montoMensualContrato, String plazosDePagoContrato, String usoDelLocalContrato, String nombreLocalContrato, String seguros) {
+    public ContratoLocal(String nombreArrendatarioContrato, String cedulaArrendatario, String descripcionContrato, String duracionContrato, String condicionesDeRenovacionContrato, int montoMensualContrato, String plazosDePagoContrato, String usoDelLocalContrato, String nombreLocalContrato, String seguros) {
         this.nombreArrendatarioContrato = nombreArrendatarioContrato;
+        this.cedulaArrendatario = cedulaArrendatario;
         this.descripcionContrato = descripcionContrato;
         this.duracionContrato = duracionContrato;
         this.condicionesDeRenovacionContrato = condicionesDeRenovacionContrato;
@@ -29,6 +32,14 @@ public class Contrato {
         this.usoDelLocalContrato = usoDelLocalContrato;
         this.nombreLocalContrato = nombreLocalContrato;
         this.seguros = seguros;
+    }
+
+    public String getCedulaArrendatario() {
+        return cedulaArrendatario;
+    }
+
+    public void setCedulaArrendatario(String cedulaArrendatario) {
+        this.cedulaArrendatario = cedulaArrendatario;
     }
 
     public String getNombreArrendatarioContrato() {
@@ -102,8 +113,5 @@ public class Contrato {
     public void setSeguros(String seguros) {
         this.seguros = seguros;
     }
-    
-    
-            
-            
+
 }

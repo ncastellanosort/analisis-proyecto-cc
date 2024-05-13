@@ -228,7 +228,7 @@ public class EditarMantenimiento extends javax.swing.JFrame {
 
         jLabel7.setFont(new java.awt.Font("Microsoft JhengHei", 1, 18)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel7.setText("Finalizada? (Si/No)");
+        jLabel7.setText("Finalizado? (Si/No)");
         jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 130, -1, 30));
 
         txtfNUEVOFinalizadoMantenimiento.setBackground(new java.awt.Color(153, 195, 84));
