@@ -9,19 +9,49 @@ package logica.mantenimiento.mantenimientos;
  * @author Nicolas
  */
 public class Mantenimiento {
-    
+
     private String nombreMantenimiento;
     private String encargadoMantenimiento;
     private int cedulaEncargado;
+    private String descripcionMantenimiento;
     private String finalizadoMantenimiento;
     private String zonaMantenimiento;
+    private String horaFinalizacion;
+    private String fechaFinalizacion;
 
-    public Mantenimiento(String nombreMantenimiento, String encargadoMantenimiento, int cedulaEncargado, String finalizadoMantenimiento, String zonaMantenimiento) {
+    public Mantenimiento(String nombreMantenimiento, String encargadoMantenimiento, int cedulaEncargado, String descripcionMantenimiento, String finalizadoMantenimiento, String zonaMantenimiento, String horaFinalizacion, String fechaFinalizacion) {
         this.nombreMantenimiento = nombreMantenimiento;
         this.encargadoMantenimiento = encargadoMantenimiento;
         this.cedulaEncargado = cedulaEncargado;
+        this.descripcionMantenimiento = descripcionMantenimiento;
         this.finalizadoMantenimiento = finalizadoMantenimiento;
         this.zonaMantenimiento = zonaMantenimiento;
+        this.horaFinalizacion = horaFinalizacion;
+        this.fechaFinalizacion = fechaFinalizacion;
+    }
+
+    public String getHoraFinalizacion() {
+        return horaFinalizacion;
+    }
+
+    public void setHoraFinalizacion(String horaFinalizacion) {
+        this.horaFinalizacion = horaFinalizacion;
+    }
+
+    public String getFechaFinalizacion() {
+        return fechaFinalizacion;
+    }
+
+    public void setFechaFinalizacion(String fechaFinalizacion) {
+        this.fechaFinalizacion = fechaFinalizacion;
+    }
+
+    public String getDescripcionMantenimiento() {
+        return descripcionMantenimiento;
+    }
+
+    public void setDescripcionMantenimiento(String descripcionMantenimiento) {
+        this.descripcionMantenimiento = descripcionMantenimiento;
     }
 
     public String getNombreMantenimiento() {
@@ -63,8 +93,5 @@ public class Mantenimiento {
     public void setZonaMantenimiento(String zonaMantenimiento) {
         this.zonaMantenimiento = zonaMantenimiento;
     }
-    
 
-    
-    
 }

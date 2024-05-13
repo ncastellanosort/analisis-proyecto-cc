@@ -146,7 +146,7 @@ public class EditarLimpieza extends javax.swing.JFrame {
 
         lbNumeroIdentificacionLimpieza.setFont(new java.awt.Font("Microsoft JhengHei", 0, 18)); // NOI18N
         lbNumeroIdentificacionLimpieza.setForeground(new java.awt.Color(0, 0, 0));
-        jPanel1.add(lbNumeroIdentificacionLimpieza, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 130, 300, 30));
+        jPanel1.add(lbNumeroIdentificacionLimpieza, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 180, 300, 30));
 
         jLabel2.setFont(new java.awt.Font("Microsoft JhengHei", 1, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(0, 0, 0));

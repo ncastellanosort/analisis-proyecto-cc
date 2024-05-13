@@ -89,7 +89,7 @@ public class GestionarRobo extends javax.swing.JFrame {
         lbValorRobo.setBackground(new java.awt.Color(0, 0, 0));
         lbValorRobo.setFont(new java.awt.Font("Microsoft JhengHei UI", 0, 18)); // NOI18N
         lbValorRobo.setForeground(new java.awt.Color(0, 0, 0));
-        jPanel1.add(lbValorRobo, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 140, 190, 30));
+        jPanel1.add(lbValorRobo, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 140, 190, 30));
 
         txtfIDRobo.setBackground(new java.awt.Color(153, 195, 84));
         txtfIDRobo.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
@@ -146,7 +146,7 @@ public class GestionarRobo extends javax.swing.JFrame {
         jLabel25.setBackground(new java.awt.Color(0, 0, 0));
         jLabel25.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 18)); // NOI18N
         jLabel25.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel25.setText("Valor estimado");
+        jLabel25.setText("Valor estimado ($)");
         jPanel1.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 140, -1, -1));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1120, 550));

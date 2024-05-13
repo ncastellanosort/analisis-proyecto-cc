@@ -26,6 +26,8 @@
             <file>file:/C:/Users/Nicolas/Documents/NetBeansProjects/analisis-proyecto-centro-comercial/src/ui/contador/estadoFinanciero/EditarEstado.java</file>
             <file>file:/C:/Users/Nicolas/Documents/NetBeansProjects/analisis-proyecto-centro-comercial/src/ui/administrativos/capacitaciones/IndiceSeguimientoCapacitacion.java</file>
             <file>file:/C:/Users/Nicolas/Documents/NetBeansProjects/analisis-proyecto-centro-comercial/src/logica/mantenimiento/mantenimientos/Mantenimiento.java</file>
+            <file>file:/C:/Users/Nicolas/Documents/NetBeansProjects/analisis-proyecto-centro-comercial/src/ui/seguridad/areas/GestionarArea.java</file>
+            <file>file:/C:/Users/Nicolas/Documents/NetBeansProjects/analisis-proyecto-centro-comercial/src/ui/serviciosGenerales/limpiezas/EditarLimpieza.java</file>
             <file>file:/C:/Users/Nicolas/Documents/NetBeansProjects/analisis-proyecto-centro-comercial/src/logica/administrativos/contratos/Contrato.java</file>
             <file>file:/C:/Users/Nicolas/Documents/NetBeansProjects/analisis-proyecto-centro-comercial/src/logica/contador/ingresos/Ingreso.java</file>
             <file>file:/C:/Users/Nicolas/Documents/NetBeansProjects/analisis-proyecto-centro-comercial/src/logica/administrativos/capacitaciones/Capacitacion.java</file>
@@ -36,6 +38,8 @@
             <file>file:/C:/Users/Nicolas/Documents/NetBeansProjects/analisis-proyecto-centro-comercial/src/ui/revisorFiscalFrame/RevisionLocalesFrame.java</file>
             <file>file:/C:/Users/Nicolas/Documents/NetBeansProjects/analisis-proyecto-centro-comercial/src/logica/contador/estadoFinanciero/LIstaEstadosFinancieros.java</file>
             <file>file:/C:/Users/Nicolas/Documents/NetBeansProjects/analisis-proyecto-centro-comercial/src/logica/contador/estadoFinanciero/EstadoFinanciero.java</file>
+            <file>file:/C:/Users/Nicolas/Documents/NetBeansProjects/analisis-proyecto-centro-comercial/src/ui/seguridad/incidentes/GestionarIncidente.java</file>
+            <file>file:/C:/Users/Nicolas/Documents/NetBeansProjects/analisis-proyecto-centro-comercial/src/ui/seguridad/incidentes/AgregarIncidente.java</file>
             <file>file:/C:/Users/Nicolas/Documents/NetBeansProjects/analisis-proyecto-centro-comercial/src/logica/empleados/Empleado.java</file>
             <file>file:/C:/Users/Nicolas/Documents/NetBeansProjects/analisis-proyecto-centro-comercial/src/ui/administrativos/capacitaciones/CapacitacionFinalizada.java</file>
             <file>file:/C:/Users/Nicolas/Documents/NetBeansProjects/analisis-proyecto-centro-comercial/src/ui/contador/gastos/EditarGasto.java</file>
@@ -68,6 +72,7 @@
             <file>file:/C:/Users/Nicolas/Documents/NetBeansProjects/analisis-proyecto-centro-comercial/src/ui/contador/estadoFinanciero/AgregarEstadoFinanciero.java</file>
             <file>file:/C:/Users/Nicolas/Documents/NetBeansProjects/analisis-proyecto-centro-comercial/src/ui/serviciosGenerales/ServiciosGeneralesFrame.java</file>
             <file>file:/C:/Users/Nicolas/Documents/NetBeansProjects/analisis-proyecto-centro-comercial/src/ui/revisorFiscalFrame/RevisorFiscalFrame.java</file>
+            <file>file:/C:/Users/Nicolas/Documents/NetBeansProjects/analisis-proyecto-centro-comercial/src/ui/seguridad/robos/GestionarRobo.java</file>
             <file>file:/C:/Users/Nicolas/Documents/NetBeansProjects/analisis-proyecto-centro-comercial/src/ui/administrativos/proveedores/IndiceEditarProveeedor.java</file>
             <file>file:/C:/Users/Nicolas/Documents/NetBeansProjects/analisis-proyecto-centro-comercial/src/logica/seguridad/incidentes/ListaIncidentes.java</file>
             <file>file:/C:/Users/Nicolas/Documents/NetBeansProjects/analisis-proyecto-centro-comercial/src/logica/representanteLegal/RepresentanteLegal.java</file>
@@ -81,9 +86,11 @@
             <file>file:/C:/Users/Nicolas/Documents/NetBeansProjects/analisis-proyecto-centro-comercial/src/logica/mantenimiento/mantenimientos/ListaMantenimientos.java</file>
             <file>file:/C:/Users/Nicolas/Documents/NetBeansProjects/analisis-proyecto-centro-comercial/src/logica/seguridad/Seguridad.java</file>
             <file>file:/C:/Users/Nicolas/Documents/NetBeansProjects/analisis-proyecto-centro-comercial/src/logica/seguridad/robos/ListaRobos.java</file>
+            <file>file:/C:/Users/Nicolas/Documents/NetBeansProjects/analisis-proyecto-centro-comercial/src/ui/seguridad/robos/AgregarRobo.java</file>
             <file>file:/C:/Users/Nicolas/Documents/NetBeansProjects/analisis-proyecto-centro-comercial/src/ui/administrativos/capacitaciones/BuscarCapacitacion.java</file>
             <file>file:/C:/Users/Nicolas/Documents/NetBeansProjects/analisis-proyecto-centro-comercial/src/ui/login/Login.java</file>
             <file>file:/C:/Users/Nicolas/Documents/NetBeansProjects/analisis-proyecto-centro-comercial/src/ui/representanteLegal/RepresentanteLegalFrame.java</file>
+            <file>file:/C:/Users/Nicolas/Documents/NetBeansProjects/analisis-proyecto-centro-comercial/src/ui/seguridad/areas/AsignarArea.java</file>
             <file>file:/C:/Users/Nicolas/Documents/NetBeansProjects/analisis-proyecto-centro-comercial/src/ui/contador/ingresos/BuscarIngreso.java</file>
             <file>file:/C:/Users/Nicolas/Documents/NetBeansProjects/analisis-proyecto-centro-comercial/src/ui/utilidades/AgregadoExitosamente.java</file>
             <file>file:/C:/Users/Nicolas/Documents/NetBeansProjects/analisis-proyecto-centro-comercial/src/ui/utilidades/ListaVacia.java</file>
