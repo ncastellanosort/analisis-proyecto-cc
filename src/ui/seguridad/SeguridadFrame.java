@@ -5,25 +5,65 @@
 package ui.seguridad;
 
 import java.awt.Color;
+import java.util.Map;
 import javax.swing.JButton;
+import javax.swing.table.DefaultTableModel;
+import logica.seguridad.areas.Area;
+import logica.seguridad.areas.ListaAreas;
+import logica.seguridad.incidentes.Incidente;
+import logica.seguridad.incidentes.ListaIncidentes;
+import logica.seguridad.robos.ListaRobos;
+import logica.seguridad.robos.Robo;
 import ui.login.Login;
+import ui.seguridad.areas.AsignarArea;
+import ui.seguridad.areas.GestionarArea;
+import ui.seguridad.incidentes.AgregarIncidente;
+import ui.seguridad.incidentes.GestionarIncidente;
+import ui.seguridad.robos.AgregarRobo;
+import ui.seguridad.robos.GestionarRobo;
+import ui.utilidades.ListaVacia;
 
 /**
  *
  * @author Nicolas
  */
 public class SeguridadFrame extends javax.swing.JFrame {
-    
-    
+
     Color colorBotonPresionado = new Color(108, 136, 69);
 
     Color colorBotonProveedorPresionado = new Color(153, 195, 84);
+
+    DefaultTableModel modeloTablaAreas = new DefaultTableModel();
+    DefaultTableModel modeloTablaIncidentes = new DefaultTableModel();
+    DefaultTableModel modeloTablaRobos = new DefaultTableModel();
+
+    String[] columnasTablaAreas = {"Identificación", "Fecha", "Nombre área", "Ubicación área", "Tamano área", "Encargado", "Cedula encargado", "Hora inicio", "Hora fin", "Piso área", "Finalizado?"};
+
+    String[] columnasTablaIncidentes = {"Identificación", "Nombre área", "Hora", "Descripción", "Personas involucradas", "Acciones tomadas", "Daños materiales", "Notificación autoridades?"};
+
+    String[] columnasTablaRobos = {"Identificación", "Fecha", "Hora", "Descripcion", "Valor estimado", "Fue un local?", "Objetos robados", "Testigos", "Daños materiales", "Notificación autoridades?"};
 
     /**
      * Creates new form SeguridadFrame
      */
     public SeguridadFrame() {
+
         initComponents();
+
+        modeloTablaRobos.setColumnIdentifiers(columnasTablaRobos);
+        tblRobos.setModel(modeloTablaRobos);
+        tblRobos.setRowHeight(45);
+
+        modeloTablaAreas.setColumnIdentifiers(columnasTablaAreas);
+
+        modeloTablaIncidentes.setColumnIdentifiers(columnasTablaIncidentes);
+
+        tblIncidentes.setModel(modeloTablaIncidentes);
+        tblIncidentes.setRowHeight(45);
+
+        tblAreasDeSeguridad.setModel(modeloTablaAreas);
+
+        tblAreasDeSeguridad.setRowHeight(45);
     }
 
     /**
@@ -46,8 +86,34 @@ public class SeguridadFrame extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         panelGeneralSeguridad = new javax.swing.JTabbedPane();
         panelGestionarAreaSeguridad = new javax.swing.JPanel();
+        jPanel6 = new javax.swing.JPanel();
+        jPanel8 = new javax.swing.JPanel();
+        jLabel19 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tblAreasDeSeguridad = new javax.swing.JTable();
+        btnActualizarTablaAreasSeguridad = new javax.swing.JButton();
+        btnCrearAreaSeguridad = new javax.swing.JButton();
+        btnGestionarArea = new javax.swing.JButton();
         panelGestionarIncidentes = new javax.swing.JPanel();
+        jPanel7 = new javax.swing.JPanel();
+        jPanel9 = new javax.swing.JPanel();
+        jLabel20 = new javax.swing.JLabel();
+        btnActualizarTablaIncidentes = new javax.swing.JButton();
+        btnReportarIncidente = new javax.swing.JButton();
+        btnGestionarIncidente = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        tblIncidentes = new javax.swing.JTable();
         panelGestionarRobos = new javax.swing.JPanel();
+        jPanel10 = new javax.swing.JPanel();
+        btnActualizarTablaRobos = new javax.swing.JButton();
+        btnReportarRobo = new javax.swing.JButton();
+        btnGestionarRobo = new javax.swing.JButton();
+        jPanel11 = new javax.swing.JPanel();
+        jLabel21 = new javax.swing.JLabel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        tblRobos = new javax.swing.JTable();
+        jPanel4 = new javax.swing.JPanel();
+        jPanel5 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(1400, 880));
@@ -164,46 +230,332 @@ public class SeguridadFrame extends javax.swing.JFrame {
 
         panelGeneralSeguridad.setTabPlacement(javax.swing.JTabbedPane.RIGHT);
 
-        javax.swing.GroupLayout panelGestionarAreaSeguridadLayout = new javax.swing.GroupLayout(panelGestionarAreaSeguridad);
-        panelGestionarAreaSeguridad.setLayout(panelGestionarAreaSeguridadLayout);
-        panelGestionarAreaSeguridadLayout.setHorizontalGroup(
-            panelGestionarAreaSeguridadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1067, Short.MAX_VALUE)
-        );
-        panelGestionarAreaSeguridadLayout.setVerticalGroup(
-            panelGestionarAreaSeguridadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 770, Short.MAX_VALUE)
-        );
+        panelGestionarAreaSeguridad.setMaximumSize(new java.awt.Dimension(1120, 770));
+        panelGestionarAreaSeguridad.setMinimumSize(new java.awt.Dimension(1120, 770));
+        panelGestionarAreaSeguridad.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel6.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel6.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel8.setBackground(new java.awt.Color(127, 156, 90));
+        jPanel8.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel19.setBackground(new java.awt.Color(0, 0, 0));
+        jLabel19.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 36)); // NOI18N
+        jLabel19.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel19.setText("Gestionar área de seguridad");
+        jPanel8.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 20, -1, -1));
+
+        jPanel6.add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1600, 90));
+
+        tblAreasDeSeguridad.setFont(new java.awt.Font("Microsoft JhengHei", 1, 14)); // NOI18N
+        tblAreasDeSeguridad.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(tblAreasDeSeguridad);
+
+        jPanel6.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 150, 1080, -1));
+
+        btnActualizarTablaAreasSeguridad.setBackground(new java.awt.Color(153, 195, 84));
+        btnActualizarTablaAreasSeguridad.setFont(new java.awt.Font("Microsoft JhengHei", 1, 18)); // NOI18N
+        btnActualizarTablaAreasSeguridad.setForeground(new java.awt.Color(0, 0, 0));
+        btnActualizarTablaAreasSeguridad.setText("Actualizar tabla");
+        btnActualizarTablaAreasSeguridad.setBorder(null);
+        btnActualizarTablaAreasSeguridad.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnActualizarTablaAreasSeguridadMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnActualizarTablaAreasSeguridadMouseExited(evt);
+            }
+        });
+        btnActualizarTablaAreasSeguridad.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnActualizarTablaAreasSeguridadActionPerformed(evt);
+            }
+        });
+        jPanel6.add(btnActualizarTablaAreasSeguridad, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, 373, 50));
+
+        btnCrearAreaSeguridad.setBackground(new java.awt.Color(153, 195, 84));
+        btnCrearAreaSeguridad.setFont(new java.awt.Font("Microsoft JhengHei", 1, 18)); // NOI18N
+        btnCrearAreaSeguridad.setForeground(new java.awt.Color(0, 0, 0));
+        btnCrearAreaSeguridad.setText("Asignar área");
+        btnCrearAreaSeguridad.setBorder(null);
+        btnCrearAreaSeguridad.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnCrearAreaSeguridadMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnCrearAreaSeguridadMouseExited(evt);
+            }
+        });
+        btnCrearAreaSeguridad.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCrearAreaSeguridadActionPerformed(evt);
+            }
+        });
+        jPanel6.add(btnCrearAreaSeguridad, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 90, 373, 50));
+
+        btnGestionarArea.setBackground(new java.awt.Color(153, 195, 84));
+        btnGestionarArea.setFont(new java.awt.Font("Microsoft JhengHei", 1, 18)); // NOI18N
+        btnGestionarArea.setForeground(new java.awt.Color(0, 0, 0));
+        btnGestionarArea.setText("Gestionar área");
+        btnGestionarArea.setBorder(null);
+        btnGestionarArea.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnGestionarAreaMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnGestionarAreaMouseExited(evt);
+            }
+        });
+        btnGestionarArea.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGestionarAreaActionPerformed(evt);
+            }
+        });
+        jPanel6.add(btnGestionarArea, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 90, 380, 50));
+
+        panelGestionarAreaSeguridad.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1120, 770));
 
         panelGeneralSeguridad.addTab("tab1", panelGestionarAreaSeguridad);
 
-        javax.swing.GroupLayout panelGestionarIncidentesLayout = new javax.swing.GroupLayout(panelGestionarIncidentes);
-        panelGestionarIncidentes.setLayout(panelGestionarIncidentesLayout);
-        panelGestionarIncidentesLayout.setHorizontalGroup(
-            panelGestionarIncidentesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1067, Short.MAX_VALUE)
-        );
-        panelGestionarIncidentesLayout.setVerticalGroup(
-            panelGestionarIncidentesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 770, Short.MAX_VALUE)
-        );
+        panelGestionarIncidentes.setMaximumSize(new java.awt.Dimension(1120, 770));
+        panelGestionarIncidentes.setMinimumSize(new java.awt.Dimension(1120, 770));
+        panelGestionarIncidentes.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel7.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel7.setMaximumSize(new java.awt.Dimension(1120, 770));
+        jPanel7.setMinimumSize(new java.awt.Dimension(1120, 770));
+        jPanel7.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel9.setBackground(new java.awt.Color(127, 156, 90));
+        jPanel9.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel20.setBackground(new java.awt.Color(0, 0, 0));
+        jLabel20.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 36)); // NOI18N
+        jLabel20.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel20.setText("Gestionar incidentes");
+        jPanel9.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 20, -1, -1));
+
+        jPanel7.add(jPanel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1600, 90));
+
+        btnActualizarTablaIncidentes.setBackground(new java.awt.Color(153, 195, 84));
+        btnActualizarTablaIncidentes.setFont(new java.awt.Font("Microsoft JhengHei", 1, 18)); // NOI18N
+        btnActualizarTablaIncidentes.setForeground(new java.awt.Color(0, 0, 0));
+        btnActualizarTablaIncidentes.setText("Actualizar tabla");
+        btnActualizarTablaIncidentes.setBorder(null);
+        btnActualizarTablaIncidentes.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnActualizarTablaIncidentesMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnActualizarTablaIncidentesMouseExited(evt);
+            }
+        });
+        btnActualizarTablaIncidentes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnActualizarTablaIncidentesActionPerformed(evt);
+            }
+        });
+        jPanel7.add(btnActualizarTablaIncidentes, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, 373, 50));
+
+        btnReportarIncidente.setBackground(new java.awt.Color(153, 195, 84));
+        btnReportarIncidente.setFont(new java.awt.Font("Microsoft JhengHei", 1, 18)); // NOI18N
+        btnReportarIncidente.setForeground(new java.awt.Color(0, 0, 0));
+        btnReportarIncidente.setText("Reportar incidente");
+        btnReportarIncidente.setBorder(null);
+        btnReportarIncidente.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnReportarIncidenteMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnReportarIncidenteMouseExited(evt);
+            }
+        });
+        btnReportarIncidente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnReportarIncidenteActionPerformed(evt);
+            }
+        });
+        jPanel7.add(btnReportarIncidente, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 90, 373, 50));
+
+        btnGestionarIncidente.setBackground(new java.awt.Color(153, 195, 84));
+        btnGestionarIncidente.setFont(new java.awt.Font("Microsoft JhengHei", 1, 18)); // NOI18N
+        btnGestionarIncidente.setForeground(new java.awt.Color(0, 0, 0));
+        btnGestionarIncidente.setText("Gestionar incidente");
+        btnGestionarIncidente.setBorder(null);
+        btnGestionarIncidente.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnGestionarIncidenteMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnGestionarIncidenteMouseExited(evt);
+            }
+        });
+        btnGestionarIncidente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGestionarIncidenteActionPerformed(evt);
+            }
+        });
+        jPanel7.add(btnGestionarIncidente, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 90, 380, 50));
+
+        tblIncidentes.setFont(new java.awt.Font("Microsoft JhengHei", 1, 14)); // NOI18N
+        tblIncidentes.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane2.setViewportView(tblIncidentes);
+
+        jPanel7.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 150, 1080, -1));
+
+        panelGestionarIncidentes.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1120, 770));
 
         panelGeneralSeguridad.addTab("tab2", panelGestionarIncidentes);
 
-        javax.swing.GroupLayout panelGestionarRobosLayout = new javax.swing.GroupLayout(panelGestionarRobos);
-        panelGestionarRobos.setLayout(panelGestionarRobosLayout);
-        panelGestionarRobosLayout.setHorizontalGroup(
-            panelGestionarRobosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1067, Short.MAX_VALUE)
-        );
-        panelGestionarRobosLayout.setVerticalGroup(
-            panelGestionarRobosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 770, Short.MAX_VALUE)
-        );
+        panelGestionarRobos.setMaximumSize(new java.awt.Dimension(1120, 770));
+        panelGestionarRobos.setMinimumSize(new java.awt.Dimension(1120, 770));
+        panelGestionarRobos.setName("1120, 770"); // NOI18N
+        panelGestionarRobos.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel10.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel10.setMaximumSize(new java.awt.Dimension(1120, 770));
+        jPanel10.setMinimumSize(new java.awt.Dimension(1120, 770));
+        jPanel10.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        btnActualizarTablaRobos.setBackground(new java.awt.Color(153, 195, 84));
+        btnActualizarTablaRobos.setFont(new java.awt.Font("Microsoft JhengHei", 1, 18)); // NOI18N
+        btnActualizarTablaRobos.setForeground(new java.awt.Color(0, 0, 0));
+        btnActualizarTablaRobos.setText("Actualizar tabla");
+        btnActualizarTablaRobos.setBorder(null);
+        btnActualizarTablaRobos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnActualizarTablaRobosMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnActualizarTablaRobosMouseExited(evt);
+            }
+        });
+        btnActualizarTablaRobos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnActualizarTablaRobosActionPerformed(evt);
+            }
+        });
+        jPanel10.add(btnActualizarTablaRobos, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, 373, 50));
+
+        btnReportarRobo.setBackground(new java.awt.Color(153, 195, 84));
+        btnReportarRobo.setFont(new java.awt.Font("Microsoft JhengHei", 1, 18)); // NOI18N
+        btnReportarRobo.setForeground(new java.awt.Color(0, 0, 0));
+        btnReportarRobo.setText("Reportar robo");
+        btnReportarRobo.setBorder(null);
+        btnReportarRobo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnReportarRoboMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnReportarRoboMouseExited(evt);
+            }
+        });
+        btnReportarRobo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnReportarRoboActionPerformed(evt);
+            }
+        });
+        jPanel10.add(btnReportarRobo, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 90, 373, 50));
+
+        btnGestionarRobo.setBackground(new java.awt.Color(153, 195, 84));
+        btnGestionarRobo.setFont(new java.awt.Font("Microsoft JhengHei", 1, 18)); // NOI18N
+        btnGestionarRobo.setForeground(new java.awt.Color(0, 0, 0));
+        btnGestionarRobo.setText("Gestionar robo");
+        btnGestionarRobo.setBorder(null);
+        btnGestionarRobo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnGestionarRoboMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnGestionarRoboMouseExited(evt);
+            }
+        });
+        btnGestionarRobo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGestionarRoboActionPerformed(evt);
+            }
+        });
+        jPanel10.add(btnGestionarRobo, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 90, 380, 50));
+
+        jPanel11.setBackground(new java.awt.Color(127, 156, 90));
+        jPanel11.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel21.setBackground(new java.awt.Color(0, 0, 0));
+        jLabel21.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 36)); // NOI18N
+        jLabel21.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel21.setText("Gestionar robos");
+        jPanel11.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 20, -1, -1));
+
+        jPanel10.add(jPanel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1600, 90));
+
+        tblRobos.setFont(new java.awt.Font("Microsoft JhengHei", 1, 14)); // NOI18N
+        tblRobos.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane3.setViewportView(tblRobos);
+
+        jPanel10.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 150, 1080, -1));
+
+        panelGestionarRobos.add(jPanel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1120, 770));
 
         panelGeneralSeguridad.addTab("tab3", panelGestionarRobos);
 
-        jPanel1.add(panelGeneralSeguridad, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 110, 1120, 770));
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1117, Short.MAX_VALUE)
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 770, Short.MAX_VALUE)
+        );
+
+        panelGeneralSeguridad.addTab("tab4", jPanel4);
+
+        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
+        jPanel5.setLayout(jPanel5Layout);
+        jPanel5Layout.setHorizontalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1117, Short.MAX_VALUE)
+        );
+        jPanel5Layout.setVerticalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 770, Short.MAX_VALUE)
+        );
+
+        panelGeneralSeguridad.addTab("tab5", jPanel5);
+
+        jPanel1.add(panelGeneralSeguridad, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 110, 1170, 770));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1400, 880));
 
@@ -243,6 +595,7 @@ public void botonPresionado(JButton boton) {
     }//GEN-LAST:event_btnGestionarAreaSeguridadMouseExited
 
     private void btnGestionarAreaSeguridadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGestionarAreaSeguridadActionPerformed
+        panelGeneralSeguridad.setSelectedIndex(0);
 
         // TODO add your handling code here:
     }//GEN-LAST:event_btnGestionarAreaSeguridadActionPerformed
@@ -256,7 +609,7 @@ public void botonPresionado(JButton boton) {
     }//GEN-LAST:event_btnGestionarRobosMouseExited
 
     private void btnGestionarRobosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGestionarRobosActionPerformed
-        // TODO add your handling code here:
+        panelGeneralSeguridad.setSelectedIndex(2);        // TODO add your handling code here:
     }//GEN-LAST:event_btnGestionarRobosActionPerformed
 
     private void btnCerrarSesionSeguridadMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCerrarSesionSeguridadMouseEntered
@@ -288,8 +641,272 @@ public void botonPresionado(JButton boton) {
     }//GEN-LAST:event_btnGestionarIncidentesMouseExited
 
     private void btnGestionarIncidentesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGestionarIncidentesActionPerformed
-        // TODO add your handling code here:
+        panelGeneralSeguridad.setSelectedIndex(1);        // TODO add your handling code here:
     }//GEN-LAST:event_btnGestionarIncidentesActionPerformed
+
+    private void btnActualizarTablaAreasSeguridadMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnActualizarTablaAreasSeguridadMouseEntered
+        botonPresionado(btnActualizarTablaAreasSeguridad);
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnActualizarTablaAreasSeguridadMouseEntered
+
+    private void btnActualizarTablaAreasSeguridadMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnActualizarTablaAreasSeguridadMouseExited
+        botonProveedorDespresionado(btnActualizarTablaAreasSeguridad);
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnActualizarTablaAreasSeguridadMouseExited
+
+    private void btnActualizarTablaAreasSeguridadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarTablaAreasSeguridadActionPerformed
+
+        llenarTablaAreas();
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnActualizarTablaAreasSeguridadActionPerformed
+
+    public void llenarTablaAreas() {
+
+        DefaultTableModel modelo = new DefaultTableModel(new String[]{"Identificación", "Fecha", "Nombre área", "Ubicación área", "Tamano área", "Encargado", "Cedula encargado", "Hora inicio", "Hora fin", "Piso área", "Finalizado?"},
+                0);
+
+        for (Map.Entry<Integer, Area> codigo : ListaAreas.getAreasCentroComercial().entrySet()) {
+            int clave = codigo.getKey();
+
+            Area valor = codigo.getValue();
+
+            Object[] fila = {clave, valor.getFecha(), valor.getNombreArea(), valor.getUbicacionArea(), valor.getTamanoArea(), valor.getNombreEncargadoArea(), valor.getCedulaEncargadoArea(), valor.getHoraInicioEncargadoArea(), valor.getHoraFinEncargadoArea(), valor.getPisoArea(), valor.getTerminado()};
+            modelo.addRow(fila);
+
+        }
+
+        tblAreasDeSeguridad.setModel(modelo);
+
+    }
+
+
+    private void btnCrearAreaSeguridadMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCrearAreaSeguridadMouseEntered
+        botonPresionado(btnCrearAreaSeguridad);// TODO add your handling code here:
+    }//GEN-LAST:event_btnCrearAreaSeguridadMouseEntered
+
+    private void btnCrearAreaSeguridadMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCrearAreaSeguridadMouseExited
+
+        botonProveedorDespresionado(btnCrearAreaSeguridad);// TODO add your handling code here:
+    }//GEN-LAST:event_btnCrearAreaSeguridadMouseExited
+
+    private void btnCrearAreaSeguridadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearAreaSeguridadActionPerformed
+        AsignarArea asignarArea = new AsignarArea();
+        asignarArea.setLocationRelativeTo(null);
+        asignarArea.setResizable(false);
+        asignarArea.setVisible(true);
+    }//GEN-LAST:event_btnCrearAreaSeguridadActionPerformed
+
+    private void btnGestionarAreaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnGestionarAreaMouseEntered
+
+        botonPresionado(btnGestionarArea);
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnGestionarAreaMouseEntered
+
+    private void btnGestionarAreaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnGestionarAreaMouseExited
+        botonProveedorDespresionado(btnGestionarArea);
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnGestionarAreaMouseExited
+
+    private void btnGestionarAreaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGestionarAreaActionPerformed
+
+        ListaVacia vacia = new ListaVacia();
+
+        GestionarArea gestArea = new GestionarArea();
+        if (ListaAreas.getAreasCentroComercial().isEmpty()) {
+
+            vacia.setLocationRelativeTo(null);
+            vacia.setResizable(false);
+            vacia.setVisible(true);
+
+        } else {
+
+            gestArea.setLocationRelativeTo(null);
+            gestArea.setResizable(false);
+            gestArea.setVisible(true);
+        }
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnGestionarAreaActionPerformed
+
+    private void btnActualizarTablaIncidentesMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnActualizarTablaIncidentesMouseEntered
+        botonPresionado(btnActualizarTablaIncidentes);
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnActualizarTablaIncidentesMouseEntered
+
+    private void btnActualizarTablaIncidentesMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnActualizarTablaIncidentesMouseExited
+        botonProveedorDespresionado(btnActualizarTablaIncidentes);
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnActualizarTablaIncidentesMouseExited
+
+    private void btnActualizarTablaIncidentesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarTablaIncidentesActionPerformed
+
+        llenarTablaIncidentes();
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnActualizarTablaIncidentesActionPerformed
+
+    public void llenarTablaIncidentes() {
+
+        DefaultTableModel modelo = new DefaultTableModel(new String[]{"Identificación", "Nombre área", "Hora", "Descripción", "Personas involucradas", "Acciones tomadas", "Daños materiales", "Notificación autoridades?"},
+                0);
+
+        for (Map.Entry<Integer, Incidente> codigo : ListaIncidentes.getIncidentesCentroComercial().entrySet()) {
+            int clave = codigo.getKey();
+
+            Incidente valor = codigo.getValue();
+
+            Object[] fila = {clave, valor.getNombreAreaIncidente(), valor.getFechaIncidente(), valor.getHoraIndicente(), valor.getDescripcionIncidente(), valor.getPersonasInvolucradasIncidente(), valor.getAccionesTomadasIncidente(), valor.getDanosMaterialesIncidente(), valor.getNotificacionAutoridadesIncidente()};
+            modelo.addRow(fila);
+
+        }
+
+        tblIncidentes.setModel(modelo);
+
+    }
+
+    private void btnReportarIncidenteMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnReportarIncidenteMouseEntered
+        botonPresionado(btnReportarIncidente);// TODO add your handling code here:
+    }//GEN-LAST:event_btnReportarIncidenteMouseEntered
+
+    private void btnReportarIncidenteMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnReportarIncidenteMouseExited
+
+        botonProveedorDespresionado(btnReportarIncidente);// TODO add your handling code here:
+    }//GEN-LAST:event_btnReportarIncidenteMouseExited
+
+    private void btnReportarIncidenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReportarIncidenteActionPerformed
+        AgregarIncidente agregarIncidente = new AgregarIncidente();
+        agregarIncidente.setLocationRelativeTo(null);
+        agregarIncidente.setResizable(false);
+        agregarIncidente.setVisible(true);
+    }//GEN-LAST:event_btnReportarIncidenteActionPerformed
+
+    private void btnGestionarIncidenteMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnGestionarIncidenteMouseEntered
+
+        botonPresionado(btnGestionarIncidente);
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnGestionarIncidenteMouseEntered
+
+    private void btnGestionarIncidenteMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnGestionarIncidenteMouseExited
+        botonProveedorDespresionado(btnGestionarIncidente);
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnGestionarIncidenteMouseExited
+
+    private void btnGestionarIncidenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGestionarIncidenteActionPerformed
+
+        ListaVacia vacia = new ListaVacia();
+
+        GestionarIncidente gestINc = new GestionarIncidente();
+
+        if (ListaIncidentes.getIncidentesCentroComercial().isEmpty()) {
+
+            vacia.setLocationRelativeTo(null);
+            vacia.setResizable(false);
+            vacia.setVisible(true);
+
+        } else {
+
+            gestINc.setLocationRelativeTo(null);
+            gestINc.setResizable(false);
+            gestINc.setVisible(true);
+        }
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnGestionarIncidenteActionPerformed
+
+    private void btnActualizarTablaRobosMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnActualizarTablaRobosMouseEntered
+        botonPresionado(btnActualizarTablaRobos);
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnActualizarTablaRobosMouseEntered
+
+    private void btnActualizarTablaRobosMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnActualizarTablaRobosMouseExited
+        botonProveedorDespresionado(btnActualizarTablaRobos);
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnActualizarTablaRobosMouseExited
+
+    private void btnActualizarTablaRobosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarTablaRobosActionPerformed
+
+        llenarTablaRobos();
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnActualizarTablaRobosActionPerformed
+
+    public void llenarTablaRobos() {
+
+        DefaultTableModel modelo = new DefaultTableModel(new String[]{"Identificación", "Fecha", "Hora", "Descripcion", "Valor estimado", "Fue un local?", "Objetos robados", "Testigos", "Daños materiales", "Notificación autoridades?"},
+                0);
+
+        for (Map.Entry<Integer, Robo> codigo : ListaRobos.getRobosCentroComercial().entrySet()) {
+            int clave = codigo.getKey();
+
+            Robo valor = codigo.getValue();
+
+            Object[] fila = {clave, valor.getFechaRobo(), valor.getHoraRobo(), valor.getDescripcionRobo(), valor.getValorEstimadoRobo(), valor.getEsLocalRobo(), valor.getObjetosRobadosRobo(), valor.getTestigoRobo(), valor.getDanosMaterialesRobo(), valor.getNotificacionAutoridadesRobo()};
+            modelo.addRow(fila);
+
+        }
+
+        tblRobos.setModel(modelo);
+
+    }
+
+    private void btnReportarRoboMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnReportarRoboMouseEntered
+        botonPresionado(btnReportarRobo);// TODO add your handling code here:
+    }//GEN-LAST:event_btnReportarRoboMouseEntered
+
+    private void btnReportarRoboMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnReportarRoboMouseExited
+
+        botonProveedorDespresionado(btnReportarRobo);// TODO add your handling code here:
+    }//GEN-LAST:event_btnReportarRoboMouseExited
+
+    private void btnReportarRoboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReportarRoboActionPerformed
+        AgregarRobo agregarRobo = new AgregarRobo();
+        agregarRobo.setLocationRelativeTo(null);
+        agregarRobo.setResizable(false);
+        agregarRobo.setVisible(true);
+    }//GEN-LAST:event_btnReportarRoboActionPerformed
+
+    private void btnGestionarRoboMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnGestionarRoboMouseEntered
+
+        botonPresionado(btnGestionarRobo);
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnGestionarRoboMouseEntered
+
+    private void btnGestionarRoboMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnGestionarRoboMouseExited
+        botonProveedorDespresionado(btnGestionarRobo);
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnGestionarRoboMouseExited
+
+    private void btnGestionarRoboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGestionarRoboActionPerformed
+
+        ListaVacia vacia = new ListaVacia();
+
+        GestionarRobo gestRobo = new GestionarRobo();
+
+        if (ListaRobos.getRobosCentroComercial().isEmpty()) {
+
+            vacia.setLocationRelativeTo(null);
+            vacia.setResizable(false);
+            vacia.setVisible(true);
+
+        } else {
+
+            gestRobo.setLocationRelativeTo(null);
+            gestRobo.setResizable(false);
+            gestRobo.setVisible(true);
+        }
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnGestionarRoboActionPerformed
 
     /**
      * @param args the command line arguments
@@ -327,18 +944,44 @@ public void botonPresionado(JButton boton) {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnActualizarTablaAreasSeguridad;
+    private javax.swing.JButton btnActualizarTablaIncidentes;
+    private javax.swing.JButton btnActualizarTablaRobos;
     private javax.swing.JButton btnCerrarSesionSeguridad;
+    private javax.swing.JButton btnCrearAreaSeguridad;
+    private javax.swing.JButton btnGestionarArea;
     private javax.swing.JButton btnGestionarAreaSeguridad;
+    private javax.swing.JButton btnGestionarIncidente;
     private javax.swing.JButton btnGestionarIncidentes;
+    private javax.swing.JButton btnGestionarRobo;
     private javax.swing.JButton btnGestionarRobos;
+    private javax.swing.JButton btnReportarIncidente;
+    private javax.swing.JButton btnReportarRobo;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel19;
+    private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel10;
+    private javax.swing.JPanel jPanel11;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
+    private javax.swing.JPanel jPanel7;
+    private javax.swing.JPanel jPanel8;
+    private javax.swing.JPanel jPanel9;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTabbedPane panelGeneralSeguridad;
     private javax.swing.JPanel panelGestionarAreaSeguridad;
     private javax.swing.JPanel panelGestionarIncidentes;
     private javax.swing.JPanel panelGestionarRobos;
+    private javax.swing.JTable tblAreasDeSeguridad;
+    private javax.swing.JTable tblIncidentes;
+    private javax.swing.JTable tblRobos;
     // End of variables declaration//GEN-END:variables
 }

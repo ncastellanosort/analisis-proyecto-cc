@@ -13,23 +13,23 @@ import ui.utilidades.EliminadoExitosamente;
  * @author Nicolas
  */
 public class GestionarLimpieza extends javax.swing.JFrame {
-    
+
     DefaultTableModel modelo = new DefaultTableModel();
-    
+
     String[] columnas = {"Identificación", "Nombre tarea", "Persona encargada", "Finalizada?", "Area tarea", "Descripcion de tarea"};
 
     /**
      * Creates new form GestionarLimpieza
      */
     public GestionarLimpieza() {
-        
+
         initComponents();
-        
+
         modelo.setColumnIdentifiers(columnas);
         tblUnicaLimpieza.setRowHeight(40);
-        
+
         tblUnicaLimpieza.setModel(modelo);
-        
+
     }
 
     /**
@@ -130,7 +130,7 @@ public class GestionarLimpieza extends javax.swing.JFrame {
         btnEliminarLimpieza.setBackground(new java.awt.Color(127, 156, 90));
         btnEliminarLimpieza.setFont(new java.awt.Font("Microsoft JhengHei", 1, 18)); // NOI18N
         btnEliminarLimpieza.setForeground(new java.awt.Color(0, 0, 0));
-        btnEliminarLimpieza.setText("Eliminarlo");
+        btnEliminarLimpieza.setText("Eliminarla");
         btnEliminarLimpieza.setBorder(null);
         btnEliminarLimpieza.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -197,11 +197,11 @@ public class GestionarLimpieza extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSalirVentanaGestiLimpiezaActionPerformed
 
     private void btnBuscarLimpiezaIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarLimpiezaIDActionPerformed
-        
+
         int ID = Integer.parseInt(txtfBuscarLimpieza.getText());
-        
+
         Object[] ob = {ID, ListaTareas.getTareasCentroComercial().get(ID).getNombreTarea(), ListaTareas.getTareasCentroComercial().get(ID).getPersonaEncargada(), ListaTareas.getTareasCentroComercial().get(ID).getRealizadaTarea(), ListaTareas.getTareasCentroComercial().get(ID).getDescripcionTarea(), ListaTareas.getTareasCentroComercial().get(ID).getAreaTarea()};
-        
+
         modelo.addRow(ob);
 
         // TODO add your handling code here:
@@ -209,39 +209,39 @@ public class GestionarLimpieza extends javax.swing.JFrame {
 
     private void btnEliminarLimpiezaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarLimpiezaActionPerformed
         int ID = Integer.parseInt(txtfBuscarLimpieza.getText());
-        
+
         ListaTareas.getTareasCentroComercial().remove(ID);
-        
+
         this.dispose();
         EliminadoExitosamente elim = new EliminadoExitosamente();
-        
+
         elim.setLocationRelativeTo(null);
         elim.setResizable(false);
         elim.setVisible(true);
     }//GEN-LAST:event_btnEliminarLimpiezaActionPerformed
 
     private void btnEditarLimpiezaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarLimpiezaActionPerformed
-        
+
         int ID = Integer.parseInt(txtfBuscarLimpieza.getText());
-        
+
         EditarLimpieza editarLimpieza = new EditarLimpieza();
-        
+
         editarLimpieza.getLbNumeroIdentificacionLimpieza().setText(String.valueOf(ID));
-        
+
         editarLimpieza.getTxtfNUEVOnombreTarea().setText(ListaTareas.getTareasCentroComercial().get(ID).getNombreTarea());
-        
+
         editarLimpieza.getTxtfNUEVOpersonaEncargada().setText(ListaTareas.getTareasCentroComercial().get(ID).getPersonaEncargada());
-        
+
         editarLimpieza.getTxtfNUEVOestaFinalizada().setText(ListaTareas.getTareasCentroComercial().get(ID).getRealizadaTarea());
-        
+
         editarLimpieza.getTxtfNUEVOdescripcionTarea().setText(ListaTareas.getTareasCentroComercial().get(ID).getDescripcionTarea());
-        
+
         editarLimpieza.getTxtfNUEVOAreaTarea().setText(ListaTareas.getTareasCentroComercial().get(ID).getAreaTarea());
-        
+
         editarLimpieza.setIDeditar(ID);
-        
+
         this.dispose();
-        
+
         editarLimpieza.setLocationRelativeTo(null);
         editarLimpieza.setResizable(false);
         editarLimpieza.setVisible(true);
@@ -250,60 +250,20 @@ public class GestionarLimpieza extends javax.swing.JFrame {
     }//GEN-LAST:event_btnEditarLimpiezaActionPerformed
 
     private void btnEliminarEstado1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarEstado1ActionPerformed
-//        int ID = Integer.parseInt(txtfBuscarEstadoF.getText());
-//
-//        LIstaEstadosFinancieros.getEstadosFinancieros().remove(ID);
-//
-//        this.dispose();
-//        EliminadoExitosamente elim = new EliminadoExitosamente();
-//
-//        elim.setLocationRelativeTo(null);
-//        elim.setResizable(false);
-//        elim.setVisible(true);
+
     }//GEN-LAST:event_btnEliminarEstado1ActionPerformed
 
     private void btnRegistrarEstadoFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarEstadoFActionPerformed
 
-//        ErrorAlAgregar error = new ErrorAlAgregar();
-//
-//        AgregadoExitosamente bien = new AgregadoExitosamente();
-//
-//        try {
-//
-//            int identificacionEstado = Integer.parseInt(txtfIdentificadorEstado.getText());
-//            String mesInput = txtfMesInputEstadoF.getText();
-//            String activosInput = txtfInputActivosEstadoF.getText();
-//            String pasivosInput = txtfInputPasivosEstadoF.getText();
-//            String patrimonioNetoInput = txtfInputPatrimonioNetoEstadoF.getText();
-//            int flujoEfectivoEntranteInput = Integer.parseInt(txtfInputFlujoENTREstadoF.getText());
-//            int flujoEfectivoSalienteInput = Integer.parseInt(txtfInputFlujoSALIEstadoF.getText());
-//            int gananciasRetenidasInput = Integer.parseInt(txtfInputGananciasReteEstadoF.getText());
-//            int capitalContanteInput = Integer.parseInt(txtfInputCapitalContanteEstadoF.getText());
-//
-//            LIstaEstadosFinancieros.getEstadosFinancieros().put(identificacionEstado, new EstadoFinanciero(mesInput, activosInput, pasivosInput, patrimonioNetoInput, flujoEfectivoEntranteInput, flujoEfectivoSalienteInput, gananciasRetenidasInput, capitalContanteInput));
-//
-//            bien.setLocationRelativeTo(null);
-//            bien.setResizable(false);
-//            bien.setVisible(true);
-//
-//            this.dispose();
-//
-//        } catch (Exception e) {
-//
-//            error.setLocationRelativeTo(null);
-//            error.setResizable(false);
-//            error.setVisible(true);
-//
-//        }
         // TODO add your handling code here:
     }//GEN-LAST:event_btnRegistrarEstadoFActionPerformed
 
     private void btnFinalizarTareaDesdeLimpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFinalizarTareaDesdeLimpActionPerformed
-        
+
         int ID = Integer.parseInt(txtfBuscarLimpieza.getText());
-        
+
         ListaTareas.getTareasCentroComercial().get(ID).setRealizadaTarea("Si");
-        
+
         this.dispose();
 
         // TODO add your handling code here:

@@ -13,17 +13,14 @@ public class Robo {
     private String fechaRobo;
     private String horaRobo;
     private String descripcionRobo;
-    private int valorEstimadoRobo;
+    private String valorEstimadoRobo;
     private String esLocalRobo;
     private String objetosRobadosRobo;
     private String testigoRobo;
     private String danosMaterialesRobo;
     private String notificacionAutoridadesRobo;
-    
-    
 
-
-    public Robo(String fechaRobo, String horaRobo, String descripcionRobo, int valorEstimadoRobo, String esLocalRobo, String objetosRobadosRobo, String testigoRobo, String danosMaterialesRobo, String notificacionAutoridadesRobo) {
+    public Robo(String fechaRobo, String horaRobo, String descripcionRobo, String valorEstimadoRobo, String esLocalRobo, String objetosRobadosRobo, String testigoRobo, String danosMaterialesRobo, String notificacionAutoridadesRobo) {
         this.fechaRobo = fechaRobo;
         this.horaRobo = horaRobo;
         this.descripcionRobo = descripcionRobo;
@@ -59,11 +56,11 @@ public class Robo {
         this.descripcionRobo = descripcionRobo;
     }
 
-    public int getValorEstimadoRobo() {
+    public String getValorEstimadoRobo() {
         return valorEstimadoRobo;
     }
 
-    public void setValorEstimadoRobo(int valorEstimadoRobo) {
+    public void setValorEstimadoRobo(String valorEstimadoRobo) {
         this.valorEstimadoRobo = valorEstimadoRobo;
     }
 
@@ -106,6 +103,5 @@ public class Robo {
     public void setNotificacionAutoridadesRobo(String notificacionAutoridadesRobo) {
         this.notificacionAutoridadesRobo = notificacionAutoridadesRobo;
     }
-    
-    
+
 }
