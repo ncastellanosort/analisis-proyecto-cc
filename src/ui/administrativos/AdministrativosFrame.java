@@ -7,7 +7,6 @@ package ui.administrativos;
 import java.awt.Color;
 import java.util.Map;
 import javax.swing.JButton;
-import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import logica.administrativos.capacitaciones.Capacitacion;
 import logica.administrativos.capacitaciones.ListaCapacitaciones;
@@ -38,6 +37,7 @@ import ui.administrativos.proveedores.EliminarProveedor;
 import ui.administrativos.proveedores.IndiceEditarProveeedor;
 import ui.login.Login;
 import ui.utilidades.ListaVacia;
+import ui.utilidades.Utilidades;
 
 /**
  *
@@ -108,21 +108,15 @@ public class AdministrativosFrame extends javax.swing.JFrame {
         tblContratosLocales.setModel(modeloTablaContratosLocales);
         tblContratosLocales.setRowHeight(45);
 
-        escalarLargoTablas(columnasTablaProveedores.length, tblProveedores);
-        escalarLargoTablas(columnasTablaCapacitaciones.length, tblCapacitaciones);
-        escalarLargoTablas(columnasTablaContratosLocales.length, tblContratosLocales);
-        escalarLargoTablas(columnasTablaConvenios.length, tblConvenios);
-        escalarLargoTablas(columnasTablaEmpleados.length, tblPersonal);
-        escalarLargoTablas(columnasTablaEmpleadosHorario.length, tblHorariosPersonal);
+        Utilidades.escalarLargoTablas(columnasTablaProveedores.length, tblProveedores);
+        Utilidades.escalarLargoTablas(columnasTablaCapacitaciones.length, tblCapacitaciones);
+        Utilidades.escalarLargoTablas(columnasTablaContratosLocales.length, tblContratosLocales);
+        Utilidades.escalarLargoTablas(columnasTablaConvenios.length, tblConvenios);
+        Utilidades.escalarLargoTablas(columnasTablaEmpleados.length, tblPersonal);
+        Utilidades.escalarLargoTablas(columnasTablaEmpleadosHorario.length, tblHorariosPersonal);
 
     }
 
-    public void escalarLargoTablas(int tamanoColumnas, JTable tabla) {
-        for (int i = 0; i < tamanoColumnas; i++) {
-            tabla.getColumnModel().getColumn(i).setPreferredWidth(200);
-
-        }
-    }
 
     public void botonPresionado(JButton boton) {
 
@@ -163,7 +157,7 @@ public class AdministrativosFrame extends javax.swing.JFrame {
         }
 
         tblProveedores.setModel(modelo);
-        escalarLargoTablas(columnasTablaProveedores.length, tblProveedores);
+        Utilidades.escalarLargoTablas(columnasTablaProveedores.length, tblProveedores);
     }
 
     public void llenarTablaCapacitaciones() {
@@ -181,7 +175,7 @@ public class AdministrativosFrame extends javax.swing.JFrame {
         }
 
         tblCapacitaciones.setModel(modelo);
-        escalarLargoTablas(columnasTablaCapacitaciones.length, tblCapacitaciones);
+        Utilidades.escalarLargoTablas(columnasTablaCapacitaciones.length, tblCapacitaciones);
 
     }
 
@@ -201,7 +195,6 @@ public class AdministrativosFrame extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         btnGestionarConvenios = new javax.swing.JButton();
         btnRegistrarHorarioPersonal = new javax.swing.JButton();
-        btnGestionarEventos = new javax.swing.JButton();
         btnGestionarEncuentrosCapacitacion = new javax.swing.JButton();
         btnProveedoresAdmin = new javax.swing.JButton();
         btnRegresarInicioAdmin = new javax.swing.JButton();
@@ -330,7 +323,7 @@ public class AdministrativosFrame extends javax.swing.JFrame {
                 btnGestionarConveniosActionPerformed(evt);
             }
         });
-        jPanel2.add(btnGestionarConvenios, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 510, 280, 50));
+        jPanel2.add(btnGestionarConvenios, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 460, 280, 50));
 
         btnRegistrarHorarioPersonal.setBackground(new java.awt.Color(255, 255, 255));
         btnRegistrarHorarioPersonal.setFont(new java.awt.Font("Microsoft JhengHei", 1, 18)); // NOI18N
@@ -353,27 +346,6 @@ public class AdministrativosFrame extends javax.swing.JFrame {
         });
         jPanel2.add(btnRegistrarHorarioPersonal, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 260, 280, 50));
 
-        btnGestionarEventos.setBackground(new java.awt.Color(255, 255, 255));
-        btnGestionarEventos.setFont(new java.awt.Font("Microsoft JhengHei", 1, 18)); // NOI18N
-        btnGestionarEventos.setForeground(new java.awt.Color(0, 0, 0));
-        btnGestionarEventos.setText("     Gestionar eventos");
-        btnGestionarEventos.setBorder(null);
-        btnGestionarEventos.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        btnGestionarEventos.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                btnGestionarEventosMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                btnGestionarEventosMouseExited(evt);
-            }
-        });
-        btnGestionarEventos.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnGestionarEventosActionPerformed(evt);
-            }
-        });
-        jPanel2.add(btnGestionarEventos, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 310, 280, 50));
-
         btnGestionarEncuentrosCapacitacion.setBackground(new java.awt.Color(255, 255, 255));
         btnGestionarEncuentrosCapacitacion.setFont(new java.awt.Font("Microsoft JhengHei", 1, 18)); // NOI18N
         btnGestionarEncuentrosCapacitacion.setForeground(new java.awt.Color(0, 0, 0));
@@ -393,7 +365,7 @@ public class AdministrativosFrame extends javax.swing.JFrame {
                 btnGestionarEncuentrosCapacitacionActionPerformed(evt);
             }
         });
-        jPanel2.add(btnGestionarEncuentrosCapacitacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 360, 280, 50));
+        jPanel2.add(btnGestionarEncuentrosCapacitacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 310, 280, 50));
 
         btnProveedoresAdmin.setBackground(new java.awt.Color(255, 255, 255));
         btnProveedoresAdmin.setFont(new java.awt.Font("Microsoft JhengHei", 1, 18)); // NOI18N
@@ -414,7 +386,7 @@ public class AdministrativosFrame extends javax.swing.JFrame {
                 btnProveedoresAdminActionPerformed(evt);
             }
         });
-        jPanel2.add(btnProveedoresAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 410, 280, 50));
+        jPanel2.add(btnProveedoresAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 360, 280, 50));
 
         btnRegresarInicioAdmin.setBackground(new java.awt.Color(255, 255, 255));
         btnRegresarInicioAdmin.setFont(new java.awt.Font("Microsoft JhengHei", 1, 18)); // NOI18N
@@ -435,7 +407,7 @@ public class AdministrativosFrame extends javax.swing.JFrame {
                 btnRegresarInicioAdminActionPerformed(evt);
             }
         });
-        jPanel2.add(btnRegresarInicioAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 560, 280, 50));
+        jPanel2.add(btnRegresarInicioAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 510, 280, 50));
 
         btnGestionarEmpleados3.setBackground(new java.awt.Color(255, 255, 255));
         btnGestionarEmpleados3.setFont(new java.awt.Font("Microsoft JhengHei", 1, 18)); // NOI18N
@@ -495,7 +467,7 @@ public class AdministrativosFrame extends javax.swing.JFrame {
                 btnGestionarContratosActionPerformed(evt);
             }
         });
-        jPanel2.add(btnGestionarContratos, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 460, 280, 50));
+        jPanel2.add(btnGestionarContratos, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 410, 280, 50));
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 280, 880));
 
@@ -1326,19 +1298,6 @@ public class AdministrativosFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnRegistrarHorarioPersonalMouseExited
 
-    private void btnGestionarEventosMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnGestionarEventosMouseEntered
-
-        botonPresionado(btnGestionarEventos);
-
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnGestionarEventosMouseEntered
-
-    private void btnGestionarEventosMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnGestionarEventosMouseExited
-
-        botonDespresionado(btnGestionarEventos);
-// TODO add your handling code here:
-    }//GEN-LAST:event_btnGestionarEventosMouseExited
-
     private void btnGestionarEncuentrosCapacitacionMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnGestionarEncuentrosCapacitacionMouseEntered
 
         botonPresionado(btnGestionarEncuentrosCapacitacion);
@@ -1369,11 +1328,6 @@ public class AdministrativosFrame extends javax.swing.JFrame {
     private void btnRegistrarHorarioPersonalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarHorarioPersonalActionPerformed
         panelGeneralAdmin.setSelectedIndex(1);        // TODO add your handling code here:
     }//GEN-LAST:event_btnRegistrarHorarioPersonalActionPerformed
-
-    private void btnGestionarEventosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGestionarEventosActionPerformed
-        panelGeneralAdmin.setSelectedIndex(2);
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnGestionarEventosActionPerformed
 
     private void btnRegresarInicioAdminMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRegresarInicioAdminMouseEntered
         botonPresionado(btnRegresarInicioAdmin);
@@ -1712,7 +1666,7 @@ public class AdministrativosFrame extends javax.swing.JFrame {
         }
 
         tblContratosLocales.setModel(modelo);
-        escalarLargoTablas(columnasTablaContratosLocales.length, tblContratosLocales);
+        Utilidades.escalarLargoTablas(columnasTablaContratosLocales.length, tblContratosLocales);
 
     }
 
@@ -1831,7 +1785,7 @@ public class AdministrativosFrame extends javax.swing.JFrame {
         }
 
         tblConvenios.setModel(modelo);
-        escalarLargoTablas(columnasTablaConvenios.length, tblConvenios);
+        Utilidades.escalarLargoTablas(columnasTablaConvenios.length, tblConvenios);
 
     }
     private void btnRegistrarConvenioMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRegistrarConvenioMouseEntered
@@ -1919,7 +1873,7 @@ public class AdministrativosFrame extends javax.swing.JFrame {
         }
 
         tblPersonal.setModel(modelo);
-        escalarLargoTablas(columnasTablaEmpleados.length, tblPersonal);
+        Utilidades.escalarLargoTablas(columnasTablaEmpleados.length, tblPersonal);
 
     }
 
@@ -2007,7 +1961,7 @@ public class AdministrativosFrame extends javax.swing.JFrame {
         }
 
         tblHorariosPersonal.setModel(modelo);
-        escalarLargoTablas(columnasTablaEmpleadosHorario.length, tblHorariosPersonal);
+        Utilidades.escalarLargoTablas(columnasTablaEmpleadosHorario.length, tblHorariosPersonal);
 
     }
     private void btnRegistrarHorarioEmpleadoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRegistrarHorarioEmpleadoMouseEntered
@@ -2117,7 +2071,6 @@ public class AdministrativosFrame extends javax.swing.JFrame {
     private javax.swing.JButton btnGestionarEmpleados3;
     private javax.swing.JButton btnGestionarEncuentrosCapacitacion;
     private javax.swing.JButton btnGestionarEvento;
-    private javax.swing.JButton btnGestionarEventos;
     private javax.swing.JButton btnGestionarHorarios;
     private javax.swing.JButton btnGestionarPersonal;
     private javax.swing.JButton btnGestionarProveedores;

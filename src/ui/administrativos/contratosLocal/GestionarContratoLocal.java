@@ -4,10 +4,10 @@
  */
 package ui.administrativos.contratosLocal;
 
-import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import logica.administrativos.contratosLocales.ListaContratosLocales;
 import ui.utilidades.EliminadoExitosamente;
+import ui.utilidades.Utilidades;
 
 /**
  *
@@ -27,16 +27,10 @@ public class GestionarContratoLocal extends javax.swing.JFrame {
         modelo.setColumnIdentifiers(columnasTabla);
         tblUnicoContratoLocal.setModel(modelo);
         tblUnicoContratoLocal.setRowHeight(45);
-        escalarLargoTablas(columnasTabla.length, tblUnicoContratoLocal);
+        Utilidades.escalarLargoTablas(columnasTabla.length, tblUnicoContratoLocal);
 
     }
 
-    public void escalarLargoTablas(int tamanoColumnas, JTable tabla) {
-        for (int i = 0; i < tamanoColumnas; i++) {
-            tabla.getColumnModel().getColumn(i).setPreferredWidth(200);
-
-        }
-    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -175,7 +169,7 @@ public class GestionarContratoLocal extends javax.swing.JFrame {
         Object[] ob = {ID, ListaContratosLocales.getContratosCentroComercial().get(ID).getNombreArrendatarioContrato(), ListaContratosLocales.getContratosCentroComercial().get(ID).getCedulaArrendatario(), ListaContratosLocales.getContratosCentroComercial().get(ID).getDescripcionContrato(), ListaContratosLocales.getContratosCentroComercial().get(ID).getDuracionContrato(), ListaContratosLocales.getContratosCentroComercial().get(ID).getCondicionesDeRenovacionContrato(), ListaContratosLocales.getContratosCentroComercial().get(ID).getMontoMensualContrato(), ListaContratosLocales.getContratosCentroComercial().get(ID).getPlazosDePagoContrato(), ListaContratosLocales.getContratosCentroComercial().get(ID).getUsoDelLocalContrato(), ListaContratosLocales.getContratosCentroComercial().get(ID).getNombreLocalContrato(), ListaContratosLocales.getContratosCentroComercial().get(ID).getSeguros()};
 
         modelo.addRow(ob);
-        escalarLargoTablas(columnasTabla.length, tblUnicoContratoLocal);
+        Utilidades.escalarLargoTablas(columnasTabla.length, tblUnicoContratoLocal);
 
         // TODO add your handling code here:
     }//GEN-LAST:event_btnBuscarContratoLocalIDActionPerformed

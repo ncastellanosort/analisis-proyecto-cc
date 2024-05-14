@@ -4,10 +4,10 @@
  */
 package ui.seguridad.incidentes;
 
-import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import logica.seguridad.incidentes.ListaIncidentes;
 import ui.utilidades.EliminadoExitosamente;
+import ui.utilidades.Utilidades;
 
 /**
  *
@@ -30,15 +30,10 @@ public class GestionarIncidente extends javax.swing.JFrame {
         tblUnicoIncidente.setRowHeight(45);
         tblUnicoIncidente.setModel(modelo);
 
-        escalarLargoTablas(columnas.length, tblUnicoIncidente);
+        Utilidades.escalarLargoTablas(columnas.length, tblUnicoIncidente);
     }
 
-    public void escalarLargoTablas(int tamanoColumnas, JTable tabla) {
-        for (int i = 0; i < tamanoColumnas; i++) {
-            tabla.getColumnModel().getColumn(i).setPreferredWidth(200);
 
-        }
-    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -164,7 +159,7 @@ public class GestionarIncidente extends javax.swing.JFrame {
         Object[] ob = {ID, ListaIncidentes.getIncidentesCentroComercial().get(ID).getNombreAreaIncidente(), ListaIncidentes.getIncidentesCentroComercial().get(ID).getFechaIncidente(), ListaIncidentes.getIncidentesCentroComercial().get(ID).getHoraIndicente(), ListaIncidentes.getIncidentesCentroComercial().get(ID).getDescripcionIncidente(), ListaIncidentes.getIncidentesCentroComercial().get(ID).getPersonasInvolucradasIncidente(), ListaIncidentes.getIncidentesCentroComercial().get(ID).getAccionesTomadasIncidente(), ListaIncidentes.getIncidentesCentroComercial().get(ID).getDanosMaterialesIncidente(), ListaIncidentes.getIncidentesCentroComercial().get(ID).getNotificacionAutoridadesIncidente()};
 
         modelo.addRow(ob);
-        escalarLargoTablas(columnas.length, tblUnicoIncidente);
+        Utilidades.escalarLargoTablas(columnas.length, tblUnicoIncidente);
 
         // TODO add your handling code here:
     }//GEN-LAST:event_btnBuscarINcidenteIDActionPerformed

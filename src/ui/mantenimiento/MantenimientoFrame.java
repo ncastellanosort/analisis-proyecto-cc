@@ -7,7 +7,6 @@ package ui.mantenimiento;
 import java.awt.Color;
 import java.util.Map;
 import javax.swing.JButton;
-import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import logica.mantenimiento.mantenimientos.ListaMantenimientos;
 import logica.mantenimiento.mantenimientos.Mantenimiento;
@@ -15,6 +14,7 @@ import ui.login.Login;
 import ui.mantenimiento.mantenimientos.AgregarMantenimiento;
 import ui.mantenimiento.mantenimientos.GestionarMantenimiento;
 import ui.utilidades.ListaVacia;
+import ui.utilidades.Utilidades;
 
 /**
  *
@@ -40,16 +40,11 @@ public class MantenimientoFrame extends javax.swing.JFrame {
         tblMantenimientos.setModel(modeloTablaMantenimiento);
         tblMantenimientos.setRowHeight(45);
         
-        escalarLargoTablas(columnasTablaMantenimiento.length, tblMantenimientos);
+        Utilidades.escalarLargoTablas(columnasTablaMantenimiento.length, tblMantenimientos);
 
     }
     
-    public void escalarLargoTablas(int tamanoColumnas, JTable tabla) {
-        for (int i = 0; i < tamanoColumnas; i++) {
-            tabla.getColumnModel().getColumn(i).setPreferredWidth(200);
 
-        }
-    }
 
     public void botonPresionado(JButton boton) {
 
@@ -352,7 +347,7 @@ public class MantenimientoFrame extends javax.swing.JFrame {
         }
 
         tblMantenimientos.setModel(modelo);
-        escalarLargoTablas(columnasTablaMantenimiento.length, tblMantenimientos);
+        Utilidades.escalarLargoTablas(columnasTablaMantenimiento.length, tblMantenimientos);
 
     }
 

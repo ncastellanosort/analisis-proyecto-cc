@@ -7,7 +7,6 @@ package ui.contador;
 import java.awt.Color;
 import java.util.Map;
 import javax.swing.JButton;
-import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import logica.contador.estadoFinanciero.EstadoFinanciero;
 import logica.contador.estadoFinanciero.LIstaEstadosFinancieros;
@@ -23,6 +22,7 @@ import ui.contador.ingresos.AgregarIngresos;
 import ui.contador.ingresos.BuscarIngreso;
 import ui.login.Login;
 import ui.utilidades.ListaVacia;
+import ui.utilidades.Utilidades;
 
 /**
  *
@@ -67,17 +67,12 @@ public class ContadorFrame extends javax.swing.JFrame {
         tblEstadosFinancieros.setModel(modeloTablaEstadosFinancieros);
         tblEstadosFinancieros.setRowHeight(40);
 
-        escalarLargoTablas(columnasTablaEstadosF.length, tblEstadosFinancieros);
-        escalarLargoTablas(columnasTablaIngresos.length, tblIngresos);
-        escalarLargoTablas(columnasTablaGastos.length, tblGastos);
+        Utilidades.escalarLargoTablas(columnasTablaEstadosF.length, tblEstadosFinancieros);
+        Utilidades.escalarLargoTablas(columnasTablaIngresos.length, tblIngresos);
+        Utilidades.escalarLargoTablas(columnasTablaGastos.length, tblGastos);
     }
 
-    public void escalarLargoTablas(int tamanoColumnas, JTable tabla) {
-        for (int i = 0; i < tamanoColumnas; i++) {
-            tabla.getColumnModel().getColumn(i).setPreferredWidth(200);
 
-        }
-    }
 
     public void botonPresionado(JButton boton) {
 
@@ -871,7 +866,7 @@ public class ContadorFrame extends javax.swing.JFrame {
         }
 
         tblEstadosFinancieros.setModel(modelo);
-        escalarLargoTablas(columnasTablaEstadosF.length, tblEstadosFinancieros);
+        Utilidades.escalarLargoTablas(columnasTablaEstadosF.length, tblEstadosFinancieros);
 
     }
 
@@ -890,7 +885,7 @@ public class ContadorFrame extends javax.swing.JFrame {
         }
 
         tblIngresos.setModel(modelo);
-        escalarLargoTablas(columnasTablaIngresos.length, tblIngresos);
+        Utilidades.escalarLargoTablas(columnasTablaIngresos.length, tblIngresos);
 
     }
 
@@ -909,7 +904,7 @@ public class ContadorFrame extends javax.swing.JFrame {
         }
 
         tblGastos.setModel(modelo);
-        escalarLargoTablas(columnasTablaGastos.length, tblGastos);
+        Utilidades.escalarLargoTablas(columnasTablaGastos.length, tblGastos);
 
     }
 

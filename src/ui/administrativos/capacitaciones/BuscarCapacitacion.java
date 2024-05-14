@@ -4,9 +4,9 @@
  */
 package ui.administrativos.capacitaciones;
 
-import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import logica.administrativos.capacitaciones.ListaCapacitaciones;
+import ui.utilidades.Utilidades;
 
 /**
  *
@@ -30,15 +30,10 @@ public class BuscarCapacitacion extends javax.swing.JFrame {
 
         tblCapacitacionUnica.setRowHeight(40);
 
-        escalarLargoTablas(columnas.length, tblCapacitacionUnica);
+        Utilidades.escalarLargoTablas(columnas.length, tblCapacitacionUnica);
     }
 
-    public void escalarLargoTablas(int tamanoColumnas, JTable tabla) {
-        for (int i = 0; i < tamanoColumnas; i++) {
-            tabla.getColumnModel().getColumn(i).setPreferredWidth(200);
 
-        }
-    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -180,7 +175,7 @@ public class BuscarCapacitacion extends javax.swing.JFrame {
         Object[] ob = {ID, ListaCapacitaciones.getCapacitacionesCentroComercial().get(ID).getNombreCapacitacion(), ListaCapacitaciones.getCapacitacionesCentroComercial().get(ID).getNombreInstructorCapacitacion(), ListaCapacitaciones.getCapacitacionesCentroComercial().get(ID).getDescripcionCapacitacion(), ListaCapacitaciones.getCapacitacionesCentroComercial().get(ID).getAreaCapacitacion(), ListaCapacitaciones.getCapacitacionesCentroComercial().get(ID).getFecha(), ListaCapacitaciones.getCapacitacionesCentroComercial().get(ID).getHoraFin(), ListaCapacitaciones.getCapacitacionesCentroComercial().get(ID).getHoraFin(), ListaCapacitaciones.getCapacitacionesCentroComercial().get(ID).getEmpresaEncargadaCapacitacion(), ListaCapacitaciones.getCapacitacionesCentroComercial().get(ID).getFinalizada()};
 
         modelo.addRow(ob);
-        escalarLargoTablas(columnas.length, tblCapacitacionUnica);
+        Utilidades.escalarLargoTablas(columnas.length, tblCapacitacionUnica);
 
         lbEstadoCapacitacion.setText(ListaCapacitaciones.getCapacitacionesCentroComercial().get(ID).getFinalizada());
 

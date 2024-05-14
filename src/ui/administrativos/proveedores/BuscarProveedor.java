@@ -4,9 +4,9 @@
  */
 package ui.administrativos.proveedores;
 
-import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import logica.administrativos.proveedores.ListaProveedores;
+import ui.utilidades.Utilidades;
 
 /**
  *
@@ -29,16 +29,11 @@ public class BuscarProveedor extends javax.swing.JFrame {
 
         tblUnicoProveedor.setRowHeight(40);
 
-        escalarLargoTablas(columnas.length, tblUnicoProveedor);
+        Utilidades.escalarLargoTablas(columnas.length, tblUnicoProveedor);
 
     }
 
-    public void escalarLargoTablas(int tamanoColumnas, JTable tabla) {
-        for (int i = 0; i < tamanoColumnas; i++) {
-            tabla.getColumnModel().getColumn(i).setPreferredWidth(200);
 
-        }
-    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -156,7 +151,7 @@ public class BuscarProveedor extends javax.swing.JFrame {
         Object[] ob = {ID, ListaProveedores.getProveedoresCentroComercial().get(ID).getNombreEmpresaProveedor(), ListaProveedores.getProveedoresCentroComercial().get(ID).getDireccionRegistradaProveedor(), ListaProveedores.getProveedoresCentroComercial().get(ID).getNumeroContactoProveedor(), ListaProveedores.getProveedoresCentroComercial().get(ID).getDireccionCorreoProveedor(), ListaProveedores.getProveedoresCentroComercial().get(ID).getServicioSuministradoProveedor(), ListaProveedores.getProveedoresCentroComercial().get(ID).getReferenciaComercialProveedor(), ListaProveedores.getProveedoresCentroComercial().get(ID).getTerminoDePagoProveedor()};
 
         modelo.addRow(ob);
-        escalarLargoTablas(columnas.length, tblUnicoProveedor);
+        Utilidades.escalarLargoTablas(columnas.length, tblUnicoProveedor);
 
         // TODO add your handling code here:
     }//GEN-LAST:event_btnBuscarIDPROVActionPerformed

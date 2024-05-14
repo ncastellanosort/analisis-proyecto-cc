@@ -4,10 +4,10 @@
  */
 package ui.contador.gastos;
 
-import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import logica.contador.gastos.ListaGastos;
 import ui.utilidades.EliminadoExitosamente;
+import ui.utilidades.Utilidades;
 
 /**
  *
@@ -29,16 +29,10 @@ public class GestionarGasto extends javax.swing.JFrame {
 
         tblUnicoGasto.setModel(modelo);
         tblUnicoGasto.setRowHeight(40);
-        escalarLargoTablas(columnasTablaGastos.length, tblUnicoGasto);
+        Utilidades.escalarLargoTablas(columnasTablaGastos.length, tblUnicoGasto);
 
     }
-    
-    public void escalarLargoTablas(int tamanoColumnas, JTable tabla) {
-        for (int i = 0; i < tamanoColumnas; i++) {
-            tabla.getColumnModel().getColumn(i).setPreferredWidth(200);
 
-        }
-    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -215,7 +209,7 @@ public class GestionarGasto extends javax.swing.JFrame {
         Object[] ob = {ID, ListaGastos.getGastosCentroComercial().get(ID).getCantidadMonetariaGasto(), ListaGastos.getGastosCentroComercial().get(ID).getFechaGasto(), ListaGastos.getGastosCentroComercial().get(ID).getConceptoGasto(), ListaGastos.getGastosCentroComercial().get(ID).getProveedorGasto(), ListaGastos.getGastosCentroComercial().get(ID).getNumeroReciboGasto(), ListaGastos.getGastosCentroComercial().get(ID).getCategoriaGasto(), ListaGastos.getGastosCentroComercial().get(ID).getAreaDestinoGasto(), ListaGastos.getGastosCentroComercial().get(ID).getMetodoPagoGasto()};
 
         modelo.addRow(ob);
-        escalarLargoTablas(columnasTablaGastos.length, tblUnicoGasto);
+        Utilidades.escalarLargoTablas(columnasTablaGastos.length, tblUnicoGasto);
 
 // TODO add your handling code here:
     }//GEN-LAST:event_btnBuscarGastoID1ActionPerformed

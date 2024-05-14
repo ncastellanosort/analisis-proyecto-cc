@@ -4,10 +4,10 @@
  */
 package ui.seguridad.areas;
 
-import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import logica.seguridad.areas.ListaAreas;
 import ui.utilidades.EliminadoExitosamente;
+import ui.utilidades.Utilidades;
 
 /**
  *
@@ -31,15 +31,9 @@ public class GestionarArea extends javax.swing.JFrame {
 
         tblUnicaArea.setModel(modelo);
 
-        escalarLargoTablas(columnas.length, tblUnicaArea);
+        Utilidades.escalarLargoTablas(columnas.length, tblUnicaArea);
     }
 
-    public void escalarLargoTablas(int tamanoColumnas, JTable tabla) {
-        for (int i = 0; i < tamanoColumnas; i++) {
-            tabla.getColumnModel().getColumn(i).setPreferredWidth(200);
-
-        }
-    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -193,7 +187,7 @@ public class GestionarArea extends javax.swing.JFrame {
         lbNombreEncargadoArea.setText(ListaAreas.getAreasCentroComercial().get(ID).getNombreEncargadoArea());
 
         modelo.addRow(ob);
-        escalarLargoTablas(columnas.length, tblUnicaArea);
+        Utilidades.escalarLargoTablas(columnas.length, tblUnicaArea);
 
         // TODO add your handling code here:
     }//GEN-LAST:event_btnBuscarAreaIDActionPerformed

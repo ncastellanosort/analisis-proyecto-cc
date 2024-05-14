@@ -7,7 +7,6 @@ package ui.seguridad;
 import java.awt.Color;
 import java.util.Map;
 import javax.swing.JButton;
-import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import logica.seguridad.areas.Area;
 import logica.seguridad.areas.ListaAreas;
@@ -23,6 +22,7 @@ import ui.seguridad.incidentes.GestionarIncidente;
 import ui.seguridad.robos.AgregarRobo;
 import ui.seguridad.robos.GestionarRobo;
 import ui.utilidades.ListaVacia;
+import ui.utilidades.Utilidades;
 
 /**
  *
@@ -66,17 +66,12 @@ public class SeguridadFrame extends javax.swing.JFrame {
 
         tblAreasDeSeguridad.setRowHeight(45);
 
-        escalarLargoTablas(columnasTablaAreas.length, tblAreasDeSeguridad);
-        escalarLargoTablas(columnasTablaIncidentes.length, tblIncidentes);
-        escalarLargoTablas(columnasTablaRobos.length, tblRobos);
+        Utilidades.escalarLargoTablas(columnasTablaAreas.length, tblAreasDeSeguridad);
+        Utilidades.escalarLargoTablas(columnasTablaIncidentes.length, tblIncidentes);
+        Utilidades.escalarLargoTablas(columnasTablaRobos.length, tblRobos);
     }
 
-    public void escalarLargoTablas(int tamanoColumnas, JTable tabla) {
-        for (int i = 0; i < tamanoColumnas; i++) {
-            tabla.getColumnModel().getColumn(i).setPreferredWidth(200);
-
-        }
-    }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -694,7 +689,7 @@ public void botonPresionado(JButton boton) {
         }
 
         tblAreasDeSeguridad.setModel(modelo);
-        escalarLargoTablas(columnasTablaAreas.length, tblAreasDeSeguridad);
+        Utilidades.escalarLargoTablas(columnasTablaAreas.length, tblAreasDeSeguridad);
 
     }
 
@@ -783,7 +778,7 @@ public void botonPresionado(JButton boton) {
         }
 
         tblIncidentes.setModel(modelo);
-        escalarLargoTablas(columnasTablaIncidentes.length, tblIncidentes);
+        Utilidades.escalarLargoTablas(columnasTablaIncidentes.length, tblIncidentes);
 
     }
 
@@ -872,7 +867,7 @@ public void botonPresionado(JButton boton) {
         }
 
         tblRobos.setModel(modelo);
-        escalarLargoTablas(columnasTablaRobos.length, tblRobos);
+        Utilidades.escalarLargoTablas(columnasTablaRobos.length, tblRobos);
 
     }
 

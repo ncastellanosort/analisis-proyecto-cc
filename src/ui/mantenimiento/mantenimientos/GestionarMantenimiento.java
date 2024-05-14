@@ -4,10 +4,10 @@
  */
 package ui.mantenimiento.mantenimientos;
 
-import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import logica.mantenimiento.mantenimientos.ListaMantenimientos;
 import ui.utilidades.EliminadoExitosamente;
+import ui.utilidades.Utilidades;
 
 /**
  *
@@ -30,15 +30,9 @@ public class GestionarMantenimiento extends javax.swing.JFrame {
         tblUnicoMantenimiento.setModel(modelo);
         tblUnicoMantenimiento.setRowHeight(45);
 
-        escalarLargoTablas(columnas.length, tblUnicoMantenimiento);
+        Utilidades.escalarLargoTablas(columnas.length, tblUnicoMantenimiento);
     }
 
-    public void escalarLargoTablas(int tamanoColumnas, JTable tabla) {
-        for (int i = 0; i < tamanoColumnas; i++) {
-            tabla.getColumnModel().getColumn(i).setPreferredWidth(200);
-
-        }
-    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -205,7 +199,7 @@ public class GestionarMantenimiento extends javax.swing.JFrame {
         Object[] ob = {ID, ListaMantenimientos.getMantenimientosCentroComercial().get(ID).getNombreMantenimiento(), ListaMantenimientos.getMantenimientosCentroComercial().get(ID).getEncargadoMantenimiento(), ListaMantenimientos.getMantenimientosCentroComercial().get(ID).getCedulaEncargado(), ListaMantenimientos.getMantenimientosCentroComercial().get(ID).getDescripcionMantenimiento(), ListaMantenimientos.getMantenimientosCentroComercial().get(ID).getFinalizadoMantenimiento(), ListaMantenimientos.getMantenimientosCentroComercial().get(ID).getZonaMantenimiento(), ListaMantenimientos.getMantenimientosCentroComercial().get(ID).getHoraFinalizacion(), ListaMantenimientos.getMantenimientosCentroComercial().get(ID).getFechaFinalizacion()};
 
         modelo.addRow(ob);
-        escalarLargoTablas(columnas.length, tblUnicoMantenimiento);
+        Utilidades.escalarLargoTablas(columnas.length, tblUnicoMantenimiento);
 
         // TODO add your handling code here:
     }//GEN-LAST:event_btnBuscarMantenimientoIDActionPerformed

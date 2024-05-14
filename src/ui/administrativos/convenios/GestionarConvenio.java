@@ -4,10 +4,10 @@
  */
 package ui.administrativos.convenios;
 
-import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import logica.administrativos.convenios.ListaConvenios;
 import ui.utilidades.EliminadoExitosamente;
+import ui.utilidades.Utilidades;
 
 /**
  *
@@ -28,16 +28,10 @@ public class GestionarConvenio extends javax.swing.JFrame {
         tblUnicoConvenio.setModel(modelo);
         tblUnicoConvenio.setRowHeight(45);
 
-        escalarLargoTablas(columnas.length, tblUnicoConvenio);
+        Utilidades.escalarLargoTablas(columnas.length, tblUnicoConvenio);
 
     }
 
-    public void escalarLargoTablas(int tamanoColumnas, JTable tabla) {
-        for (int i = 0; i < tamanoColumnas; i++) {
-            tabla.getColumnModel().getColumn(i).setPreferredWidth(200);
-
-        }
-    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -177,7 +171,7 @@ public class GestionarConvenio extends javax.swing.JFrame {
         Object[] ob = {ID, ListaConvenios.getListaConveniosCentroComercial().get(ID).getNombreConvenio(), ListaConvenios.getListaConveniosCentroComercial().get(ID).getNombreFirmante(), ListaConvenios.getListaConveniosCentroComercial().get(ID).getCedulaFirmante(), ListaConvenios.getListaConveniosCentroComercial().get(ID).getFechaFirma(), ListaConvenios.getListaConveniosCentroComercial().get(ID).getPartesInvolucradas(), ListaConvenios.getListaConveniosCentroComercial().get(ID).getDuracionConvenio(), ListaConvenios.getListaConveniosCentroComercial().get(ID).getObjetivo(), ListaConvenios.getListaConveniosCentroComercial().get(ID).getClausulasOcondiciones(), ListaConvenios.getListaConveniosCentroComercial().get(ID).getBeneficiosMutuos(), ListaConvenios.getListaConveniosCentroComercial().get(ID).getCompensacionConvenio(), ListaConvenios.getListaConveniosCentroComercial().get(ID).getClausulasConfidencialidad(), ListaConvenios.getListaConveniosCentroComercial().get(ID).getLeyesAplicables()};
 
         modelo.addRow(ob);
-        escalarLargoTablas(columnas.length, tblUnicoConvenio);
+        Utilidades.escalarLargoTablas(columnas.length, tblUnicoConvenio);
 
         // TODO add your handling code here:
     }//GEN-LAST:event_btnBuscarConvenioIDActionPerformed

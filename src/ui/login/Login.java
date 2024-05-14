@@ -183,11 +183,12 @@ public class Login extends javax.swing.JFrame {
         String claveInput = pssdfClaveInicioSesion.getText();
 
         if (usuarioInput.equals(Administrativos.getUsuarioAdministrativo()) && claveInput.equals(Administrativos.getClaveAdministrativo())) {
+
             admin.setLocationRelativeTo(null);
             admin.setResizable(false);
             admin.setVisible(true);
-
             this.dispose();
+
         } else if (usuarioInput.equals(Contador.getUsuarioContador()) && claveInput.equals(Contador.getClaveContador())) {
 
             contador.setLocationRelativeTo(null);
@@ -225,8 +226,7 @@ public class Login extends javax.swing.JFrame {
 
         }
 
-        //
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_btnIniciarSesionActionPerformed
 
     private void txtfInicioSesionUsuarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtfInicioSesionUsuarioMouseClicked

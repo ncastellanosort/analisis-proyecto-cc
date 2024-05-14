@@ -4,10 +4,10 @@
  */
 package ui.serviciosGenerales.limpiezas;
 
-import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import logica.serviciosGenerales.tareas.ListaTareas;
 import ui.utilidades.EliminadoExitosamente;
+import ui.utilidades.Utilidades;
 
 /**
  *
@@ -31,16 +31,10 @@ public class GestionarLimpieza extends javax.swing.JFrame {
 
         tblUnicaLimpieza.setModel(modelo);
 
-        escalarLargoTablas(columnas.length, tblUnicaLimpieza);
+        Utilidades.escalarLargoTablas(columnas.length, tblUnicaLimpieza);
 
     }
 
-    public void escalarLargoTablas(int tamanoColumnas, JTable tabla) {
-        for (int i = 0; i < tamanoColumnas; i++) {
-            tabla.getColumnModel().getColumn(i).setPreferredWidth(200);
-
-        }
-    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -214,7 +208,7 @@ public class GestionarLimpieza extends javax.swing.JFrame {
         Object[] ob = {ID, ListaTareas.getTareasCentroComercial().get(ID).getNombreTarea(), ListaTareas.getTareasCentroComercial().get(ID).getPersonaEncargada(), ListaTareas.getTareasCentroComercial().get(ID).getRealizadaTarea(), ListaTareas.getTareasCentroComercial().get(ID).getDescripcionTarea(), ListaTareas.getTareasCentroComercial().get(ID).getAreaTarea()};
 
         modelo.addRow(ob);
-        escalarLargoTablas(columnas.length, tblUnicaLimpieza);
+        Utilidades.escalarLargoTablas(columnas.length, tblUnicaLimpieza);
 
         // TODO add your handling code here:
     }//GEN-LAST:event_btnBuscarLimpiezaIDActionPerformed

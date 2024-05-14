@@ -4,10 +4,10 @@
  */
 package ui.contador.ingresos;
 
-import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import logica.contador.ingresos.ListaIngresos;
 import ui.utilidades.EliminadoExitosamente;
+import ui.utilidades.Utilidades;
 
 /**
  *
@@ -31,15 +31,10 @@ public class BuscarIngreso extends javax.swing.JFrame {
 
         tblUnicoINgreso.setRowHeight(40);
 
-        escalarLargoTablas(columnasTablaIngresos.length, tblUnicoINgreso);
+        Utilidades.escalarLargoTablas(columnasTablaIngresos.length, tblUnicoINgreso);
     }
 
-    public void escalarLargoTablas(int tamanoColumnas, JTable tabla) {
-        for (int i = 0; i < tamanoColumnas; i++) {
-            tabla.getColumnModel().getColumn(i).setPreferredWidth(200);
 
-        }
-    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -202,7 +197,7 @@ public class BuscarIngreso extends javax.swing.JFrame {
         Object[] ob = {ID, ListaIngresos.getIngresosCentroComercial().get(ID).getCantidadMonetariaIngreso(), ListaIngresos.getIngresosCentroComercial().get(ID).getFechaIngreso(), ListaIngresos.getIngresosCentroComercial().get(ID).getOrigenIngreso(), ListaIngresos.getIngresosCentroComercial().get(ID).getTipoDeIngresoIngreso(), ListaIngresos.getIngresosCentroComercial().get(ID).getMetodoDePagoIngreso(), ListaIngresos.getIngresosCentroComercial().get(ID).getAreaOrigenIngreso()};
 
         modelo.addRow(ob);
-        escalarLargoTablas(columnasTablaIngresos.length, tblUnicoINgreso);
+        Utilidades.escalarLargoTablas(columnasTablaIngresos.length, tblUnicoINgreso);
 
         // TODO add your handling code here:
     }//GEN-LAST:event_btnBUscarIngresoID1ActionPerformed

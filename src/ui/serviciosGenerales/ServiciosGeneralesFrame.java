@@ -7,7 +7,6 @@ package ui.serviciosGenerales;
 import java.awt.Color;
 import java.util.Map;
 import javax.swing.JButton;
-import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import logica.serviciosGenerales.tareas.ListaTareas;
 import logica.serviciosGenerales.tareas.Tarea;
@@ -15,6 +14,7 @@ import ui.login.Login;
 import ui.serviciosGenerales.limpiezas.AgregarLimpieza;
 import ui.serviciosGenerales.limpiezas.GestionarLimpieza;
 import ui.utilidades.ListaVacia;
+import ui.utilidades.Utilidades;
 
 /**
  *
@@ -43,16 +43,10 @@ public class ServiciosGeneralesFrame extends javax.swing.JFrame {
 
         tbLimpiezasServiciosGen.setRowHeight(40);
 
-        escalarLargoTablas(columnasTablaTareas.length, tbLimpiezasServiciosGen);
+        Utilidades.escalarLargoTablas(columnasTablaTareas.length, tbLimpiezasServiciosGen);
 
     }
 
-    public void escalarLargoTablas(int tamanoColumnas, JTable tabla) {
-        for (int i = 0; i < tamanoColumnas; i++) {
-            tabla.getColumnModel().getColumn(i).setPreferredWidth(200);
-
-        }
-    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -461,7 +455,7 @@ public class ServiciosGeneralesFrame extends javax.swing.JFrame {
         }
 
         tbLimpiezasServiciosGen.setModel(modelo);
-        escalarLargoTablas(columnasTablaTareas.length, tbLimpiezasServiciosGen);
+        Utilidades.escalarLargoTablas(columnasTablaTareas.length, tbLimpiezasServiciosGen);
 
     }
 
