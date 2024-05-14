@@ -7,6 +7,7 @@ package ui.contador;
 import java.awt.Color;
 import java.util.Map;
 import javax.swing.JButton;
+import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import logica.contador.estadoFinanciero.EstadoFinanciero;
 import logica.contador.estadoFinanciero.LIstaEstadosFinancieros;
@@ -65,6 +66,17 @@ public class ContadorFrame extends javax.swing.JFrame {
 
         tblEstadosFinancieros.setModel(modeloTablaEstadosFinancieros);
         tblEstadosFinancieros.setRowHeight(40);
+
+        escalarLargoTablas(columnasTablaEstadosF.length, tblEstadosFinancieros);
+        escalarLargoTablas(columnasTablaIngresos.length, tblIngresos);
+        escalarLargoTablas(columnasTablaGastos.length, tblGastos);
+    }
+
+    public void escalarLargoTablas(int tamanoColumnas, JTable tabla) {
+        for (int i = 0; i < tamanoColumnas; i++) {
+            tabla.getColumnModel().getColumn(i).setPreferredWidth(200);
+
+        }
     }
 
     public void botonPresionado(JButton boton) {
@@ -352,6 +364,7 @@ public class ContadorFrame extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        tblIngresos.setAutoResizeMode(0);
         jScrollPane1.setViewportView(tblIngresos);
 
         jPanel4.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 150, 1080, -1));
@@ -459,6 +472,7 @@ public class ContadorFrame extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        tblGastos.setAutoResizeMode(0);
         jScrollPane2.setViewportView(tblGastos);
 
         jPanel5.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 150, 1080, -1));
@@ -566,6 +580,7 @@ public class ContadorFrame extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        tblEstadosFinancieros.setAutoResizeMode(0);
         jScrollPane3.setViewportView(tblEstadosFinancieros);
 
         jPanel8.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 150, 1080, -1));
@@ -856,6 +871,7 @@ public class ContadorFrame extends javax.swing.JFrame {
         }
 
         tblEstadosFinancieros.setModel(modelo);
+        escalarLargoTablas(columnasTablaEstadosF.length, tblEstadosFinancieros);
 
     }
 
@@ -874,6 +890,7 @@ public class ContadorFrame extends javax.swing.JFrame {
         }
 
         tblIngresos.setModel(modelo);
+        escalarLargoTablas(columnasTablaIngresos.length, tblIngresos);
 
     }
 
@@ -892,6 +909,7 @@ public class ContadorFrame extends javax.swing.JFrame {
         }
 
         tblGastos.setModel(modelo);
+        escalarLargoTablas(columnasTablaGastos.length, tblGastos);
 
     }
 

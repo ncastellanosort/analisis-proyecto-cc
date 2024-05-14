@@ -7,6 +7,7 @@ package ui.mantenimiento;
 import java.awt.Color;
 import java.util.Map;
 import javax.swing.JButton;
+import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import logica.mantenimiento.mantenimientos.ListaMantenimientos;
 import logica.mantenimiento.mantenimientos.Mantenimiento;
@@ -38,7 +39,16 @@ public class MantenimientoFrame extends javax.swing.JFrame {
 
         tblMantenimientos.setModel(modeloTablaMantenimiento);
         tblMantenimientos.setRowHeight(45);
+        
+        escalarLargoTablas(columnasTablaMantenimiento.length, tblMantenimientos);
 
+    }
+    
+    public void escalarLargoTablas(int tamanoColumnas, JTable tabla) {
+        for (int i = 0; i < tamanoColumnas; i++) {
+            tabla.getColumnModel().getColumn(i).setPreferredWidth(200);
+
+        }
     }
 
     public void botonPresionado(JButton boton) {
@@ -257,6 +267,7 @@ public class MantenimientoFrame extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        tblMantenimientos.setAutoResizeMode(0);
         jScrollPane1.setViewportView(tblMantenimientos);
 
         jPanel4.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 150, 1080, -1));
@@ -341,6 +352,7 @@ public class MantenimientoFrame extends javax.swing.JFrame {
         }
 
         tblMantenimientos.setModel(modelo);
+        escalarLargoTablas(columnasTablaMantenimiento.length, tblMantenimientos);
 
     }
 

@@ -9,7 +9,7 @@ package logica.empleados;
  * @author Nicolas
  */
 public class Empleado {
-    // key del hashmap: Número de identificación personal (DNI, cédula, pasaporte, etc.)
+    // key del hashmap: numero de cedula
 
     private String nombreEmpleado;
 
@@ -29,8 +29,10 @@ public class Empleado {
     private String incentivosEmpleado;
     private String nombreUsuarioEmpleado;
     private String contrasenaEmpleado;
+    private int sueldo;
+    private String areaEmpleado;
 
-    public Empleado(String nombreEmpleado, String fechaNacimientoEmpleado, String generoEmpleado, String estadoCivilEmpleado, String direccionViviendaEmpleado, String numeroTelefonoEmpleado, String correoElectronicoEmpleado, String nacionalidadEmpleado, String nombreContactoEmergenciaEmpleado, String relacionConEmpleado, String numeroContactoEmergenciaEmpleado, String tituloPuestoTrabajoEmpleado, String incentivosEmpleado, String nombreUsuarioEmpleado, String contrasenaEmpleado) {
+    public Empleado(String nombreEmpleado, String fechaNacimientoEmpleado, String generoEmpleado, String estadoCivilEmpleado, String direccionViviendaEmpleado, String numeroTelefonoEmpleado, String correoElectronicoEmpleado, String nacionalidadEmpleado, String nombreContactoEmergenciaEmpleado, String relacionConEmpleado, String numeroContactoEmergenciaEmpleado, String tituloPuestoTrabajoEmpleado, String incentivosEmpleado, String nombreUsuarioEmpleado, String contrasenaEmpleado, int sueldo, String areaEmpleado) {
         this.nombreEmpleado = nombreEmpleado;
         this.fechaNacimientoEmpleado = fechaNacimientoEmpleado;
         this.generoEmpleado = generoEmpleado;
@@ -46,7 +48,28 @@ public class Empleado {
         this.incentivosEmpleado = incentivosEmpleado;
         this.nombreUsuarioEmpleado = nombreUsuarioEmpleado;
         this.contrasenaEmpleado = contrasenaEmpleado;
+        this.sueldo = sueldo;
+        this.areaEmpleado = areaEmpleado;
     }
+
+
+    public String getAreaEmpleado() {
+        return areaEmpleado;
+    }
+
+    public void setAreaEmpleado(String areaEmpleado) {
+        this.areaEmpleado = areaEmpleado;
+    }
+
+    public int getSueldo() {
+        return sueldo;
+    }
+
+    public void setSueldo(int sueldo) {
+        this.sueldo = sueldo;
+    }
+
+
 
     public String getNombreEmpleado() {
         return nombreEmpleado;

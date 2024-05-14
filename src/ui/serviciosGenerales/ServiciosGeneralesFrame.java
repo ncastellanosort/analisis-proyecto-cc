@@ -7,6 +7,7 @@ package ui.serviciosGenerales;
 import java.awt.Color;
 import java.util.Map;
 import javax.swing.JButton;
+import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import logica.serviciosGenerales.tareas.ListaTareas;
 import logica.serviciosGenerales.tareas.Tarea;
@@ -42,6 +43,15 @@ public class ServiciosGeneralesFrame extends javax.swing.JFrame {
 
         tbLimpiezasServiciosGen.setRowHeight(40);
 
+        escalarLargoTablas(columnasTablaTareas.length, tbLimpiezasServiciosGen);
+
+    }
+
+    public void escalarLargoTablas(int tamanoColumnas, JTable tabla) {
+        for (int i = 0; i < tamanoColumnas; i++) {
+            tabla.getColumnModel().getColumn(i).setPreferredWidth(200);
+
+        }
     }
 
     /**
@@ -168,6 +178,7 @@ public class ServiciosGeneralesFrame extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        tbLimpiezasServiciosGen.setAutoResizeMode(0);
         jScrollPane1.setViewportView(tbLimpiezasServiciosGen);
 
         jPanel7.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 150, 1080, -1));
@@ -450,6 +461,7 @@ public class ServiciosGeneralesFrame extends javax.swing.JFrame {
         }
 
         tbLimpiezasServiciosGen.setModel(modelo);
+        escalarLargoTablas(columnasTablaTareas.length, tbLimpiezasServiciosGen);
 
     }
 

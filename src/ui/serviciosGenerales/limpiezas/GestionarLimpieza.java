@@ -4,6 +4,7 @@
  */
 package ui.serviciosGenerales.limpiezas;
 
+import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import logica.serviciosGenerales.tareas.ListaTareas;
 import ui.utilidades.EliminadoExitosamente;
@@ -30,6 +31,15 @@ public class GestionarLimpieza extends javax.swing.JFrame {
 
         tblUnicaLimpieza.setModel(modelo);
 
+        escalarLargoTablas(columnas.length, tblUnicaLimpieza);
+
+    }
+
+    public void escalarLargoTablas(int tamanoColumnas, JTable tabla) {
+        for (int i = 0; i < tamanoColumnas; i++) {
+            tabla.getColumnModel().getColumn(i).setPreferredWidth(200);
+
+        }
     }
 
     /**
@@ -111,6 +121,7 @@ public class GestionarLimpieza extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        tblUnicaLimpieza.setAutoResizeMode(0);
         jScrollPane1.setViewportView(tblUnicaLimpieza);
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 220, 1090, 80));
@@ -203,6 +214,7 @@ public class GestionarLimpieza extends javax.swing.JFrame {
         Object[] ob = {ID, ListaTareas.getTareasCentroComercial().get(ID).getNombreTarea(), ListaTareas.getTareasCentroComercial().get(ID).getPersonaEncargada(), ListaTareas.getTareasCentroComercial().get(ID).getRealizadaTarea(), ListaTareas.getTareasCentroComercial().get(ID).getDescripcionTarea(), ListaTareas.getTareasCentroComercial().get(ID).getAreaTarea()};
 
         modelo.addRow(ob);
+        escalarLargoTablas(columnas.length, tblUnicaLimpieza);
 
         // TODO add your handling code here:
     }//GEN-LAST:event_btnBuscarLimpiezaIDActionPerformed

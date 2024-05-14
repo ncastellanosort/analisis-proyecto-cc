@@ -4,6 +4,7 @@
  */
 package ui.administrativos.proveedores;
 
+import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import logica.administrativos.proveedores.ListaProveedores;
 
@@ -28,6 +29,15 @@ public class BuscarProveedor extends javax.swing.JFrame {
 
         tblUnicoProveedor.setRowHeight(40);
 
+        escalarLargoTablas(columnas.length, tblUnicoProveedor);
+
+    }
+
+    public void escalarLargoTablas(int tamanoColumnas, JTable tabla) {
+        for (int i = 0; i < tamanoColumnas; i++) {
+            tabla.getColumnModel().getColumn(i).setPreferredWidth(200);
+
+        }
     }
 
     /**
@@ -74,6 +84,7 @@ public class BuscarProveedor extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        tblUnicoProveedor.setAutoResizeMode(0);
         jScrollPane1.setViewportView(tblUnicoProveedor);
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 310, 1080, 70));
@@ -145,6 +156,7 @@ public class BuscarProveedor extends javax.swing.JFrame {
         Object[] ob = {ID, ListaProveedores.getProveedoresCentroComercial().get(ID).getNombreEmpresaProveedor(), ListaProveedores.getProveedoresCentroComercial().get(ID).getDireccionRegistradaProveedor(), ListaProveedores.getProveedoresCentroComercial().get(ID).getNumeroContactoProveedor(), ListaProveedores.getProveedoresCentroComercial().get(ID).getDireccionCorreoProveedor(), ListaProveedores.getProveedoresCentroComercial().get(ID).getServicioSuministradoProveedor(), ListaProveedores.getProveedoresCentroComercial().get(ID).getReferenciaComercialProveedor(), ListaProveedores.getProveedoresCentroComercial().get(ID).getTerminoDePagoProveedor()};
 
         modelo.addRow(ob);
+        escalarLargoTablas(columnas.length, tblUnicoProveedor);
 
         // TODO add your handling code here:
     }//GEN-LAST:event_btnBuscarIDPROVActionPerformed

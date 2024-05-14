@@ -7,6 +7,7 @@ package ui.seguridad;
 import java.awt.Color;
 import java.util.Map;
 import javax.swing.JButton;
+import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import logica.seguridad.areas.Area;
 import logica.seguridad.areas.ListaAreas;
@@ -64,6 +65,17 @@ public class SeguridadFrame extends javax.swing.JFrame {
         tblAreasDeSeguridad.setModel(modeloTablaAreas);
 
         tblAreasDeSeguridad.setRowHeight(45);
+
+        escalarLargoTablas(columnasTablaAreas.length, tblAreasDeSeguridad);
+        escalarLargoTablas(columnasTablaIncidentes.length, tblIncidentes);
+        escalarLargoTablas(columnasTablaRobos.length, tblRobos);
+    }
+
+    public void escalarLargoTablas(int tamanoColumnas, JTable tabla) {
+        for (int i = 0; i < tamanoColumnas; i++) {
+            tabla.getColumnModel().getColumn(i).setPreferredWidth(200);
+
+        }
     }
 
     /**
@@ -260,6 +272,7 @@ public class SeguridadFrame extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        tblAreasDeSeguridad.setAutoResizeMode(0);
         jScrollPane1.setViewportView(tblAreasDeSeguridad);
 
         jPanel6.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 150, 1080, -1));
@@ -420,6 +433,7 @@ public class SeguridadFrame extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        tblIncidentes.setAutoResizeMode(0);
         jScrollPane2.setViewportView(tblIncidentes);
 
         jPanel7.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 150, 1080, -1));
@@ -521,6 +535,7 @@ public class SeguridadFrame extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        tblRobos.setAutoResizeMode(0);
         jScrollPane3.setViewportView(tblRobos);
 
         jPanel10.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 150, 1080, -1));
@@ -679,6 +694,7 @@ public void botonPresionado(JButton boton) {
         }
 
         tblAreasDeSeguridad.setModel(modelo);
+        escalarLargoTablas(columnasTablaAreas.length, tblAreasDeSeguridad);
 
     }
 
@@ -767,6 +783,7 @@ public void botonPresionado(JButton boton) {
         }
 
         tblIncidentes.setModel(modelo);
+        escalarLargoTablas(columnasTablaIncidentes.length, tblIncidentes);
 
     }
 
@@ -855,6 +872,7 @@ public void botonPresionado(JButton boton) {
         }
 
         tblRobos.setModel(modelo);
+        escalarLargoTablas(columnasTablaRobos.length, tblRobos);
 
     }
 

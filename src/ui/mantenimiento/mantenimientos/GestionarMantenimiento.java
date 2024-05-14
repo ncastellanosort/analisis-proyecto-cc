@@ -4,6 +4,7 @@
  */
 package ui.mantenimiento.mantenimientos;
 
+import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import logica.mantenimiento.mantenimientos.ListaMantenimientos;
 import ui.utilidades.EliminadoExitosamente;
@@ -28,6 +29,15 @@ public class GestionarMantenimiento extends javax.swing.JFrame {
 
         tblUnicoMantenimiento.setModel(modelo);
         tblUnicoMantenimiento.setRowHeight(45);
+
+        escalarLargoTablas(columnas.length, tblUnicoMantenimiento);
+    }
+
+    public void escalarLargoTablas(int tamanoColumnas, JTable tabla) {
+        for (int i = 0; i < tamanoColumnas; i++) {
+            tabla.getColumnModel().getColumn(i).setPreferredWidth(200);
+
+        }
     }
 
     /**
@@ -112,6 +122,7 @@ public class GestionarMantenimiento extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        tblUnicoMantenimiento.setAutoResizeMode(0);
         jScrollPane1.setViewportView(tblUnicoMantenimiento);
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 220, 1090, 80));
@@ -194,6 +205,7 @@ public class GestionarMantenimiento extends javax.swing.JFrame {
         Object[] ob = {ID, ListaMantenimientos.getMantenimientosCentroComercial().get(ID).getNombreMantenimiento(), ListaMantenimientos.getMantenimientosCentroComercial().get(ID).getEncargadoMantenimiento(), ListaMantenimientos.getMantenimientosCentroComercial().get(ID).getCedulaEncargado(), ListaMantenimientos.getMantenimientosCentroComercial().get(ID).getDescripcionMantenimiento(), ListaMantenimientos.getMantenimientosCentroComercial().get(ID).getFinalizadoMantenimiento(), ListaMantenimientos.getMantenimientosCentroComercial().get(ID).getZonaMantenimiento(), ListaMantenimientos.getMantenimientosCentroComercial().get(ID).getHoraFinalizacion(), ListaMantenimientos.getMantenimientosCentroComercial().get(ID).getFechaFinalizacion()};
 
         modelo.addRow(ob);
+        escalarLargoTablas(columnas.length, tblUnicoMantenimiento);
 
         // TODO add your handling code here:
     }//GEN-LAST:event_btnBuscarMantenimientoIDActionPerformed

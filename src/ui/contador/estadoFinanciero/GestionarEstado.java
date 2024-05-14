@@ -4,6 +4,7 @@
  */
 package ui.contador.estadoFinanciero;
 
+import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import logica.contador.estadoFinanciero.LIstaEstadosFinancieros;
 import ui.utilidades.EliminadoExitosamente;
@@ -30,6 +31,15 @@ public class GestionarEstado extends javax.swing.JFrame {
 
         tblUnicoEstado.setRowHeight(40);
 
+        escalarLargoTablas(columnas.length, tblUnicoEstado);
+
+    }
+
+    public void escalarLargoTablas(int tamanoColumnas, JTable tabla) {
+        for (int i = 0; i < tamanoColumnas; i++) {
+            tabla.getColumnModel().getColumn(i).setPreferredWidth(200);
+
+        }
     }
 
     /**
@@ -124,6 +134,7 @@ public class GestionarEstado extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        tblUnicoEstado.setAutoResizeMode(0);
         jScrollPane1.setViewportView(tblUnicoEstado);
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 220, 1090, 80));
@@ -201,6 +212,7 @@ public class GestionarEstado extends javax.swing.JFrame {
         Object[] ob = {ID, LIstaEstadosFinancieros.getEstadosFinancieros().get(ID).getMes(), LIstaEstadosFinancieros.getEstadosFinancieros().get(ID).getActivos(), LIstaEstadosFinancieros.getEstadosFinancieros().get(ID).getPasivos(), LIstaEstadosFinancieros.getEstadosFinancieros().get(ID).getPatrimonioNeto(), LIstaEstadosFinancieros.getEstadosFinancieros().get(ID).getFlujoEfectivoEntrante(), LIstaEstadosFinancieros.getEstadosFinancieros().get(ID).getFlujoEfectivoSaliente(), LIstaEstadosFinancieros.getEstadosFinancieros().get(ID).getGananciasRetenidas(), LIstaEstadosFinancieros.getEstadosFinancieros().get(ID).getCapitalContanteActual()};
 
         modelo.addRow(ob);
+        escalarLargoTablas(columnas.length, tblUnicoEstado);
 
         // TODO add your handling code here:
     }//GEN-LAST:event_btnBuscarEstadoIDActionPerformed

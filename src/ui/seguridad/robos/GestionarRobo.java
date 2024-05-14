@@ -4,6 +4,7 @@
  */
 package ui.seguridad.robos;
 
+import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import logica.seguridad.robos.ListaRobos;
 import ui.utilidades.EliminadoExitosamente;
@@ -27,6 +28,15 @@ public class GestionarRobo extends javax.swing.JFrame {
         tblUnicoRobo.setModel(modelo);
         tblUnicoRobo.setRowHeight(45);
 
+        escalarLargoTablas(columnas.length, tblUnicoRobo);
+
+    }
+
+    public void escalarLargoTablas(int tamanoColumnas, JTable tabla) {
+        for (int i = 0; i < tamanoColumnas; i++) {
+            tabla.getColumnModel().getColumn(i).setPreferredWidth(200);
+
+        }
     }
 
     /**
@@ -109,6 +119,7 @@ public class GestionarRobo extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        tblUnicoRobo.setAutoResizeMode(0);
         jScrollPane1.setViewportView(tblUnicoRobo);
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 220, 1090, 80));
@@ -167,6 +178,7 @@ public class GestionarRobo extends javax.swing.JFrame {
         lbValorRobo.setText(ListaRobos.getRobosCentroComercial().get(ID).getValorEstimadoRobo());
 
         modelo.addRow(ob);
+        escalarLargoTablas(columnas.length, tblUnicoRobo);
 
         // TODO add your handling code here:
     }//GEN-LAST:event_btnBuscarRoboIDActionPerformed

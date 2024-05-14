@@ -13,4 +13,14 @@ import java.util.HashMap;
  */
 public class ListaEmpleados {
     private static HashMap<Integer, Empleado> empleadosCentroComercial = new HashMap<>();
+
+    public static HashMap<Integer, Empleado> getEmpleadosCentroComercial() {
+        return empleadosCentroComercial;
+    }
+
+    public static void setEmpleadosCentroComercial(HashMap<Integer, Empleado> empleadosCentroComercial) {
+        ListaEmpleados.empleadosCentroComercial = empleadosCentroComercial;
+    }
+    
+    
 }
