@@ -6,6 +6,7 @@ package ui.administrativos.empleados;
 
 import logica.empleados.Empleado;
 import logica.empleados.ListaEmpleados;
+import logica.utilidades.Utilities;
 import ui.utilidades.AgregadoExitosamente;
 import ui.utilidades.ErrorAlAgregar;
 
@@ -20,6 +21,7 @@ public class AgregarEmpleado extends javax.swing.JFrame {
      */
     public AgregarEmpleado() {
         initComponents();
+
     }
 
     /**
@@ -77,7 +79,6 @@ public class AgregarEmpleado extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(990, 880));
         setMinimumSize(new java.awt.Dimension(990, 880));
-        setPreferredSize(new java.awt.Dimension(990, 880));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
@@ -122,6 +123,11 @@ public class AgregarEmpleado extends javax.swing.JFrame {
         txtfDireccionViviendaEmpleado.setForeground(new java.awt.Color(0, 0, 0));
         txtfDireccionViviendaEmpleado.setText("Pendiente");
         txtfDireccionViviendaEmpleado.setBorder(null);
+        txtfDireccionViviendaEmpleado.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txtfDireccionViviendaEmpleadoMouseClicked(evt);
+            }
+        });
         jPanel1.add(txtfDireccionViviendaEmpleado, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 610, 270, 45));
 
         jLabel2.setFont(new java.awt.Font("Microsoft JhengHei", 1, 18)); // NOI18N
@@ -149,6 +155,11 @@ public class AgregarEmpleado extends javax.swing.JFrame {
         txtfCedulaEmpleado.setForeground(new java.awt.Color(0, 0, 0));
         txtfCedulaEmpleado.setText("0");
         txtfCedulaEmpleado.setBorder(null);
+        txtfCedulaEmpleado.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txtfCedulaEmpleadoMouseClicked(evt);
+            }
+        });
         jPanel1.add(txtfCedulaEmpleado, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 170, 270, 45));
 
         txtfNombreEMpleado.setBackground(new java.awt.Color(153, 195, 84));
@@ -156,6 +167,11 @@ public class AgregarEmpleado extends javax.swing.JFrame {
         txtfNombreEMpleado.setForeground(new java.awt.Color(0, 0, 0));
         txtfNombreEMpleado.setText("Pendiente");
         txtfNombreEMpleado.setBorder(null);
+        txtfNombreEMpleado.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txtfNombreEMpleadoMouseClicked(evt);
+            }
+        });
         jPanel1.add(txtfNombreEMpleado, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 280, 270, 45));
 
         txtfGeneroEmpleado.setBackground(new java.awt.Color(153, 195, 84));
@@ -163,6 +179,11 @@ public class AgregarEmpleado extends javax.swing.JFrame {
         txtfGeneroEmpleado.setForeground(new java.awt.Color(0, 0, 0));
         txtfGeneroEmpleado.setText("Pendiente");
         txtfGeneroEmpleado.setBorder(null);
+        txtfGeneroEmpleado.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txtfGeneroEmpleadoMouseClicked(evt);
+            }
+        });
         jPanel1.add(txtfGeneroEmpleado, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 390, 270, 45));
 
         txtfEstadoCivilEmpleado.setBackground(new java.awt.Color(153, 195, 84));
@@ -170,6 +191,11 @@ public class AgregarEmpleado extends javax.swing.JFrame {
         txtfEstadoCivilEmpleado.setForeground(new java.awt.Color(0, 0, 0));
         txtfEstadoCivilEmpleado.setText("Pendiente");
         txtfEstadoCivilEmpleado.setBorder(null);
+        txtfEstadoCivilEmpleado.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txtfEstadoCivilEmpleadoMouseClicked(evt);
+            }
+        });
         jPanel1.add(txtfEstadoCivilEmpleado, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 720, 270, 45));
 
         jLabel5.setFont(new java.awt.Font("Microsoft JhengHei", 1, 18)); // NOI18N
@@ -182,6 +208,11 @@ public class AgregarEmpleado extends javax.swing.JFrame {
         txtfNumeroTelefonoEmpleado.setForeground(new java.awt.Color(0, 0, 0));
         txtfNumeroTelefonoEmpleado.setText("Pendiente");
         txtfNumeroTelefonoEmpleado.setBorder(null);
+        txtfNumeroTelefonoEmpleado.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txtfNumeroTelefonoEmpleadoMouseClicked(evt);
+            }
+        });
         jPanel1.add(txtfNumeroTelefonoEmpleado, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 720, 270, 45));
 
         jLabel8.setFont(new java.awt.Font("Microsoft JhengHei", 1, 18)); // NOI18N
@@ -194,6 +225,11 @@ public class AgregarEmpleado extends javax.swing.JFrame {
         txtfCorreoEmpleado.setForeground(new java.awt.Color(0, 0, 0));
         txtfCorreoEmpleado.setText("Pendiente");
         txtfCorreoEmpleado.setBorder(null);
+        txtfCorreoEmpleado.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txtfCorreoEmpleadoMouseClicked(evt);
+            }
+        });
         jPanel1.add(txtfCorreoEmpleado, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 170, 270, 45));
 
         jLabel9.setFont(new java.awt.Font("Microsoft JhengHei", 1, 18)); // NOI18N
@@ -206,6 +242,11 @@ public class AgregarEmpleado extends javax.swing.JFrame {
         txtfNacionalidadEmpleado.setForeground(new java.awt.Color(0, 0, 0));
         txtfNacionalidadEmpleado.setText("Pendiente");
         txtfNacionalidadEmpleado.setBorder(null);
+        txtfNacionalidadEmpleado.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txtfNacionalidadEmpleadoMouseClicked(evt);
+            }
+        });
         jPanel1.add(txtfNacionalidadEmpleado, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 280, 270, 45));
 
         jLabel10.setFont(new java.awt.Font("Microsoft JhengHei", 1, 18)); // NOI18N
@@ -217,6 +258,11 @@ public class AgregarEmpleado extends javax.swing.JFrame {
         txtfSueldoEmpleado.setForeground(new java.awt.Color(0, 0, 0));
         txtfSueldoEmpleado.setText("0");
         txtfSueldoEmpleado.setBorder(null);
+        txtfSueldoEmpleado.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txtfSueldoEmpleadoMouseClicked(evt);
+            }
+        });
         jPanel1.add(txtfSueldoEmpleado, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 170, 270, 45));
 
         jLabel11.setFont(new java.awt.Font("Microsoft JhengHei", 1, 18)); // NOI18N
@@ -229,6 +275,11 @@ public class AgregarEmpleado extends javax.swing.JFrame {
         txtfContactoNombreEmpleado.setForeground(new java.awt.Color(0, 0, 0));
         txtfContactoNombreEmpleado.setText("Pendiente");
         txtfContactoNombreEmpleado.setBorder(null);
+        txtfContactoNombreEmpleado.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txtfContactoNombreEmpleadoMouseClicked(evt);
+            }
+        });
         jPanel1.add(txtfContactoNombreEmpleado, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 390, 270, 45));
 
         jLabel12.setFont(new java.awt.Font("Microsoft JhengHei", 1, 18)); // NOI18N
@@ -241,6 +292,11 @@ public class AgregarEmpleado extends javax.swing.JFrame {
         txtfRelacionConEmpleado.setForeground(new java.awt.Color(0, 0, 0));
         txtfRelacionConEmpleado.setText("Pendiente");
         txtfRelacionConEmpleado.setBorder(null);
+        txtfRelacionConEmpleado.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txtfRelacionConEmpleadoMouseClicked(evt);
+            }
+        });
         jPanel1.add(txtfRelacionConEmpleado, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 500, 270, 45));
 
         jLabel13.setFont(new java.awt.Font("Microsoft JhengHei", 1, 18)); // NOI18N
@@ -253,6 +309,11 @@ public class AgregarEmpleado extends javax.swing.JFrame {
         txtfPuestoEmpleado.setForeground(new java.awt.Color(0, 0, 0));
         txtfPuestoEmpleado.setText("Pendiente");
         txtfPuestoEmpleado.setBorder(null);
+        txtfPuestoEmpleado.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txtfPuestoEmpleadoMouseClicked(evt);
+            }
+        });
         jPanel1.add(txtfPuestoEmpleado, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 390, 270, 45));
 
         txtfIncentivosEmpleado.setBackground(new java.awt.Color(153, 195, 84));
@@ -260,6 +321,11 @@ public class AgregarEmpleado extends javax.swing.JFrame {
         txtfIncentivosEmpleado.setForeground(new java.awt.Color(0, 0, 0));
         txtfIncentivosEmpleado.setText("Pendiente");
         txtfIncentivosEmpleado.setBorder(null);
+        txtfIncentivosEmpleado.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txtfIncentivosEmpleadoMouseClicked(evt);
+            }
+        });
         jPanel1.add(txtfIncentivosEmpleado, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 500, 270, 45));
 
         jLabel14.setFont(new java.awt.Font("Microsoft JhengHei", 1, 18)); // NOI18N
@@ -272,6 +338,11 @@ public class AgregarEmpleado extends javax.swing.JFrame {
         txtfUsuarioEmpleado.setForeground(new java.awt.Color(0, 0, 0));
         txtfUsuarioEmpleado.setText("Pendiente");
         txtfUsuarioEmpleado.setBorder(null);
+        txtfUsuarioEmpleado.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txtfUsuarioEmpleadoMouseClicked(evt);
+            }
+        });
         jPanel1.add(txtfUsuarioEmpleado, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 610, 270, 45));
 
         jLabel15.setFont(new java.awt.Font("Microsoft JhengHei", 1, 18)); // NOI18N
@@ -289,6 +360,11 @@ public class AgregarEmpleado extends javax.swing.JFrame {
         txtfClaveEmpleado.setForeground(new java.awt.Color(0, 0, 0));
         txtfClaveEmpleado.setText("Pendiente");
         txtfClaveEmpleado.setBorder(null);
+        txtfClaveEmpleado.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txtfClaveEmpleadoMouseClicked(evt);
+            }
+        });
         jPanel1.add(txtfClaveEmpleado, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 720, 270, 45));
 
         jLabel17.setFont(new java.awt.Font("Microsoft JhengHei", 1, 18)); // NOI18N
@@ -301,6 +377,11 @@ public class AgregarEmpleado extends javax.swing.JFrame {
         txtfContactoEmergenciaEmpleado.setForeground(new java.awt.Color(0, 0, 0));
         txtfContactoEmergenciaEmpleado.setText("Pendiente");
         txtfContactoEmergenciaEmpleado.setBorder(null);
+        txtfContactoEmergenciaEmpleado.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txtfContactoEmergenciaEmpleadoMouseClicked(evt);
+            }
+        });
         jPanel1.add(txtfContactoEmergenciaEmpleado, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 610, 270, 45));
 
         jLabel18.setFont(new java.awt.Font("Microsoft JhengHei", 1, 18)); // NOI18N
@@ -330,6 +411,11 @@ public class AgregarEmpleado extends javax.swing.JFrame {
         txtfAreaEmpleado.setForeground(new java.awt.Color(0, 0, 0));
         txtfAreaEmpleado.setText("Pendiente");
         txtfAreaEmpleado.setBorder(null);
+        txtfAreaEmpleado.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txtfAreaEmpleadoMouseClicked(evt);
+            }
+        });
         jPanel1.add(txtfAreaEmpleado, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 280, 270, 45));
 
         jLabel21.setFont(new java.awt.Font("Microsoft JhengHei", 1, 18)); // NOI18N
@@ -342,6 +428,11 @@ public class AgregarEmpleado extends javax.swing.JFrame {
         txtfFechaNacimiento.setForeground(new java.awt.Color(0, 0, 0));
         txtfFechaNacimiento.setText("Pendiente");
         txtfFechaNacimiento.setBorder(null);
+        txtfFechaNacimiento.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txtfFechaNacimientoMouseClicked(evt);
+            }
+        });
         jPanel1.add(txtfFechaNacimiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 500, 270, 45));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 990, 880));
@@ -369,7 +460,7 @@ public class AgregarEmpleado extends javax.swing.JFrame {
             String generoEm = txtfGeneroEmpleado.getText();
             String estCivi = txtfEstadoCivilEmpleado.getText();
             String vivienda = txtfDireccionViviendaEmpleado.getText();
-            String numeroTele = txtfNumeroTelefonoEmpleado.getText();
+            String numeroTele = txtfNumeroTelefonoEmpleado.getText();// otro
             String correo = txtfCorreoEmpleado.getText();
             String nacionalidad = txtfNacionalidadEmpleado.getText();
             String nombreContactoE = txtfContactoNombreEmpleado.getText();
@@ -381,14 +472,21 @@ public class AgregarEmpleado extends javax.swing.JFrame {
             String claveU = txtfClaveEmpleado.getText();
             int sueldo = Integer.parseInt(txtfSueldoEmpleado.getText());
             String area = txtfAreaEmpleado.getText();
+//
+            if (Utilities.comprobarNumeros(nombreEm) || Utilities.comprobarNumeros(generoEm) || Utilities.comprobarNumeros(estCivi) || Utilities.comprobarNumeros(nacionalidad) || Utilities.comprobarNumeros(nombreContactoE) || Utilities.comprobarNumeros(relacionEmp) || Utilities.comprobarNumeros(tituloPuesto) || Utilities.comprobarNumeros(area)) {
+                error.setLocationRelativeTo(null);
+                error.setResizable(false);
+                error.setVisible(true);
+            } else {
 
-            ListaEmpleados.getEmpleadosCentroComercial().put(cedulaEmpleado, new Empleado(nombreEm, fechaNa, generoEm, estCivi, vivienda, numeroTele, correo, nacionalidad, nombreContactoE, relacionEmp, numTelContEm, tituloPuesto, incentivosE, nombreU, claveU, sueldo, area));
+                ListaEmpleados.getEmpleadosCentroComercial().put(cedulaEmpleado, new Empleado(nombreEm, fechaNa, generoEm, estCivi, vivienda, numeroTele, correo, nacionalidad, nombreContactoE, relacionEmp, numTelContEm, tituloPuesto, incentivosE, nombreU, claveU, sueldo, area));
+                bien.setLocationRelativeTo(null);
+                bien.setResizable(false);
+                bien.setVisible(true);
 
-            bien.setLocationRelativeTo(null);
-            bien.setResizable(false);
-            bien.setVisible(true);
+                this.dispose();
 
-            this.dispose();
+            }
 
         } catch (Exception e) {
 
@@ -398,8 +496,80 @@ public class AgregarEmpleado extends javax.swing.JFrame {
 
         }
 
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_btnAgregarEmpleadoActionPerformed
+
+    private void txtfCedulaEmpleadoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtfCedulaEmpleadoMouseClicked
+        Utilities.setearVacio(txtfCedulaEmpleado);
+    }//GEN-LAST:event_txtfCedulaEmpleadoMouseClicked
+
+    private void txtfNombreEMpleadoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtfNombreEMpleadoMouseClicked
+        Utilities.setearVacio(txtfNombreEMpleado);// TODO add your handling code here:
+    }//GEN-LAST:event_txtfNombreEMpleadoMouseClicked
+
+    private void txtfGeneroEmpleadoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtfGeneroEmpleadoMouseClicked
+        Utilities.setearVacio(txtfGeneroEmpleado);        // TODO add your handling code here:
+    }//GEN-LAST:event_txtfGeneroEmpleadoMouseClicked
+
+    private void txtfFechaNacimientoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtfFechaNacimientoMouseClicked
+        Utilities.setearVacio(txtfFechaNacimiento);        // TODO add your handling code here:
+    }//GEN-LAST:event_txtfFechaNacimientoMouseClicked
+
+    private void txtfDireccionViviendaEmpleadoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtfDireccionViviendaEmpleadoMouseClicked
+        Utilities.setearVacio(txtfDireccionViviendaEmpleado);        // TODO add your handling code here:
+    }//GEN-LAST:event_txtfDireccionViviendaEmpleadoMouseClicked
+
+    private void txtfNumeroTelefonoEmpleadoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtfNumeroTelefonoEmpleadoMouseClicked
+        Utilities.setearVacio(txtfNumeroTelefonoEmpleado);        // TODO add your handling code here:
+    }//GEN-LAST:event_txtfNumeroTelefonoEmpleadoMouseClicked
+
+    private void txtfCorreoEmpleadoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtfCorreoEmpleadoMouseClicked
+        Utilities.setearVacio(txtfCorreoEmpleado);        // TODO add your handling code here:
+    }//GEN-LAST:event_txtfCorreoEmpleadoMouseClicked
+
+    private void txtfNacionalidadEmpleadoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtfNacionalidadEmpleadoMouseClicked
+        Utilities.setearVacio(txtfNacionalidadEmpleado);        // TODO add your handling code here:
+    }//GEN-LAST:event_txtfNacionalidadEmpleadoMouseClicked
+
+    private void txtfPuestoEmpleadoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtfPuestoEmpleadoMouseClicked
+        Utilities.setearVacio(txtfPuestoEmpleado);        // TODO add your handling code here:
+    }//GEN-LAST:event_txtfPuestoEmpleadoMouseClicked
+
+    private void txtfIncentivosEmpleadoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtfIncentivosEmpleadoMouseClicked
+        Utilities.setearVacio(txtfIncentivosEmpleado);        // TODO add your handling code here:
+    }//GEN-LAST:event_txtfIncentivosEmpleadoMouseClicked
+
+    private void txtfUsuarioEmpleadoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtfUsuarioEmpleadoMouseClicked
+        Utilities.setearVacio(txtfUsuarioEmpleado);        // TODO add your handling code here:
+    }//GEN-LAST:event_txtfUsuarioEmpleadoMouseClicked
+
+    private void txtfClaveEmpleadoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtfClaveEmpleadoMouseClicked
+        Utilities.setearVacio(txtfClaveEmpleado);        // TODO add your handling code here:
+    }//GEN-LAST:event_txtfClaveEmpleadoMouseClicked
+
+    private void txtfSueldoEmpleadoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtfSueldoEmpleadoMouseClicked
+        Utilities.setearVacio(txtfSueldoEmpleado);        // TODO add your handling code here:
+    }//GEN-LAST:event_txtfSueldoEmpleadoMouseClicked
+
+    private void txtfAreaEmpleadoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtfAreaEmpleadoMouseClicked
+        Utilities.setearVacio(txtfAreaEmpleado);        // TODO add your handling code here:
+    }//GEN-LAST:event_txtfAreaEmpleadoMouseClicked
+
+    private void txtfContactoNombreEmpleadoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtfContactoNombreEmpleadoMouseClicked
+        Utilities.setearVacio(txtfContactoNombreEmpleado);        // TODO add your handling code here:
+    }//GEN-LAST:event_txtfContactoNombreEmpleadoMouseClicked
+
+    private void txtfRelacionConEmpleadoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtfRelacionConEmpleadoMouseClicked
+        Utilities.setearVacio(txtfRelacionConEmpleado);        // TODO add your handling code here:
+    }//GEN-LAST:event_txtfRelacionConEmpleadoMouseClicked
+
+    private void txtfContactoEmergenciaEmpleadoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtfContactoEmergenciaEmpleadoMouseClicked
+        Utilities.setearVacio(txtfContactoEmergenciaEmpleado);        // TODO add your handling code here:
+    }//GEN-LAST:event_txtfContactoEmergenciaEmpleadoMouseClicked
+
+    private void txtfEstadoCivilEmpleadoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtfEstadoCivilEmpleadoMouseClicked
+        Utilities.setearVacio(txtfEstadoCivilEmpleado);        // TODO add your handling code here:
+    }//GEN-LAST:event_txtfEstadoCivilEmpleadoMouseClicked
 
     /**
      * @param args the command line arguments

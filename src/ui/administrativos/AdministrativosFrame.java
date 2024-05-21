@@ -7,6 +7,7 @@ package ui.administrativos;
 import java.awt.Color;
 import java.util.Map;
 import javax.swing.JButton;
+import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import logica.administrativos.capacitaciones.Capacitacion;
 import logica.administrativos.capacitaciones.ListaCapacitaciones;
@@ -69,9 +70,17 @@ public class AdministrativosFrame extends javax.swing.JFrame {
 
     String[] columnasTablaConvenios = {"Identificación", "Nombre convenio", "Nombre firmante", "Cedula firmante", "Fecha firmante", "Partes involucradas", "Duración", "Objetivo", "Clausulas", "Beneficios", "Compensación", "Confidencialidad", "Leyes aplicables"};
 
-    String[] columnasTablaEmpleados = {"Cédula", "Nombre", "Fecha nacimiento", "Genero", "Estado civil", "Direccion vivienda", "Teléfono", "Correo", "Nacionalidad", "Contacto emergencia", "Relación", "Contacto", "Puesto empleado", "Incentivos", "Usuario", "Clave", "Sueldo", "Área"};
+    private String[] columnasTablaEmpleados = {"Cédula", "Nombre", "Fecha nacimiento", "Genero", "Estado civil", "Direccion vivienda", "Teléfono", "Correo", "Nacionalidad", "Contacto emergencia", "Relación", "Contacto", "Puesto empleado", "Incentivos", "Usuario", "Clave", "Sueldo", "Área"};
 
     String[] columnasTablaEmpleadosHorario = {"Cédula", "Fecha", "Nombre empleado", "Área", "Hora entrada", "Hora salida", "Horas extra"};
+
+    public String[] getColumnasTablaEmpleados() {
+        return columnasTablaEmpleados;
+    }
+
+    public void setColumnasTablaEmpleados(String[] columnasTablaEmpleados) {
+        this.columnasTablaEmpleados = columnasTablaEmpleados;
+    }
 
     /**
      * Creates new form AdministrativosFrame
@@ -116,7 +125,6 @@ public class AdministrativosFrame extends javax.swing.JFrame {
         Utilidades.escalarLargoTablas(columnasTablaEmpleadosHorario.length, tblHorariosPersonal);
 
     }
-
 
     public void botonPresionado(JButton boton) {
 
@@ -1660,7 +1668,17 @@ public class AdministrativosFrame extends javax.swing.JFrame {
 
             ContratoLocal valor = codigo.getValue();
 
-            Object[] fila = {clave, valor.getNombreArrendatarioContrato(), valor.getCedulaArrendatario(), valor.getDescripcionContrato(), valor.getDuracionContrato(), valor.getCondicionesDeRenovacionContrato(), valor.getMontoMensualContrato(), valor.getPlazosDePagoContrato(), valor.getUsoDelLocalContrato(), valor.getNombreLocalContrato(), valor.getSeguros()};
+            Object[] fila = {clave, valor.getNombreArrendatarioContrato(),
+                valor.getCedulaArrendatario(),
+                valor.getDescripcionContrato(),
+                valor.getDuracionContrato(),
+                valor.getCondicionesDeRenovacionContrato(),
+                valor.getMontoMensualContrato(),
+                valor.getPlazosDePagoContrato(),
+                valor.getUsoDelLocalContrato(),
+                valor.getNombreLocalContrato(),
+                valor.getSeguros()
+            };
             modelo.addRow(fila);
 
         }
@@ -1876,6 +1894,15 @@ public class AdministrativosFrame extends javax.swing.JFrame {
         Utilidades.escalarLargoTablas(columnasTablaEmpleados.length, tblPersonal);
 
     }
+
+    public JTable getTblPersonal() {
+        return tblPersonal;
+    }
+
+    public void setTblPersonal(JTable tblPersonal) {
+        this.tblPersonal = tblPersonal;
+    }
+
 
     private void btnRegistrarPersonalMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRegistrarPersonalMouseEntered
         botonPresionado(btnRegistrarPersonal);// TODO add your handling code here:
